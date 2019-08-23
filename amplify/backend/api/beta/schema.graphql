@@ -1,0 +1,65 @@
+type User @model(
+    queries: { get: "getUser" },
+    mutations: { create: "registerUser", update: "updateUser" },
+    subscriptions: null
+){
+    id: ID!
+    name: String!
+    gender: String!
+    email: String!
+    phone: String!
+    password: String!
+    tournaments: [Tournament] @connection(name: "UserTournaments")
+    announcements: [Announcement] @connection(name: "UserAnnouncements")
+}
+
+type Tournament @model {
+    id: ID!
+    title: String!
+    startDate: String!
+    endDate: String
+    startTime: String!
+    endTime: String
+    deadline: String
+    venue: String!
+    description: String
+    url: String
+    createdAt: String
+    user: User @connection(name: "UserTournaments")
+    schedule: Schedule @connection(name: "TournamentSchedule")
+    updates: [Update] @connection(name: "TournamentUpdates")
+    results: [Result] @connection(name: "TournamentResults")
+}
+
+type Schedule @model {
+    id: ID!
+    description: String!
+    tournament: Tournament @connection(name: "TournamentSchedule")
+}
+
+type Update @model {
+    id: ID!
+    description: String!
+    createdAt: String
+    user: User @connection
+    tournament: Tournament @connection(name: "TournamentUpdates")
+}
+
+type Result @model {
+    id: ID!
+    date: String!
+    matchNo: String!
+    winner: String!
+    score: String!
+    createdAt: String
+    user: User @connection
+    tournament: Tournament @connection(name: "TournamentResults")
+}
+
+type Announcement @model {
+    id: ID!
+    title: String!
+    description: String!
+    createdAt: String
+    user: User @connection(name: "UserAnnouncements")
+}
