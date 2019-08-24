@@ -1,0 +1,20 @@
+export const LANDING = '/';
+export const REGISTER = '/register';
+export const HOME = '/home';
+export const PROFILE = '/profile';
+export const ANNOUNCEMENTS = '/announcements';
+export const LUCKY_DRAW = '/luckydraw';
+export const TOURNAMENT_DETAILS = '/tournament/:id';
+export const TOURNAMENT_UPDATES_ADD = '/tournament/:id/updates/add';
+export const TOURNAMENT_RESULTS_ADD = '/tournament/:id/results/add';
+
+export const ORGANISERS = '/organisers';
+export const ORGANISERS_PROFILE = '/organisers/profile';
+export const ORGANISERS_TOURNAMENT_ADD = '/organisers/tournament/add';
+export const ORGANISERS_TOURNAMENT_DETAILS = '/organisers/tournament/:id';
+export const ORGANISERS_TOURNAMENT_EDIT = '/organisers/tournament/edit/:id';
+export const ORGANISERS_UPDATES_EDIT = '/organisers/updates/edit/:id';
+export const ORGANISERS_RESULTS_EDIT = '/organisers/results/edit/:id';
+export const ORGANISERS_SCHEDULE_EDIT = '/organisers/schedule/edit/:id';
+export const ORGANISERS_ANNOUNCEMENT_ADD = '/organisers/announcements/add';
+export const ORGANISERS_ANNOUNCEMENT_EDIT = '/organisers/announcements/edit/:id';
