@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import * as ROUTES from './constants/routes';
 import Landing from './components/Landing';
+import Home from './components/Home';
 import Register from './components/Register';
+import TournamentDetails from './components/tournaments/TournamentDetails';
+import TournamentUpdatesAdd from './components/tournaments/updates/TournamentUpdatesAdd';
+import TournamentResultsAdd from './components/tournaments/results/TournamentResultsAdd';
+import Announcements from './components/Announcements';
+import Profile from './components/Profile';
+import LuckyDraw from './components/LuckyDraw';
 import OrgHome from './components/organisers/OrgHome';
 import OrgProfile from './components/organisers/OrgProfile';
 import OrgTournamentAdd from './components/organisers/tournaments/OrgTournamentAdd';
@@ -20,7 +27,14 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path={ROUTES.LANDING} component={Landing} />
+          <Route exact path={ROUTES.HOME} component={Home}/>
           <Route exact path={ROUTES.REGISTER} component={Register}/>
+          <Route path={ROUTES.TOURNAMENT_UPDATES_ADD} component={TournamentUpdatesAdd}/>
+          <Route path={ROUTES.TOURNAMENT_RESULTS_ADD} component={TournamentResultsAdd}/>
+          <Route path={ROUTES.TOURNAMENT_DETAILS} component={TournamentDetails}/>
+          <Route path={ROUTES.ANNOUNCEMENTS} component={Announcements}/>
+          <Route exact path={ROUTES.PROFILE} component={Profile}/>
+          <Route exact path={ROUTES.LUCKY_DRAW} component={LuckyDraw}/>
           <Route exact path={ROUTES.ORGANISERS} component={OrgHome}/>
           <Route exact path={ROUTES.ORGANISERS_PROFILE} component={OrgProfile}/>
           <Route exact path={ROUTES.ORGANISERS_TOURNAMENT_ADD} component={OrgTournamentAdd}/>
