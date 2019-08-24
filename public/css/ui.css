@@ -1,0 +1,22 @@
+.envelope {
+  width: 0px;
+  height: 0px;
+  border-top: 50px solid #b71c1c;
+  border-left: 70px solid transparent;
+  border-bottom: 35px solid transparent;
+  border-right: 70px solid transparent;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.envelope:after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 80px;
+  background: radial-gradient(#f44336, #b71c1c);
+  left: -70px;
+  top: -50px;
+  z-index: -1;
+}
