@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import LoaderComponent from '../LoaderComponent';
 
 class TournamentAbout extends Component {
@@ -13,8 +13,7 @@ class TournamentAbout extends Component {
 
     return(
       <Container style={{ marginTop: 40 }}>
-        <p className="center-align" style={{ fontWeight: 'bold' }}>About</p>
-        <Header as='h3' style={{ color: '#bdbdbd' }}>DESCRIPTION</Header>
+        <p className="grey-text" style={{ fontWeight: 'bold' }}>DESCRIPTION</p>
         <div
           style={{ marginTop: 20, marginBottom: 50 }}
           dangerouslySetInnerHTML={{ __html: tournament.description }}

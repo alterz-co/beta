@@ -11,15 +11,15 @@ class LuckyDraw extends Component {
         <div className="container">
           <div className="row" style={{ marginTop: 20 }}>
             <div className="col s12 l12">
-              <h2>
-                <span role="img" aria-label="present" style={{ paddingLeft: 10, paddingRight: 10 }}>🎁</span>
-                <span style={{ paddingLeft: 10 }}>Lucky Draw</span>
-              </h2>
+              <p style={{ fontSize: 20, fontWeight: 'bold' }}>
+                <span role="img" aria-label="present" style={{ paddingRight: 20 }}>🎁</span>
+                Lucky Draw
+              </p>
             </div>
           </div>
           <div className="row" style={{ marginTop: 40 }}>
             <div className="col s12 l12">
-              <h3 className="center-align">Wilson Lucky Draw Contest</h3>
+              <p className="center-align"  style={{ fontSize: 20, fontWeight: 'bold' }}>Wilson Lucky Draw Contest</p>
               <div className="envelope"></div>
               <p className="center-align">Tap to open</p>
             </div>
@@ -27,7 +27,9 @@ class LuckyDraw extends Component {
           <hr/>
           <div className="row" style={{ marginTop: 20 }}>
             <div className="col s12 l12">
-              <h3 style={{ marginBottom: 40 }} >Sponsor</h3>
+              <p style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 40 }}>
+                Sponsor
+              </p>
               <img alt="logo" className="col s12 m12 l12" src={logo} style={{ height: 80, width: 200 }}/>
               <p>
                 【TELOON TENNIS SINGAPORE】managed by Rezylana LLP, is the only authorized agent and distributor

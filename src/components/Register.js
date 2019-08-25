@@ -126,7 +126,7 @@ class Register extends Component {
               />
               <p className="center-align">
                 Have an account?{' '}
-                <a href={ROUTES.REGISTER} className="grey-text">Sign In</a>
+                <a href={ROUTES.LANDING} className="grey-text">Sign In</a>
               </p>
             </form>
           </div>
