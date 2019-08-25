@@ -30,9 +30,12 @@ class Landing extends Component {
                 Forget password?{' '}
                 <a href="" className="grey-text">Reset Password</a>
               </p>
-              <a class="btn-large col s12 m12 l12 black white-text" style={{ marginTop: 20, marginBottom: 20 }}>
-                Sign In
-              </a>
+              <input
+                type="submit"
+                value="Sign In"
+                className="btn-large col s12 m12 l12 black white-text"
+                style={{ marginTop: 20, marginBottom: 20 }}
+              />
               <p className="center-align">
                 No account?{' '}
                 <a href={ROUTES.REGISTER} className="grey-text">Create account</a>

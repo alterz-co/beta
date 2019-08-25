@@ -7,7 +7,9 @@ class Terms extends Component {
       <div className="container" style={{ marginTop: 40 }}>
         <div className="row">
           <div className="col s12 l12">
-            <h3 className="center-align">Terms & Privacy Policy</h3>
+            <p className="center-align" style={{ fontSize: 20, fontWeight: 'bold' }}>
+              Terms & Privacy Policy
+            </p>
             <p className="center-align">Last updated: 25 Aug 2019</p>
           </div>
           <div className="col s12 l12" style={{ marginTop: 20 }}>
@@ -15,14 +17,18 @@ class Terms extends Component {
             our products and services or any reliance upon the information contained in any of its sites and
             properties.</p>
             <p>
-              <h4>What we collect:</h4>
+              <p style={{ fontSize: 18, fontWeight: 'bold' }}>
+                What we collect:
+              </p>
               <ul>
                 <li>Information you give us</li>
                 <li>Information we get from your use of our products</li>
               </ul>
             </p>
             <p>
-              <h4>What will we do with the data we collect:</h4>
+              <p style={{ fontSize: 18, fontWeight: 'bold' }}>
+                What will we do with the data we collect:
+              </p>
               <ul>
                 <li>
                 We use the information that we collect to provide better understand your needs and provide you with a better
@@ -32,7 +38,9 @@ class Terms extends Component {
               </ul>
             </p>
             <p>
-              <h4>Beta Products</h4>
+              <p style={{ fontSize: 18, fontWeight: 'bold' }}>
+                Beta Products
+              </p>
               <ul>
                 <li>Occasionally, we may release Product(s) and features on a alpha, beta, seed, and other pre-release basis,
                   and related documentation, materials, and information (collectively, the "Beta Products”.</li>
@@ -46,7 +54,9 @@ class Terms extends Component {
               </ul>
             </p>
             <p>
-              <h4>More terms</h4>
+              <p style={{ fontSize: 18, fontWeight: 'bold' }}>
+                More terms
+              </p>
               <p>You agree to observe and maintain the confidentiality of all security features relating to use of the Website
               (including passwords, access arrangements etc) as notified. Alterz will not be liable for any unauthorised breach
               or disclosure of the security features.</p>
@@ -69,8 +79,12 @@ class Terms extends Component {
             </p>
           </div>
           <div className="col s12 l12" style={{ marginTop: 20 }}>
-            <h3>That's it <span role="img" aria-label="bye">👋</span></h3>
-            <h3>Yours, Alterz</h3>
+            <p style={{ fontSize: 20, fontWeight: 'bold' }}>
+              That's it! <span role="img" aria-label="bye">👋</span>
+            </p>
+            <p style={{ fontSize: 20, fontWeight: 'bold' }}>
+              Yours, Alterz
+            </p>
           </div>
           <HomeNav/>
         </div>

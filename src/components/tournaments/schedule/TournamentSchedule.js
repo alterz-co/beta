@@ -31,7 +31,6 @@ class TournamentSchedule extends Component {
 
         return(
           <div style={{ marginTop: 10 }}>
-            <p className="center-align" style={{ fontWeight: 'bold' }}>Schedule</p>
             <div className="row">
             {data.listSchedules.items.map(schedule => {
               return schedule.tournament.id === tournamentId && (
