@@ -1,4 +1,5 @@
 export const LANDING = '/';
+export const TERMS = '/terms';
 export const REGISTER = '/register';
 export const HOME = '/home';
 export const PROFILE = '/profile';
