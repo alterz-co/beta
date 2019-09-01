@@ -26,7 +26,7 @@ class OrgTournamentUpdatesAdd extends Component {
     const newUpdate = {
       description: this.state.description,
       createdAt,
-      updateUserId: 'e4944fd6-d985-48d3-a6a9-9f9487f164a1',
+      updateUserId: '',
       updateTournamentId: this.props.tournamentId
     }
     const result = await API.graphql(graphqlOperation(createUpdate, { input: newUpdate }))

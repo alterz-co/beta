@@ -89,7 +89,7 @@ class OrgTournamentAdd extends Component {
         description: this.state.description,
         url: this.state.url,
         createdAt,
-        tournamentUserId: 'e4944fd6-d985-48d3-a6a9-9f9487f164a1'
+        tournamentUserId: '08baa991-ee93-4563-9ac1-b6eb657f9527'
       }
       // console.log('new Tournament', newTournament)
       const result = await API.graphql(graphqlOperation(createTournament, { input: newTournament }))

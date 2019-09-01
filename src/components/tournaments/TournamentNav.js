@@ -16,6 +16,9 @@ class TournamentNav extends Component {
           <a href={`/tournament/${tournamentId}/schedule`} className="grey-text" style={{ paddingLeft: 50 }}>
             Schedule
           </a>
+          <a href={`/tournament/${tournamentId}/participants`} className="grey-text" style={{ paddingLeft: 50 }}>
+            Participants
+          </a>
           <a href={`/tournament/${tournamentId}/about`} className="grey-text" style={{ paddingLeft: 50 }}>
             About
           </a>

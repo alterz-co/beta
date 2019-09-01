@@ -73,7 +73,7 @@ class OrgTournamentEditForm extends Component {
       description: this.state.description || tournament.description,
       url: this.state.url || tournament.url,
       createdAt: tournament.createdAt,
-      tournamentUserId: 'e4944fd6-d985-48d3-a6a9-9f9487f164a1'
+      tournamentUserId: ''
     }
     // console.log('Update Tournament', updateTournament)
     const result = await API.graphql(graphqlOperation(updateTournament, { input }))

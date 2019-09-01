@@ -25,7 +25,7 @@ class OrgTournamentUpdatesEditForm extends Component {
       id: updateId,
       description: this.state.description || update.description,
       createdAt: update.createdAt,
-      updateUserId: 'e4944fd6-d985-48d3-a6a9-9f9487f164a1',
+      updateUserId: '',
       updateTournamentId: update.tournament.id
     }
     const result = await API.graphql(graphqlOperation(updateUpdate, { input }))

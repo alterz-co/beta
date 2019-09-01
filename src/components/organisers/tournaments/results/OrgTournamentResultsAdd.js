@@ -27,7 +27,7 @@ class OrgTournamentResultsAdd extends Component {
       matchNo: this.state.matchNo,
       winner: this.state.winner,
       score: this.state.score,
-      resultUserId: 'e4944fd6-d985-48d3-a6a9-9f9487f164a1',
+      resultUserId: '',
       resultTournamentId: this.props.tournamentId
     }
     const result = await API.graphql(graphqlOperation(createResult, { input: newResult }))

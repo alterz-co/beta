@@ -10,6 +10,7 @@ const OrgTournamentNav = ({ tournamentId }) => {
         <Menu.Item as={Link} to={`/organisers/tournament/${tournamentId}/updates`}>Updates</Menu.Item>
         <Menu.Item as={Link} to={`/organisers/tournament/${tournamentId}/results`}>Results</Menu.Item>
         <Menu.Item as={Link} to={`/organisers/tournament/${tournamentId}/schedule`}>Schedule</Menu.Item>
+        <Menu.Item as={Link} to={`/organisers/tournament/${tournamentId}/participants`}>Participants</Menu.Item>
         <Menu.Item as={Link} to={`/organisers/tournament/${tournamentId}/about`}>About</Menu.Item>
       </Menu>
     </Grid.Column>

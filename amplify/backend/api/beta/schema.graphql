@@ -10,7 +10,16 @@ type User @model(
     phone: String!
     password: String!
     tournaments: [Tournament] @connection(name: "UserTournaments")
+    participants: [Participant] @connection(name: "UserParticipants")
     announcements: [Announcement] @connection(name: "UserAnnouncements")
+}
+
+type Participant @model {
+    id: ID!
+    name: String!
+    gender: String!
+    user: User @connection(name: "UserParticipants")
+    tournament: Tournament @connection(name: "TournamentParticipants")
 }
 
 type Tournament @model {
@@ -26,6 +35,7 @@ type Tournament @model {
     url: String
     createdAt: String
     user: User @connection(name: "UserTournaments")
+    participants: [Participant] @connection(name: "TournamentParticipants")
     schedule: Schedule @connection(name: "TournamentSchedule")
     updates: [Update] @connection(name: "TournamentUpdates")
     results: [Result] @connection(name: "TournamentResults")
