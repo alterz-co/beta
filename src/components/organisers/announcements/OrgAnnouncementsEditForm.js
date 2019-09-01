@@ -32,7 +32,7 @@ class OrgAnnouncementsEditForm extends Component {
       id: announcementId,
       title: this.state.title || announcement.title,
       description: this.state.description || announcement.description,
-      announcementUserId: 'e4944fd6-d985-48d3-a6a9-9f9487f164a1'
+      announcementUserId: ''
     }
     const result = await API.graphql(graphqlOperation(updateAnnouncement, { input }))
     console.log('result', result)

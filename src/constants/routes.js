@@ -17,5 +17,6 @@ export const ORGANISERS_TOURNAMENT_EDIT = '/organisers/tournament/edit/:id';
 export const ORGANISERS_UPDATES_EDIT = '/organisers/updates/edit/:id';
 export const ORGANISERS_RESULTS_EDIT = '/organisers/results/edit/:id';
 export const ORGANISERS_SCHEDULE_EDIT = '/organisers/schedule/edit/:id';
+export const ORGANISERS_PARTICIPANTS_EDIT = '/organisers/participants/edit/:id';
 export const ORGANISERS_ANNOUNCEMENT_ADD = '/organisers/announcements/add';
 export const ORGANISERS_ANNOUNCEMENT_EDIT = '/organisers/announcements/edit/:id';

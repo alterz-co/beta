@@ -8,6 +8,7 @@ import OrgTournamentNav from './OrgTournamentNav';
 import OrgTournamentUpdates from './updates/OrgTournamentUpdates';
 import OrgTournamentSchedule from './schedule/OrgTournamentSchedule';
 import OrgTournamentResults from './results/OrgTournamentResults';
+import OrgTournamentParticipants from './participants/OrgTournamentParticipants';
 import OrgTournamentAbout from './OrgTournamentAbout';
 
 class OrgTournamentDetails extends Component {
@@ -57,6 +58,10 @@ class OrgTournamentDetails extends Component {
             <Route
               path={`/organisers/tournament/${tournamentId}/schedule`}
               render={() => <OrgTournamentSchedule tournamentId={tournamentId} tournament={tournament}/>}
+            />
+            <Route
+              path={`/organisers/tournament/${tournamentId}/participants`}
+              render={() => <OrgTournamentParticipants tournamentId={tournamentId} tournament={tournament}/>}
             />
             <Route
               path={`/organisers/tournament/${tournamentId}/about`}

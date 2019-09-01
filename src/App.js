@@ -20,6 +20,7 @@ import OrgTournamentEdit from './components/organisers/tournaments/OrgTournament
 import OrgTournamentUpdatesEdit from './components/organisers/tournaments/updates/OrgTournamentUpdatesEdit';
 import OrgTournamentResultsEdit from './components/organisers/tournaments/results/OrgTournamentResultsEdit';
 import OrgTournamentScheduleEdit from './components/organisers/tournaments/schedule/OrgTournamentScheduleEdit';
+import OrgTournamentParticipantsEdit from './components/organisers/tournaments/participants/OrgTournamentParticipantsEdit';
 import OrgAnnouncementsAdd from './components/organisers/announcements/OrgAnnouncementsAdd';
 import OrgAnnouncementsEdit from './components/organisers/announcements/OrgAnnouncementsEdit';
 
@@ -48,6 +49,7 @@ class App extends Component {
               <Route path={ROUTES.ORGANISERS_UPDATES_EDIT} component={OrgTournamentUpdatesEdit}/>
               <Route path={ROUTES.ORGANISERS_RESULTS_EDIT} component={OrgTournamentResultsEdit}/>
               <Route path={ROUTES.ORGANISERS_SCHEDULE_EDIT} component={OrgTournamentScheduleEdit}/>
+              <Route path={ROUTES.ORGANISERS_PARTICIPANTS_EDIT} component={OrgTournamentParticipantsEdit}/>
               <Route exact path={ROUTES.ORGANISERS_ANNOUNCEMENT_ADD} component={OrgAnnouncementsAdd}/>
               <Route path={ROUTES.ORGANISERS_ANNOUNCEMENT_EDIT} component={OrgAnnouncementsEdit}/>
             </Switch>

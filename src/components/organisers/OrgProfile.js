@@ -10,7 +10,7 @@ class Profile extends Component {
   }
 
   async componentDidMount() {
-    const user = await API.graphql(graphqlOperation(getUser, { id: 'e4944fd6-d985-48d3-a6a9-9f9487f164a1' }))
+    const user = await API.graphql(graphqlOperation(getUser, { id: '08baa991-ee93-4563-9ac1-b6eb657f9527' }))
     this.setState({ user: user.data.getUser })
   }
 

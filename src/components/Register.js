@@ -44,6 +44,7 @@ class Register extends Component {
         phone: this.state.phone,
         password: this.state.password
       }
+      // console.log(newUser)
       const result = await API.graphql(graphqlOperation(registerUser, { input: newUser }))
       console.log('Register', result.data.registerUser)
       this.setState({

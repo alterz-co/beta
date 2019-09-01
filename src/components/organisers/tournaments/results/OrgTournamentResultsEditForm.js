@@ -36,7 +36,7 @@ class OrgTournamentResultsEditForm extends Component {
       matchNo: this.state.matchNo || result.matchNo,
       winner: this.state.winner || result.winner,
       score: this.state.score || result.score,
-      resultUserId: 'e4944fd6-d985-48d3-a6a9-9f9487f164a1',
+      resultUserId: '',
       resultTournamentId: result.tournament.id
     }
     const res = await API.graphql(graphqlOperation(updateResult, { input }))

@@ -1,6 +1,183 @@
 // eslint-disable
 // this is an auto generated file. This will be overwritten
 
+export const onCreateParticipant = `subscription OnCreateParticipant {
+  onCreateParticipant {
+    id
+    name
+    gender
+    user {
+      id
+      name
+      gender
+      email
+      phone
+      password
+      tournaments {
+        nextToken
+      }
+      participants {
+        nextToken
+      }
+      announcements {
+        nextToken
+      }
+    }
+    tournament {
+      id
+      title
+      startDate
+      endDate
+      startTime
+      endTime
+      deadline
+      venue
+      description
+      url
+      createdAt
+      user {
+        id
+        name
+        gender
+        email
+        phone
+        password
+      }
+      participants {
+        nextToken
+      }
+      schedule {
+        id
+        description
+      }
+      updates {
+        nextToken
+      }
+      results {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onUpdateParticipant = `subscription OnUpdateParticipant {
+  onUpdateParticipant {
+    id
+    name
+    gender
+    user {
+      id
+      name
+      gender
+      email
+      phone
+      password
+      tournaments {
+        nextToken
+      }
+      participants {
+        nextToken
+      }
+      announcements {
+        nextToken
+      }
+    }
+    tournament {
+      id
+      title
+      startDate
+      endDate
+      startTime
+      endTime
+      deadline
+      venue
+      description
+      url
+      createdAt
+      user {
+        id
+        name
+        gender
+        email
+        phone
+        password
+      }
+      participants {
+        nextToken
+      }
+      schedule {
+        id
+        description
+      }
+      updates {
+        nextToken
+      }
+      results {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onDeleteParticipant = `subscription OnDeleteParticipant {
+  onDeleteParticipant {
+    id
+    name
+    gender
+    user {
+      id
+      name
+      gender
+      email
+      phone
+      password
+      tournaments {
+        nextToken
+      }
+      participants {
+        nextToken
+      }
+      announcements {
+        nextToken
+      }
+    }
+    tournament {
+      id
+      title
+      startDate
+      endDate
+      startTime
+      endTime
+      deadline
+      venue
+      description
+      url
+      createdAt
+      user {
+        id
+        name
+        gender
+        email
+        phone
+        password
+      }
+      participants {
+        nextToken
+      }
+      schedule {
+        id
+        description
+      }
+      updates {
+        nextToken
+      }
+      results {
+        nextToken
+      }
+    }
+  }
+}
+`;
 export const onCreateTournament = `subscription OnCreateTournament {
   onCreateTournament {
     id
@@ -24,9 +201,20 @@ export const onCreateTournament = `subscription OnCreateTournament {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
+    }
+    participants {
+      items {
+        id
+        name
+        gender
+      }
+      nextToken
     }
     schedule {
       id
@@ -90,9 +278,20 @@ export const onUpdateTournament = `subscription OnUpdateTournament {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
+    }
+    participants {
+      items {
+        id
+        name
+        gender
+      }
+      nextToken
     }
     schedule {
       id
@@ -156,9 +355,20 @@ export const onDeleteTournament = `subscription OnDeleteTournament {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
+    }
+    participants {
+      items {
+        id
+        name
+        gender
+      }
+      nextToken
     }
     schedule {
       id
@@ -223,6 +433,9 @@ export const onCreateSchedule = `subscription OnCreateSchedule {
         phone
         password
       }
+      participants {
+        nextToken
+      }
       schedule {
         id
         description
@@ -260,6 +473,9 @@ export const onUpdateSchedule = `subscription OnUpdateSchedule {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -299,6 +515,9 @@ export const onDeleteSchedule = `subscription OnDeleteSchedule {
         phone
         password
       }
+      participants {
+        nextToken
+      }
       schedule {
         id
         description
@@ -328,6 +547,9 @@ export const onCreateUpdate = `subscription OnCreateUpdate {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -351,6 +573,9 @@ export const onCreateUpdate = `subscription OnCreateUpdate {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -381,6 +606,9 @@ export const onUpdateUpdate = `subscription OnUpdateUpdate {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -404,6 +632,9 @@ export const onUpdateUpdate = `subscription OnUpdateUpdate {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -434,6 +665,9 @@ export const onDeleteUpdate = `subscription OnDeleteUpdate {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -457,6 +691,9 @@ export const onDeleteUpdate = `subscription OnDeleteUpdate {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -490,6 +727,9 @@ export const onCreateResult = `subscription OnCreateResult {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -513,6 +753,9 @@ export const onCreateResult = `subscription OnCreateResult {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -546,6 +789,9 @@ export const onUpdateResult = `subscription OnUpdateResult {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -569,6 +815,9 @@ export const onUpdateResult = `subscription OnUpdateResult {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -602,6 +851,9 @@ export const onDeleteResult = `subscription OnDeleteResult {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -625,6 +877,9 @@ export const onDeleteResult = `subscription OnDeleteResult {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -656,6 +911,9 @@ export const onCreateAnnouncement = `subscription OnCreateAnnouncement {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -679,6 +937,9 @@ export const onUpdateAnnouncement = `subscription OnUpdateAnnouncement {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -700,6 +961,9 @@ export const onDeleteAnnouncement = `subscription OnDeleteAnnouncement {
       phone
       password
       tournaments {
+        nextToken
+      }
+      participants {
         nextToken
       }
       announcements {

@@ -25,6 +25,14 @@ export const registerUser = `mutation RegisterUser($input: CreateUserInput!) {
       }
       nextToken
     }
+    participants {
+      items {
+        id
+        name
+        gender
+      }
+      nextToken
+    }
     announcements {
       items {
         id
@@ -61,6 +69,14 @@ export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
       }
       nextToken
     }
+    participants {
+      items {
+        id
+        name
+        gender
+      }
+      nextToken
+    }
     announcements {
       items {
         id
@@ -69,6 +85,183 @@ export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
         createdAt
       }
       nextToken
+    }
+  }
+}
+`;
+export const createParticipant = `mutation CreateParticipant($input: CreateParticipantInput!) {
+  createParticipant(input: $input) {
+    id
+    name
+    gender
+    user {
+      id
+      name
+      gender
+      email
+      phone
+      password
+      tournaments {
+        nextToken
+      }
+      participants {
+        nextToken
+      }
+      announcements {
+        nextToken
+      }
+    }
+    tournament {
+      id
+      title
+      startDate
+      endDate
+      startTime
+      endTime
+      deadline
+      venue
+      description
+      url
+      createdAt
+      user {
+        id
+        name
+        gender
+        email
+        phone
+        password
+      }
+      participants {
+        nextToken
+      }
+      schedule {
+        id
+        description
+      }
+      updates {
+        nextToken
+      }
+      results {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const updateParticipant = `mutation UpdateParticipant($input: UpdateParticipantInput!) {
+  updateParticipant(input: $input) {
+    id
+    name
+    gender
+    user {
+      id
+      name
+      gender
+      email
+      phone
+      password
+      tournaments {
+        nextToken
+      }
+      participants {
+        nextToken
+      }
+      announcements {
+        nextToken
+      }
+    }
+    tournament {
+      id
+      title
+      startDate
+      endDate
+      startTime
+      endTime
+      deadline
+      venue
+      description
+      url
+      createdAt
+      user {
+        id
+        name
+        gender
+        email
+        phone
+        password
+      }
+      participants {
+        nextToken
+      }
+      schedule {
+        id
+        description
+      }
+      updates {
+        nextToken
+      }
+      results {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const deleteParticipant = `mutation DeleteParticipant($input: DeleteParticipantInput!) {
+  deleteParticipant(input: $input) {
+    id
+    name
+    gender
+    user {
+      id
+      name
+      gender
+      email
+      phone
+      password
+      tournaments {
+        nextToken
+      }
+      participants {
+        nextToken
+      }
+      announcements {
+        nextToken
+      }
+    }
+    tournament {
+      id
+      title
+      startDate
+      endDate
+      startTime
+      endTime
+      deadline
+      venue
+      description
+      url
+      createdAt
+      user {
+        id
+        name
+        gender
+        email
+        phone
+        password
+      }
+      participants {
+        nextToken
+      }
+      schedule {
+        id
+        description
+      }
+      updates {
+        nextToken
+      }
+      results {
+        nextToken
+      }
     }
   }
 }
@@ -96,9 +289,20 @@ export const createTournament = `mutation CreateTournament($input: CreateTournam
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
+    }
+    participants {
+      items {
+        id
+        name
+        gender
+      }
+      nextToken
     }
     schedule {
       id
@@ -162,9 +366,20 @@ export const updateTournament = `mutation UpdateTournament($input: UpdateTournam
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
+    }
+    participants {
+      items {
+        id
+        name
+        gender
+      }
+      nextToken
     }
     schedule {
       id
@@ -228,9 +443,20 @@ export const deleteTournament = `mutation DeleteTournament($input: DeleteTournam
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
+    }
+    participants {
+      items {
+        id
+        name
+        gender
+      }
+      nextToken
     }
     schedule {
       id
@@ -295,6 +521,9 @@ export const createSchedule = `mutation CreateSchedule($input: CreateScheduleInp
         phone
         password
       }
+      participants {
+        nextToken
+      }
       schedule {
         id
         description
@@ -332,6 +561,9 @@ export const updateSchedule = `mutation UpdateSchedule($input: UpdateScheduleInp
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -371,6 +603,9 @@ export const deleteSchedule = `mutation DeleteSchedule($input: DeleteScheduleInp
         phone
         password
       }
+      participants {
+        nextToken
+      }
       schedule {
         id
         description
@@ -400,6 +635,9 @@ export const createUpdate = `mutation CreateUpdate($input: CreateUpdateInput!) {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -423,6 +661,9 @@ export const createUpdate = `mutation CreateUpdate($input: CreateUpdateInput!) {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -453,6 +694,9 @@ export const updateUpdate = `mutation UpdateUpdate($input: UpdateUpdateInput!) {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -476,6 +720,9 @@ export const updateUpdate = `mutation UpdateUpdate($input: UpdateUpdateInput!) {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -506,6 +753,9 @@ export const deleteUpdate = `mutation DeleteUpdate($input: DeleteUpdateInput!) {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -529,6 +779,9 @@ export const deleteUpdate = `mutation DeleteUpdate($input: DeleteUpdateInput!) {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -562,6 +815,9 @@ export const createResult = `mutation CreateResult($input: CreateResultInput!) {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -585,6 +841,9 @@ export const createResult = `mutation CreateResult($input: CreateResultInput!) {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -618,6 +877,9 @@ export const updateResult = `mutation UpdateResult($input: UpdateResultInput!) {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -641,6 +903,9 @@ export const updateResult = `mutation UpdateResult($input: UpdateResultInput!) {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -674,6 +939,9 @@ export const deleteResult = `mutation DeleteResult($input: DeleteResultInput!) {
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -697,6 +965,9 @@ export const deleteResult = `mutation DeleteResult($input: DeleteResultInput!) {
         email
         phone
         password
+      }
+      participants {
+        nextToken
       }
       schedule {
         id
@@ -728,6 +999,9 @@ export const createAnnouncement = `mutation CreateAnnouncement($input: CreateAnn
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -751,6 +1025,9 @@ export const updateAnnouncement = `mutation UpdateAnnouncement($input: UpdateAnn
       tournaments {
         nextToken
       }
+      participants {
+        nextToken
+      }
       announcements {
         nextToken
       }
@@ -772,6 +1049,9 @@ export const deleteAnnouncement = `mutation DeleteAnnouncement($input: DeleteAnn
       phone
       password
       tournaments {
+        nextToken
+      }
+      participants {
         nextToken
       }
       announcements {

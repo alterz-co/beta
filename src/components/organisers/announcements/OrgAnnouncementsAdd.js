@@ -33,7 +33,7 @@ class OrgAnnouncementsAdd extends Component {
       title: this.state.title,
       description: this.state.description,
       createdAt,
-      announcementUserId: 'e4944fd6-d985-48d3-a6a9-9f9487f164a1'
+      announcementUserId: ''
     }
     const result = await API.graphql(graphqlOperation(createAnnouncement, { input: newAnnouncement }))
     console.log('result', result.data.createAnnouncement)
