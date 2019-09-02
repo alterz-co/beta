@@ -10,5 +10,17 @@
             "StackName": "beta-dev-20190823204559",
             "StackId": "arn:aws:cloudformation:ap-southeast-1:911935223184:stack/beta-dev-20190823204559/f568d4a0-c5a3-11e9-afa8-06e9ec8dfb16"
         }
+    },
+    "upworkdev": {
+        "awscloudformation": {
+            "AuthRoleName": "beta-upworkdev-20190902174543-authRole",
+            "UnauthRoleArn": "arn:aws:iam::609045244665:role/beta-upworkdev-20190902174543-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::609045244665:role/beta-upworkdev-20190902174543-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "beta-upworkdev-20190902174543-deployment",
+            "UnauthRoleName": "beta-upworkdev-20190902174543-unauthRole",
+            "StackName": "beta-upworkdev-20190902174543",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:609045244665:stack/beta-upworkdev-20190902174543/6ebb07a0-cd66-11e9-8441-0670872160e4"
+        }
     }
 }
