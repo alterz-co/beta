@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
-import { getResult } from '../../../../graphql/queries';
-import OrgTournamentResultsEditForm from './OrgTournamentResultsEditForm';
-import LoaderComponent from '../../../LoaderComponent';
+import React, { Component } from 'react'
+import { API, graphqlOperation } from 'aws-amplify'
+import { getResult } from '../../../../graphql/queries'
+import OrgTournamentResultsEditForm from './OrgTournamentResultsEditForm'
+import LoaderComponent from '../../../LoaderComponent'
 
 class OrgTournamentResultsEdit extends Component {
   state = {
@@ -10,7 +10,7 @@ class OrgTournamentResultsEdit extends Component {
   }
 
   componentDidMount() {
-    this.handleGetResult();
+    this.handleGetResult()
   }
 
   handleGetResult = async () => {
@@ -23,8 +23,8 @@ class OrgTournamentResultsEdit extends Component {
   }
 
   render(){
-    const resultId = this.props.match.params.id;
-    const { result } = this.state;
+    const resultId = this.props.match.params.id
+    const { result } = this.state
 
     if(!result){
       return <LoaderComponent/>
@@ -36,4 +36,4 @@ class OrgTournamentResultsEdit extends Component {
   }
 }
 
-export default OrgTournamentResultsEdit;
+export default OrgTournamentResultsEdit

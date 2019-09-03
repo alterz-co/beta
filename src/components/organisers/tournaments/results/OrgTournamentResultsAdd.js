@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Container, Form, Button } from 'semantic-ui-react';
-import { API, graphqlOperation } from 'aws-amplify';
-import { createResult } from '../../../../graphql/mutations';
-import { format } from 'date-fns';
+import React, { Component } from 'react'
+import { Container, Form, Button } from 'semantic-ui-react'
+import { API, graphqlOperation } from 'aws-amplify'
+import { createResult } from '../../../../graphql/mutations'
+import { format } from 'date-fns'
 
 class OrgTournamentResultsAdd extends Component {
 
@@ -16,12 +16,12 @@ class OrgTournamentResultsAdd extends Component {
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    });
+    })
   }
 
   onSubmit = async event => {
-    event.preventDefault();
-    const date = format(this.state.date, 'D MMM, YYYY');
+    event.preventDefault()
+    const date = format(this.state.date, 'D MMM, YYYY')
     const newResult = {
       date,
       matchNo: this.state.matchNo,
@@ -37,7 +37,7 @@ class OrgTournamentResultsAdd extends Component {
       matchNo: '',
       winner: '',
       score: ''
-    });
+    })
   }
 
   render(){
@@ -91,4 +91,4 @@ class OrgTournamentResultsAdd extends Component {
   }
 }
 
-export default OrgTournamentResultsAdd;
+export default OrgTournamentResultsAdd

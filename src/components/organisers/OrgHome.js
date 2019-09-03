@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Grid, Header } from 'semantic-ui-react';
-import OrgNav from './OrgNav';
-import OrgTournamentList from './tournaments/OrgTournamentList';
-import OrgAnnouncements from './announcements/OrgAnnouncements';
+import React, { Component } from 'react'
+import { Grid, Header } from 'semantic-ui-react'
+import OrgNav from './OrgNav'
+import OrgTournamentList from './tournaments/OrgTournamentList'
+import OrgAnnouncements from './announcements/OrgAnnouncements'
 
 class OrgHome extends Component {
 
@@ -24,8 +24,8 @@ class OrgHome extends Component {
           <Grid.Column width={1}></Grid.Column>
         </Grid>
       </div>
-    );
+    )
   }
 }
 
-export default OrgHome;
+export default OrgHome

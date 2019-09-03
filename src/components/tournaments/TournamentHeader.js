@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import LoaderComponent from '../LoaderComponent';
-import TournamentNav from './TournamentNav';
+import React, { Component } from 'react'
+import LoaderComponent from '../LoaderComponent'
+import TournamentNav from './TournamentNav'
 
 class TournamentHeader extends Component {
 
   render(){
-    const { tournament, tournamentId } = this.props;
+    const { tournament, tournamentId } = this.props
 
     if(!tournament){
       return <LoaderComponent/>
@@ -24,4 +24,4 @@ class TournamentHeader extends Component {
   }
 }
 
-export default TournamentHeader;
+export default TournamentHeader

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Container, Header, Form, Button } from 'semantic-ui-react';
-import { API, graphqlOperation } from 'aws-amplify';
-import { updateParticipant } from '../../../../graphql/mutations';
-import OrgNav from '../../OrgNav';
+import React, { Component } from 'react'
+import { Container, Header, Form, Button } from 'semantic-ui-react'
+import { API, graphqlOperation } from 'aws-amplify'
+import { updateParticipant } from '../../../../graphql/mutations'
+import OrgNav from '../../OrgNav'
 
 class OrgTournamentParticipantsEditForm extends Component {
 
@@ -14,11 +14,11 @@ class OrgTournamentParticipantsEditForm extends Component {
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    });
+    })
   }
 
   onSubmit = async (event, participantId, participant) => {
-    event.preventDefault();
+    event.preventDefault()
     const input = {
       id: participantId,
       name: this.state.name || participant.name,
@@ -31,11 +31,11 @@ class OrgTournamentParticipantsEditForm extends Component {
     this.setState({
       name: '',
       gender: ''
-    });
+    })
   }
 
   render(){
-    const { participantId, participant } = this.props;
+    const { participantId, participant } = this.props
 
     return(
       <div>
@@ -71,4 +71,4 @@ class OrgTournamentParticipantsEditForm extends Component {
   }
 }
 
-export default OrgTournamentParticipantsEditForm;
+export default OrgTournamentParticipantsEditForm

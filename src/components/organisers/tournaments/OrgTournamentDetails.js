@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { Grid } from 'semantic-ui-react';
-import { API, graphqlOperation } from 'aws-amplify';
-import { getTournament } from '../../../graphql/queries';
-import OrgNav from '../OrgNav';
-import OrgTournamentNav from './OrgTournamentNav';
-import OrgTournamentUpdates from './updates/OrgTournamentUpdates';
-import OrgTournamentSchedule from './schedule/OrgTournamentSchedule';
-import OrgTournamentResults from './results/OrgTournamentResults';
-import OrgTournamentParticipants from './participants/OrgTournamentParticipants';
-import OrgTournamentAbout from './OrgTournamentAbout';
+import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
+import { Grid } from 'semantic-ui-react'
+import { API, graphqlOperation } from 'aws-amplify'
+import { getTournament } from '../../../graphql/queries'
+import OrgNav from '../OrgNav'
+import OrgTournamentNav from './OrgTournamentNav'
+import OrgTournamentUpdates from './updates/OrgTournamentUpdates'
+import OrgTournamentSchedule from './schedule/OrgTournamentSchedule'
+import OrgTournamentResults from './results/OrgTournamentResults'
+import OrgTournamentParticipants from './participants/OrgTournamentParticipants'
+import OrgTournamentAbout from './OrgTournamentAbout'
 
 class OrgTournamentDetails extends Component {
   state = {
@@ -17,7 +17,7 @@ class OrgTournamentDetails extends Component {
   }
 
   componentDidMount() {
-    this.handleGetTournament();
+    this.handleGetTournament()
   }
 
   handleGetTournament = async () => {
@@ -30,8 +30,8 @@ class OrgTournamentDetails extends Component {
   }
 
   render(){
-    const tournamentId = this.props.match.params.id;
-    const { tournament } = this.state;
+    const tournamentId = this.props.match.params.id
+    const { tournament } = this.state
 
     return(
       <div>
@@ -75,4 +75,4 @@ class OrgTournamentDetails extends Component {
   }
 }
 
-export default OrgTournamentDetails;
+export default OrgTournamentDetails

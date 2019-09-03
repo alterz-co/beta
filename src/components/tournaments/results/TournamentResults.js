@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import { graphqlOperation } from 'aws-amplify';
-import { Connect } from 'aws-amplify-react';
-import { listResults } from '../../../graphql/queries';
-import { onCreateResult } from '../../../graphql/subscriptions';
-import TournamentResultsNav from './TournamentResultsNav';
-import TournamentResultsFooter from './TournamentResultsFooter';
+import React, { Component } from 'react'
+import { graphqlOperation } from 'aws-amplify'
+import { Connect } from 'aws-amplify-react'
+import { listResults } from '../../../graphql/queries'
+import { onCreateResult } from '../../../graphql/subscriptions'
+import TournamentResultsNav from './TournamentResultsNav'
+import TournamentResultsFooter from './TournamentResultsFooter'
 
 class TournamentResults extends Component {
   render() {
-    const { tournamentId } = this.props;
+    const { tournamentId } = this.props
 
     const onNewResult = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery };
+      let updatedQuery = { ...prevQuery }
       const updatedResultList = [
         newData.onCreateResult,
         ...prevQuery.listResults.items
       ]
-      updatedQuery.listResults.items = updatedResultList;
-      return updatedQuery;
+      updatedQuery.listResults.items = updatedResultList
+      return updatedQuery
     }
 
     return (
@@ -48,8 +48,8 @@ class TournamentResults extends Component {
         </Connect>
         <TournamentResultsFooter/>
       </div>
-    );
+    )
   }
 }
 
-export default TournamentResults;
+export default TournamentResults

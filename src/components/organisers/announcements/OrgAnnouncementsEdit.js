@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
-import { getAnnouncement } from '../../../graphql/queries';
-import OrgAnnouncementsEditForm from './OrgAnnouncementsEditForm';
-import LoaderComponent from '../../LoaderComponent';
+import React, { Component } from 'react'
+import { API, graphqlOperation } from 'aws-amplify'
+import { getAnnouncement } from '../../../graphql/queries'
+import OrgAnnouncementsEditForm from './OrgAnnouncementsEditForm'
+import LoaderComponent from '../../LoaderComponent'
 
 class OrgAnnouncementsEdit extends Component {
   state = {
@@ -10,7 +10,7 @@ class OrgAnnouncementsEdit extends Component {
   }
 
   componentDidMount() {
-    this.handleGetAnnouncement();
+    this.handleGetAnnouncement()
   }
 
   handleGetAnnouncement = async () => {
@@ -23,8 +23,8 @@ class OrgAnnouncementsEdit extends Component {
   }
 
   render(){
-    const announcementId = this.props.match.params.id;
-    const { announcement } = this.state;
+    const announcementId = this.props.match.params.id
+    const { announcement } = this.state
 
     if(!announcement){
       return <LoaderComponent/>
@@ -37,4 +37,4 @@ class OrgAnnouncementsEdit extends Component {
 }
 
 
-export default OrgAnnouncementsEdit;
+export default OrgAnnouncementsEdit

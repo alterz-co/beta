@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Nav from './Nav';
-import logo from '../logos/sponsor.png';
+import React, { Component } from 'react'
+import Nav from './Nav'
+import logo from '../logos/sponsor.png'
 
 class LuckyDraw extends Component {
 
@@ -45,8 +45,8 @@ class LuckyDraw extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default LuckyDraw;
+export default LuckyDraw

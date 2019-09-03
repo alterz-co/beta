@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
-import { getSchedule } from '../../../../graphql/queries';
-import OrgTournamentScheduleEditForm from './OrgTournamentScheduleEditForm';
-import LoaderComponent from '../../../LoaderComponent';
+import React, { Component } from 'react'
+import { API, graphqlOperation } from 'aws-amplify'
+import { getSchedule } from '../../../../graphql/queries'
+import OrgTournamentScheduleEditForm from './OrgTournamentScheduleEditForm'
+import LoaderComponent from '../../../LoaderComponent'
 
 class OrgTournamentScheduleEdit extends Component {
   state = {
@@ -10,7 +10,7 @@ class OrgTournamentScheduleEdit extends Component {
   }
 
   componentDidMount() {
-    this.handleGetSchedule();
+    this.handleGetSchedule()
   }
 
   handleGetSchedule = async () => {
@@ -23,8 +23,8 @@ class OrgTournamentScheduleEdit extends Component {
   }
 
   render(){
-    const scheduleId = this.props.match.params.id;
-    const { schedule } = this.state;
+    const scheduleId = this.props.match.params.id
+    const { schedule } = this.state
 
     if(!schedule){
       return <LoaderComponent/>
@@ -36,4 +36,4 @@ class OrgTournamentScheduleEdit extends Component {
   }
 }
 
-export default OrgTournamentScheduleEdit;
+export default OrgTournamentScheduleEdit

@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Grid, Header, Form, Button } from 'semantic-ui-react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import { API, graphqlOperation } from 'aws-amplify';
-import { updateTournament } from '../../../graphql/mutations';
-import { format } from 'date-fns';
-import LoaderComponent from '../../LoaderComponent';
-import OrgNav from '../OrgNav';
+import React, { Component } from 'react'
+import { Grid, Header, Form, Button } from 'semantic-ui-react'
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
+import { API, graphqlOperation } from 'aws-amplify'
+import { updateTournament } from '../../../graphql/mutations'
+import { format } from 'date-fns'
+import LoaderComponent from '../../LoaderComponent'
+import OrgNav from '../OrgNav'
 
 class OrgTournamentEditForm extends Component {
 
@@ -26,41 +26,41 @@ class OrgTournamentEditForm extends Component {
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    });
+    })
   }
 
   handleDescriptionChange = value => {
     this.setState({
       description: value
-    });
+    })
   }
 
   onSubmit = async (event, tournamentId, tournament) => {
     // console.log(tournament)
-    event.preventDefault();
-    let startDate;
-    let endDate;
-    let deadline;
+    event.preventDefault()
+    let startDate
+    let endDate
+    let deadline
 
     if(this.state.startDate){
-      startDate = format(this.state.startDate, 'D MMM, YYYY');
+      startDate = format(this.state.startDate, 'D MMM, YYYY')
     } else {
-      startDate = tournament.startDate;
+      startDate = tournament.startDate
     }
 
     if(this.state.endDate){
-      endDate = format(this.state.endDate, 'D MMM, YYYY');
+      endDate = format(this.state.endDate, 'D MMM, YYYY')
     } else {
-      endDate = tournament.endDate;
+      endDate = tournament.endDate
     }
 
     if(this.state.deadline){
-      deadline = format(this.state.deadline, 'D MMM, YYYY');
+      deadline = format(this.state.deadline, 'D MMM, YYYY')
     } else {
-      deadline = tournament.deadline;
+      deadline = tournament.deadline
     }
 
-    this.setState({ error: '' });
+    this.setState({ error: '' })
     const input = {
       id: tournamentId,
       title: this.state.title || tournament.title,
@@ -88,11 +88,11 @@ class OrgTournamentEditForm extends Component {
       venue: '',
       description: '',
       url: ''
-    });
+    })
   }
 
   render(){
-    const { tournamentId, tournament } = this.props;
+    const { tournamentId, tournament } = this.props
 
     if(tournament){
       return(
@@ -225,4 +225,4 @@ class OrgTournamentEditForm extends Component {
   }
 }
 
-export default OrgTournamentEditForm;
+export default OrgTournamentEditForm

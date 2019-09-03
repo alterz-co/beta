@@ -6,7 +6,6 @@
     "aws-amplify": "^1.1.32",
     "aws-amplify-react": "^2.3.11",
     "date-fns": "^2.0.1",
-    "express": "^4.17.1",
     "moment": "^2.24.0",
     "react": "^16.9.0",
     "react-avatar-editor": "^11.0.7",
@@ -27,7 +26,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --fix --ext .js ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "browserslist": {
     "production": [
@@ -35,5 +40,11 @@
       "not dead",
       "not op_mini all"
     ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.3.0",
+    "eslint-plugin-react": "^7.14.3",
+    "husky": "^3.0.5"
   }
 }

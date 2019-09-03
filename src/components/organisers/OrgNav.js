@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, Button, Icon, Image } from 'semantic-ui-react';
-import logo from '../../logos/nav.svg';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { Menu, Button, Icon, Image } from 'semantic-ui-react'
+import logo from '../../logos/nav.svg'
 
-import * as ROUTES from '../../constants/routes';
+import * as ROUTES from '../../constants/routes'
 
 class OrgNav extends Component {
   render(){
@@ -32,4 +32,4 @@ class OrgNav extends Component {
 }
 
 
-export default OrgNav;
+export default OrgNav

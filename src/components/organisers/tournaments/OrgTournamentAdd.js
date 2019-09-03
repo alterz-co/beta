@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Grid, Header, Form, Button } from 'semantic-ui-react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import { API, graphqlOperation } from 'aws-amplify';
-import { createTournament } from '../../../graphql/mutations';
-import { format } from 'date-fns';
-import OrgNav from '../OrgNav';
+import React, { Component } from 'react'
+import { Grid, Header, Form, Button } from 'semantic-ui-react'
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
+import { API, graphqlOperation } from 'aws-amplify'
+import { createTournament } from '../../../graphql/mutations'
+import { format } from 'date-fns'
+import OrgNav from '../OrgNav'
 
 class OrgTournamentAdd extends Component {
 
@@ -25,32 +25,32 @@ class OrgTournamentAdd extends Component {
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    });
+    })
   }
 
   handleDescriptionChange = value => {
     this.setState({
       description: value
-    });
+    })
   }
 
   isFormValid = () => {
     if(this.isFormEmpty(this.state)){
-      this.setState({ error: 'Fill in all fields with asterisk' });
-      return false;
+      this.setState({ error: 'Fill in all fields with asterisk' })
+      return false
     } else if (!this.isDateValid(this.state)){
-      this.setState({ error: 'Date is invalid. Date must be in this format MM-DD-YYYY e.g. 01-20-2018' });
-      return false;
+      this.setState({ error: 'Date is invalid. Date must be in this format MM-DD-YYYY e.g. 01-20-2018' })
+      return false
     } else if (!this.isTimeValid(this.state)){
-      this.setState({ error: 'Time is invalid. Time must be in this format e.g. 12:00 pm' });
-      return false;
+      this.setState({ error: 'Time is invalid. Time must be in this format e.g. 12:00 pm' })
+      return false
     } else {
-      return true;
+      return true
     }
   }
 
   isFormEmpty = ({ title, startDate, endDate, startTime, endTime, deadline, venue, price }) => {
-    return title === '' || startDate === '' || endDate === '' || startTime === '' || endTime === '' || deadline === '' || venue === '';
+    return title === '' || startDate === '' || endDate === '' || startTime === '' || endTime === '' || deadline === '' || venue === ''
   }
 
   isDateValid = ({ startDate, endDate, deadline }) => {
@@ -71,12 +71,12 @@ class OrgTournamentAdd extends Component {
 
   onSubmit = async event => {
     // console.log('add ', this.props.user.id)
-    event.preventDefault();
+    event.preventDefault()
     if(this.isFormValid()){
-      this.setState({ error: '' });
-      const startDate = format(this.state.startDate, 'D MMM, YYYY');
-      const endDate = format(this.state.endDate, 'D MMM, YYYY');
-      const deadline = format(this.state.deadline, 'D MMM, YYYY');
+      this.setState({ error: '' })
+      const startDate = format(this.state.startDate, 'D MMM, YYYY')
+      const endDate = format(this.state.endDate, 'D MMM, YYYY')
+      const deadline = format(this.state.deadline, 'D MMM, YYYY')
       const createdAt = format(Date.now(), 'D MMM, YYYY')
       const newTournament = {
         title: this.state.title,
@@ -104,7 +104,7 @@ class OrgTournamentAdd extends Component {
         venue: '',
         description: '',
         url: ''
-      });
+      })
     }
   }
 
@@ -224,4 +224,4 @@ class OrgTournamentAdd extends Component {
   }
 }
 
-export default OrgTournamentAdd;
+export default OrgTournamentAdd

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Container, Divider, Header } from 'semantic-ui-react';
-import OrgTournamentHeader from './OrgTournamentHeader';
-import LoaderComponent from '../../LoaderComponent';
+import React, { Component } from 'react'
+import { Container, Divider, Header } from 'semantic-ui-react'
+import OrgTournamentHeader from './OrgTournamentHeader'
+import LoaderComponent from '../../LoaderComponent'
 
 class OrgTournamentAbout extends Component {
   render(){
-    const { tournamentId, tournament } = this.props;
+    const { tournamentId, tournament } = this.props
     // console.log('tournament ', tournament)
 
     if(!tournament){
@@ -27,4 +27,4 @@ class OrgTournamentAbout extends Component {
   }
 }
 
-export default OrgTournamentAbout;
+export default OrgTournamentAbout

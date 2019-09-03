@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
-import { getParticipant } from '../../../../graphql/queries';
-import OrgTournamentParticipantsEditForm from './OrgTournamentParticipantsEditForm';
+import React, { Component } from 'react'
+import { API, graphqlOperation } from 'aws-amplify'
+import { getParticipant } from '../../../../graphql/queries'
+import OrgTournamentParticipantsEditForm from './OrgTournamentParticipantsEditForm'
 
 class OrgTournamentParticipantsEdit extends Component {
   state = {
@@ -9,7 +9,7 @@ class OrgTournamentParticipantsEdit extends Component {
   }
 
   componentDidMount() {
-    this.handleGetParticipant();
+    this.handleGetParticipant()
   }
 
   handleGetParticipant = async () => {
@@ -22,8 +22,8 @@ class OrgTournamentParticipantsEdit extends Component {
   }
 
   render(){
-    const participantId = this.props.match.params.id;
-    const { participant } = this.state;
+    const participantId = this.props.match.params.id
+    const { participant } = this.state
 
     return(
       <OrgTournamentParticipantsEditForm participantId={participantId} participant={participant} />
@@ -31,4 +31,4 @@ class OrgTournamentParticipantsEdit extends Component {
   }
 }
 
-export default OrgTournamentParticipantsEdit;
+export default OrgTournamentParticipantsEdit

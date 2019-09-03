@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Grid, Header, Icon, Button, Modal } from 'semantic-ui-react';
-import { API, graphqlOperation } from 'aws-amplify';
-import { deleteTournament } from '../../../graphql/mutations';
-import LoaderComponent from '../../LoaderComponent';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { Container, Grid, Header, Icon, Button, Modal } from 'semantic-ui-react'
+import { API, graphqlOperation } from 'aws-amplify'
+import { deleteTournament } from '../../../graphql/mutations'
+import LoaderComponent from '../../LoaderComponent'
 
 class OrgTournamentHeader extends Component {
 
@@ -17,7 +17,7 @@ class OrgTournamentHeader extends Component {
   }
 
   render(){
-    const { tournamentId, tournament } = this.props;
+    const { tournamentId, tournament } = this.props
 
     if(tournament){
       return(
@@ -68,4 +68,4 @@ class OrgTournamentHeader extends Component {
   }
 }
 
-export default OrgTournamentHeader;
+export default OrgTournamentHeader

@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import { graphqlOperation } from 'aws-amplify';
-import { Connect } from 'aws-amplify-react';
-import { listUpdates } from '../../../graphql/queries';
-import { onCreateUpdate } from '../../../graphql/subscriptions';
-import TournamentUpdatesFooter from './TournamentUpdatesFooter';
+import React, { Component } from 'react'
+import { graphqlOperation } from 'aws-amplify'
+import { Connect } from 'aws-amplify-react'
+import { listUpdates } from '../../../graphql/queries'
+import { onCreateUpdate } from '../../../graphql/subscriptions'
+import TournamentUpdatesFooter from './TournamentUpdatesFooter'
 
 class TournamentUpdates extends Component {
 
   render(){
-    const { tournamentId } = this.props;
+    const { tournamentId } = this.props
 
     const onNewUpdate = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery };
+      let updatedQuery = { ...prevQuery }
       const updatedUpdateList = [
         newData.onCreateUpdate,
         ...prevQuery.listUpdates.items
       ]
-      updatedQuery.listUpdates.items = updatedUpdateList;
-      return updatedQuery;
+      updatedQuery.listUpdates.items = updatedUpdateList
+      return updatedQuery
     }
 
     return(
@@ -62,4 +62,4 @@ class TournamentUpdates extends Component {
   }
 }
 
-export default TournamentUpdates;
+export default TournamentUpdates

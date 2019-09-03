@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import { Segment } from 'semantic-ui-react';
-import { graphqlOperation } from 'aws-amplify';
-import { Connect } from 'aws-amplify-react';
-import { listSchedules } from '../../../graphql/queries';
-import { onCreateSchedule } from '../../../graphql/subscriptions';
+import React, { Component } from 'react'
+import { Segment } from 'semantic-ui-react'
+import { graphqlOperation } from 'aws-amplify'
+import { Connect } from 'aws-amplify-react'
+import { listSchedules } from '../../../graphql/queries'
+import { onCreateSchedule } from '../../../graphql/subscriptions'
 
 class TournamentSchedule extends Component {
   render() {
-    const { tournamentId } = this.props;
+    const { tournamentId } = this.props
 
     const onNewSchedule = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery };
+      let updatedQuery = { ...prevQuery }
       const updatedScheduleList = [
         newData.onCreateSchedule,
         ...prevQuery.listSchedules.items
       ]
-      updatedQuery.listSchedules.items = updatedScheduleList;
-      return updatedQuery;
+      updatedQuery.listSchedules.items = updatedScheduleList
+      return updatedQuery
     }
 
     return (
@@ -51,8 +51,8 @@ class TournamentSchedule extends Component {
 
       }}
       </Connect>
-    );
+    )
   }
 }
 
-export default TournamentSchedule;
+export default TournamentSchedule

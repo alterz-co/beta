@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import { graphqlOperation } from 'aws-amplify';
-import { Connect } from 'aws-amplify-react';
-import { listAnnouncements } from '../graphql/queries';
-import { onCreateAnnouncement } from '../graphql/subscriptions';
-import Nav from './Nav';
+import React, { Component } from 'react'
+import { graphqlOperation } from 'aws-amplify'
+import { Connect } from 'aws-amplify-react'
+import { listAnnouncements } from '../graphql/queries'
+import { onCreateAnnouncement } from '../graphql/subscriptions'
+import Nav from './Nav'
 
 class Announcements extends Component {
   render() {
 
     const onNewAnnouncement = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery };
+      let updatedQuery = { ...prevQuery }
       const updatedAnnouncementList = [
         newData.onCreateAnnouncement,
         ...prevQuery.listAnnouncements.items
       ]
-      updatedQuery.listAnnouncements.items = updatedAnnouncementList;
-      return updatedQuery;
+      updatedQuery.listAnnouncements.items = updatedAnnouncementList
+      return updatedQuery
     }
 
     return (
@@ -57,8 +57,8 @@ class Announcements extends Component {
 
       }}
       </Connect>
-    );
+    )
   }
 }
 
-export default Announcements;
+export default Announcements

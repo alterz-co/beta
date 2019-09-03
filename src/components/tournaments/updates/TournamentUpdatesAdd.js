@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class TournamentUpdatesAdd extends Component {
   render(){
@@ -23,4 +23,4 @@ class TournamentUpdatesAdd extends Component {
   }
 }
 
-export default TournamentUpdatesAdd;
+export default TournamentUpdatesAdd

@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import { Icon } from 'semantic-ui-react';
-import { graphqlOperation } from 'aws-amplify';
-import { Connect } from 'aws-amplify-react';
-import { listParticipants } from '../../../../graphql/queries';
-import { onCreateParticipant } from '../../../../graphql/subscriptions';
+import React, { Component } from 'react'
+import { Icon } from 'semantic-ui-react'
+import { graphqlOperation } from 'aws-amplify'
+import { Connect } from 'aws-amplify-react'
+import { listParticipants } from '../../../../graphql/queries'
+import { onCreateParticipant } from '../../../../graphql/subscriptions'
 
 class OrgTournamentParticipantsList extends Component {
   render() {
-    const { tournamentId } = this.props;
+    const { tournamentId } = this.props
 
     const onNewParticipant = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery };
+      let updatedQuery = { ...prevQuery }
       const updatedParticipantList = [
         newData.onCreateParticipant,
         ...prevQuery.listParticipants.items
       ]
-      updatedQuery.listParticipants.items = updatedParticipantList;
-      return updatedQuery;
+      updatedQuery.listParticipants.items = updatedParticipantList
+      return updatedQuery
     }
 
     return (
@@ -46,8 +46,8 @@ class OrgTournamentParticipantsList extends Component {
 
       }}
       </Connect>
-    );
+    )
   }
 }
 
-export default OrgTournamentParticipantsList;
+export default OrgTournamentParticipantsList

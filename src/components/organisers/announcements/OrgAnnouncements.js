@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Header, Feed, Button, Icon } from 'semantic-ui-react';
-import { graphqlOperation } from 'aws-amplify';
-import { Connect } from 'aws-amplify-react';
-import { listAnnouncements } from '../../../graphql/queries';
-import { onCreateAnnouncement } from '../../../graphql/subscriptions';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { Container, Header, Feed, Button, Icon } from 'semantic-ui-react'
+import { graphqlOperation } from 'aws-amplify'
+import { Connect } from 'aws-amplify-react'
+import { listAnnouncements } from '../../../graphql/queries'
+import { onCreateAnnouncement } from '../../../graphql/subscriptions'
 
 class OrgAnnouncements extends Component {
   render() {
 
     const onNewAnnouncement = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery };
+      let updatedQuery = { ...prevQuery }
       const updatedAnnouncementList = [
         newData.onCreateAnnouncement,
         ...prevQuery.listAnnouncements.items
       ]
-      updatedQuery.listAnnouncements.items = updatedAnnouncementList;
-      return updatedQuery;
+      updatedQuery.listAnnouncements.items = updatedAnnouncementList
+      return updatedQuery
     }
 
     return (
@@ -63,8 +63,8 @@ class OrgAnnouncements extends Component {
         }}
         </Connect>
       </Container>
-    );
+    )
   }
 }
 
-export default OrgAnnouncements;
+export default OrgAnnouncements
