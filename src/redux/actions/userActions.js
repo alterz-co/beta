@@ -1,7 +1,7 @@
-import axios from "axios";
-import { SIGN_IN, SIGN_UP } from "../types/authTypes";
+import axios from 'axios';
+import { SIGN_IN, SIGN_UP } from '../types/authTypes';
 
-const urlPrefix = "/api/user";
+const urlPrefix = '/api/user';
 
 export const loginUser = (userData, history) => {
   return async dispatch => {
@@ -11,9 +11,9 @@ export const loginUser = (userData, history) => {
         type: SIGN_IN,
         payload: res.data
       });
-      console.log("res data", res.data);
+      console.log('res data', res.data);
     } catch (err) {
-      console.error("login error", err);
+      console.error('login error', err);
     }
   };
 };
@@ -26,9 +26,9 @@ export const registerUser = (userData, history) => {
         type: SIGN_UP,
         payload: res.data
       });
-      console.log("res data", res.data);
+      console.log('res data', res.data);
     } catch (err) {
-      console.error("login error", err);
+      console.error('login error', err);
     }
   };
 };

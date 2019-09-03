@@ -1,46 +1,46 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import * as ROUTES from "../constants/routes";
-import logo from "../logos/landing.svg";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as ROUTES from '../constants/routes';
+import logo from '../logos/landing.svg';
 // import { API, graphqlOperation } from 'aws-amplify';
 // import { registerUser } from '../graphql/mutations';
-import { registerUser } from "../redux/actions/userActions";
-import { checkValidity } from "../utils/validators";
+import { registerUser } from '../redux/actions/userActions';
+import { checkValidity } from '../utils/validators';
 
 class Register extends Component {
   state = {
     name: {
-      value: "",
+      value: '',
       valid: false,
       touched: false,
       required: true
     },
     gender: {
-      value: "",
+      value: '',
       valid: false,
       touched: false,
       required: true
     },
     email: {
-      value: "",
+      value: '',
       valid: false,
       touched: false,
       required: true,
       isEmail: true
     },
     phone: {
-      value: "",
+      value: '',
       valid: false,
       touched: false,
       required: true
     },
     password: {
-      value: "",
+      value: '',
       valid: false,
       touched: false,
       required: true
     },
-    error: ""
+    error: ''
   };
 
   inputChangedHandler = (event, controlName) => {
@@ -67,7 +67,7 @@ class Register extends Component {
   handleSubmit = async event => {
     event.preventDefault();
     if (this.isFormValid()) {
-      this.setState({ error: "" });
+      this.setState({ error: '' });
       const { name, gender, email, phone, password } = this.state;
       const newUser = {
         name: name.value,
@@ -76,7 +76,7 @@ class Register extends Component {
         phone: phone.value,
         password: password.value
       };
-      console.log("newUser", newUser);
+      console.log('newUser', newUser);
       this.props.onRegisterUser(newUser, this.props.history);
       // console.log(newUser)
       // const result = await API.graphql(
@@ -85,23 +85,23 @@ class Register extends Component {
       // console.log('Register', result.data.registerUser);
       this.setState({
         name: {
-          value: "",
+          value: '',
           ...this.state.name
         },
         gender: {
-          value: "",
+          value: '',
           ...this.state.gender
         },
         email: {
-          value: "",
+          value: '',
           ...this.state.email
         },
         phone: {
-          value: "",
+          value: '',
           ...this.state.phone
         },
         password: {
-          value: "",
+          value: '',
           ...this.state.password
         }
       });
@@ -129,12 +129,12 @@ class Register extends Component {
             >
               <div className="input-field">
                 <input
-                  className={name.touched && !name.valid ? "invalid" : null}
+                  className={name.touched && !name.valid ? 'invalid' : null}
                   type="text"
                   id="name"
                   name="name"
                   value={name.value}
-                  onChange={event => this.inputChangedHandler(event, "name")}
+                  onChange={event => this.inputChangedHandler(event, 'name')}
                 />
                 <label>Name *</label>
               </div>
@@ -144,13 +144,13 @@ class Register extends Component {
                     <input
                       name="gender"
                       className={
-                        gender.touched && !gender.valid ? "invalid" : null
+                        gender.touched && !gender.valid ? 'invalid' : null
                       }
                       type="checkbox"
                       value="Male"
-                      checked={gender.value === "Male"}
+                      checked={gender.value === 'Male'}
                       onChange={event =>
-                        this.inputChangedHandler(event, "gender")
+                        this.inputChangedHandler(event, 'gender')
                       }
                     />
                     <span>Male</span>
@@ -161,13 +161,13 @@ class Register extends Component {
                     <input
                       name="gender"
                       className={
-                        gender.touched && !gender.valid ? "invalid" : null
+                        gender.touched && !gender.valid ? 'invalid' : null
                       }
                       type="checkbox"
                       value="Female"
-                      checked={gender.value === "Female"}
+                      checked={gender.value === 'Female'}
                       onChange={event =>
-                        this.inputChangedHandler(event, "gender")
+                        this.inputChangedHandler(event, 'gender')
                       }
                     />
                     <span>Female</span>
@@ -177,22 +177,22 @@ class Register extends Component {
               <div className="input-field">
                 <input
                   type="email"
-                  className={email.touched && !email.valid ? "invalid" : null}
+                  className={email.touched && !email.valid ? 'invalid' : null}
                   id="email"
                   name="email"
                   value={email.value}
-                  onChange={event => this.inputChangedHandler(event, "email")}
+                  onChange={event => this.inputChangedHandler(event, 'email')}
                 />
                 <label>Email *</label>
               </div>
               <div className="input-field">
                 <input
                   type="text"
-                  className={phone.touched && !phone.valid ? "invalid" : null}
+                  className={phone.touched && !phone.valid ? 'invalid' : null}
                   id="phone"
                   name="phone"
                   value={phone.value}
-                  onChange={event => this.inputChangedHandler(event, "phone")}
+                  onChange={event => this.inputChangedHandler(event, 'phone')}
                 />
                 <label>Phone number *</label>
               </div>
@@ -200,13 +200,13 @@ class Register extends Component {
                 <input
                   type="password"
                   className={
-                    password.touched && !password.valid ? "invalid" : null
+                    password.touched && !password.valid ? 'invalid' : null
                   }
                   id="password"
                   name="password"
                   value={password.value}
                   onChange={event =>
-                    this.inputChangedHandler(event, "password")
+                    this.inputChangedHandler(event, 'password')
                   }
                 />
                 <label>Password *</label>
@@ -219,7 +219,7 @@ class Register extends Component {
                 style={{ marginTop: 20, marginBottom: 20 }}
               />
               <p className="center-align">
-                Have an account?{" "}
+                Have an account?{' '}
                 <a href={ROUTES.LANDING} className="grey-text">
                   Sign In
                 </a>

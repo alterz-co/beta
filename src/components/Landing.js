@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import * as ROUTES from "../constants/routes";
-import { loginUser } from "../redux/actions/userActions";
-import { checkValidity } from "../utils/validators";
-import logo from "../logos/landing.svg";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as ROUTES from '../constants/routes';
+import { loginUser } from '../redux/actions/userActions';
+import { checkValidity } from '../utils/validators';
+import logo from '../logos/landing.svg';
 
 class Landing extends Component {
   state = {
     email: {
-      value: "",
+      value: '',
       valid: false,
       touched: false,
       required: true,
       isEmail: true
     },
     password: {
-      value: "",
+      value: '',
       valid: false,
       touched: false,
       required: true
@@ -68,8 +68,8 @@ class Landing extends Component {
                   type="email"
                   id="email"
                   name="email"
-                  className={email.touched && !email.valid ? "invalid" : null}
-                  onChange={event => this.inputChangedHandler(event, "email")}
+                  className={email.touched && !email.valid ? 'invalid' : null}
+                  onChange={event => this.inputChangedHandler(event, 'email')}
                 />
                 <label>Email</label>
               </div>
@@ -79,16 +79,16 @@ class Landing extends Component {
                   id="password"
                   name="password"
                   className={
-                    password.touched && !password.valid ? "invalid" : null
+                    password.touched && !password.valid ? 'invalid' : null
                   }
                   onChange={event =>
-                    this.inputChangedHandler(event, "password")
+                    this.inputChangedHandler(event, 'password')
                   }
                 />
                 <label>Password</label>
               </div>
               <p>
-                Forget password?{" "}
+                Forget password?{' '}
                 <a href="" className="grey-text">
                   Reset Password
                 </a>
@@ -101,7 +101,7 @@ class Landing extends Component {
                 style={{ marginTop: 20, marginBottom: 20 }}
               />
               <p className="center-align">
-                No account?{" "}
+                No account?{' '}
                 <a href={ROUTES.REGISTER} className="grey-text">
                   Create account
                 </a>

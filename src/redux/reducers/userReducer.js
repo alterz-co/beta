@@ -1,4 +1,4 @@
-import { SIGN_IN } from "../types/authTypes";
+import { SIGN_IN } from '../types/authTypes';
 
 const initialState = {
   user: null
