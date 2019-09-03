@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class TournamentResultsNav extends Component {
   render(){
@@ -21,8 +21,8 @@ class TournamentResultsNav extends Component {
           <p style={{ marginTop: -10, marginBottom: 10 }}>06</p>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default TournamentResultsNav
+export default TournamentResultsNav;

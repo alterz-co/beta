@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { Container, Header, Form, Button } from 'semantic-ui-react'
-import { API, graphqlOperation } from 'aws-amplify'
-import { updateResult } from '../../../../graphql/mutations'
-import { format } from 'date-fns'
-import OrgNav from '../../OrgNav'
+import React, { Component } from 'react';
+import { Container, Header, Form, Button } from 'semantic-ui-react';
+import { API, graphqlOperation } from 'aws-amplify';
+import { updateResult } from '../../../../graphql/mutations';
+import { format } from 'date-fns';
+import OrgNav from '../../OrgNav';
 
 class OrgTournamentResultsEditForm extends Component {
 
@@ -17,17 +17,17 @@ class OrgTournamentResultsEditForm extends Component {
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
   }
 
 
   onSubmit = async (event, resultId, result) => {
-    event.preventDefault()
-    let date
+    event.preventDefault();
+    let date;
     if(this.state.date){
-      date = format(this.state.date, 'D MMM, YYYY')
+      date = format(this.state.date, 'D MMM, YYYY');
     } else {
-      date = result.date
+      date = result.date;
     }
 
     const input = {
@@ -38,19 +38,19 @@ class OrgTournamentResultsEditForm extends Component {
       score: this.state.score || result.score,
       resultUserId: '',
       resultTournamentId: result.tournament.id
-    }
-    const res = await API.graphql(graphqlOperation(updateResult, { input }))
-    console.log('result', res.data.updateResult)
+    };
+    const res = await API.graphql(graphqlOperation(updateResult, { input }));
+    console.log('result', res.data.updateResult);
     this.setState({
       date: '',
       matchNo: '',
       winner: '',
       score: ''
-    })
+    });
   }
 
   render(){
-    const { resultId, result } = this.props
+    const { resultId, result } = this.props;
 
     return(
       <div>
@@ -102,8 +102,8 @@ class OrgTournamentResultsEditForm extends Component {
           </Form>
         </Container>
       </div>
-    )
+    );
   }
 }
 
-export default OrgTournamentResultsEditForm
+export default OrgTournamentResultsEditForm;

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import HomeNav from './HomeNav'
+import React, { Component } from 'react';
+import HomeNav from './HomeNav';
 
 class Terms extends Component {
   render(){
@@ -89,8 +89,8 @@ class Terms extends Component {
           <HomeNav/>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Terms
+export default Terms;

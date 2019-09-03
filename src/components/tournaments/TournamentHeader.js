@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import LoaderComponent from '../LoaderComponent'
-import TournamentNav from './TournamentNav'
+import React, { Component } from 'react';
+import LoaderComponent from '../LoaderComponent';
+import TournamentNav from './TournamentNav';
 
 class TournamentHeader extends Component {
 
   render(){
-    const { tournament, tournamentId } = this.props
+    const { tournament, tournamentId } = this.props;
 
     if(!tournament){
-      return <LoaderComponent/>
+      return <LoaderComponent/>;
     }
 
     return(
@@ -20,8 +20,8 @@ class TournamentHeader extends Component {
         <p style={{ paddingBottom: 20 }}><a href={tournament.url} className="black-text">Link</a></p>
         <TournamentNav tournamentId={tournamentId}/>
       </div>
-    )
+    );
   }
 }
 
-export default TournamentHeader
+export default TournamentHeader;

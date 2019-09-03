@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { Container, Header, Form, Button } from 'semantic-ui-react'
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
-import { API, graphqlOperation } from 'aws-amplify'
-import { updateUpdate } from '../../../../graphql/mutations'
-import OrgNav from '../../OrgNav'
+import React, { Component } from 'react';
+import { Container, Header, Form, Button } from 'semantic-ui-react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { API, graphqlOperation } from 'aws-amplify';
+import { updateUpdate } from '../../../../graphql/mutations';
+import OrgNav from '../../OrgNav';
 
 class OrgTournamentUpdatesEditForm extends Component {
 
@@ -15,11 +15,11 @@ class OrgTournamentUpdatesEditForm extends Component {
   handleBodyChange = value => {
     this.setState({
       description: value
-    })
+    });
   }
 
   onSubmit = async (event, updateId, update) => {
-    event.preventDefault()
+    event.preventDefault();
     // console.log('Updates edit ', update)
     const input = {
       id: updateId,
@@ -27,16 +27,16 @@ class OrgTournamentUpdatesEditForm extends Component {
       createdAt: update.createdAt,
       updateUserId: '',
       updateTournamentId: update.tournament.id
-    }
-    const result = await API.graphql(graphqlOperation(updateUpdate, { input }))
-    console.log('result', result.data.updateUpdate)
+    };
+    const result = await API.graphql(graphqlOperation(updateUpdate, { input }));
+    console.log('result', result.data.updateUpdate);
     this.setState({
       description: ''
-    })
+    });
   }
 
   render(){
-    const { updateId, update } = this.props
+    const { updateId, update } = this.props;
 
     return(
       <div>
@@ -53,8 +53,8 @@ class OrgTournamentUpdatesEditForm extends Component {
           </Form>
         </Container>
       </div>
-    )
+    );
   }
 }
 
-export default OrgTournamentUpdatesEditForm
+export default OrgTournamentUpdatesEditForm;

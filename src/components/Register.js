@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import * as ROUTES from '../constants/routes'
-import logo from '../logos/landing.svg'
-import { API, graphqlOperation } from 'aws-amplify'
-import { registerUser } from '../graphql/mutations'
+import React, { Component } from 'react';
+import * as ROUTES from '../constants/routes';
+import logo from '../logos/landing.svg';
+import { API, graphqlOperation } from 'aws-amplify';
+import { registerUser } from '../graphql/mutations';
 
 class Register extends Component {
   state = {
@@ -17,43 +17,43 @@ class Register extends Component {
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
   }
 
   isFormValid = () => {
     if(this.isFormEmpty(this.state)){
-      this.setState({ error: 'Fill in all fields with asterisk' })
-      return false
+      this.setState({ error: 'Fill in all fields with asterisk' });
+      return false;
     } else {
-      return true
+      return true;
     }
   }
 
   isFormEmpty = ({ name, gender, email, phone, password }) => {
-    return name === '' || gender === '' || email === '' || phone === '' || password === ''
+    return name === '' || gender === '' || email === '' || phone === '' || password === '';
   }
 
   onSubmit = async event => {
-    event.preventDefault()
+    event.preventDefault();
     if(this.isFormValid()){
-      this.setState({ error: '' })
+      this.setState({ error: '' });
       const newUser = {
         name: this.state.name,
         gender: this.state.gender,
         email: this.state.email,
         phone: this.state.phone,
         password: this.state.password
-      }
+      };
       // console.log(newUser)
-      const result = await API.graphql(graphqlOperation(registerUser, { input: newUser }))
-      console.log('Register', result.data.registerUser)
+      const result = await API.graphql(graphqlOperation(registerUser, { input: newUser }));
+      console.log('Register', result.data.registerUser);
       this.setState({
         name: '',
         gender: '',
         email: '',
         phone: '',
         password: ''
-      })
+      });
     }
   }
 
@@ -133,8 +133,8 @@ class Register extends Component {
           </div>
         </div>
       </section>
-    )
+    );
   }
 }
 
-export default Register
+export default Register;

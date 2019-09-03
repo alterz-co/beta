@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
-import { Grid } from 'semantic-ui-react'
-import { API, graphqlOperation } from 'aws-amplify'
-import { getTournament } from '../../../graphql/queries'
-import OrgNav from '../OrgNav'
-import OrgTournamentNav from './OrgTournamentNav'
-import OrgTournamentUpdates from './updates/OrgTournamentUpdates'
-import OrgTournamentSchedule from './schedule/OrgTournamentSchedule'
-import OrgTournamentResults from './results/OrgTournamentResults'
-import OrgTournamentParticipants from './participants/OrgTournamentParticipants'
-import OrgTournamentAbout from './OrgTournamentAbout'
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import { Grid } from 'semantic-ui-react';
+import { API, graphqlOperation } from 'aws-amplify';
+import { getTournament } from '../../../graphql/queries';
+import OrgNav from '../OrgNav';
+import OrgTournamentNav from './OrgTournamentNav';
+import OrgTournamentUpdates from './updates/OrgTournamentUpdates';
+import OrgTournamentSchedule from './schedule/OrgTournamentSchedule';
+import OrgTournamentResults from './results/OrgTournamentResults';
+import OrgTournamentParticipants from './participants/OrgTournamentParticipants';
+import OrgTournamentAbout from './OrgTournamentAbout';
 
 class OrgTournamentDetails extends Component {
   state = {
@@ -17,21 +17,21 @@ class OrgTournamentDetails extends Component {
   }
 
   componentDidMount() {
-    this.handleGetTournament()
+    this.handleGetTournament();
   }
 
   handleGetTournament = async () => {
     const input = {
       id: this.props.match.params.id
-    }
-    const result = await API.graphql(graphqlOperation(getTournament, input))
-    console.log({ result })
-    this.setState({ tournament: result.data.getTournament })
+    };
+    const result = await API.graphql(graphqlOperation(getTournament, input));
+    console.log({ result });
+    this.setState({ tournament: result.data.getTournament });
   }
 
   render(){
-    const tournamentId = this.props.match.params.id
-    const { tournament } = this.state
+    const tournamentId = this.props.match.params.id;
+    const { tournament } = this.state;
 
     return(
       <div>
@@ -71,8 +71,8 @@ class OrgTournamentDetails extends Component {
           <Grid.Column width={1}></Grid.Column>
         </Grid>
       </div>
-    )
+    );
   }
 }
 
-export default OrgTournamentDetails
+export default OrgTournamentDetails;

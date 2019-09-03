@@ -1,28 +1,28 @@
-import React, { Component } from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import * as ROUTES from './constants/routes'
-import Landing from './components/Landing'
-import Terms from './components/Terms'
-import Footer from './components/Footer'
-import Home from './components/Home'
-import Register from './components/Register'
-import TournamentDetails from './components/tournaments/TournamentDetails'
-import TournamentUpdatesAdd from './components/tournaments/updates/TournamentUpdatesAdd'
-import TournamentResultsAdd from './components/tournaments/results/TournamentResultsAdd'
-import Announcements from './components/Announcements'
-import Profile from './components/Profile'
-import LuckyDraw from './components/LuckyDraw'
-import OrgHome from './components/organisers/OrgHome'
-import OrgProfile from './components/organisers/OrgProfile'
-import OrgTournamentAdd from './components/organisers/tournaments/OrgTournamentAdd'
-import OrgTournamentDetails from './components/organisers/tournaments/OrgTournamentDetails'
-import OrgTournamentEdit from './components/organisers/tournaments/OrgTournamentEdit'
-import OrgTournamentUpdatesEdit from './components/organisers/tournaments/updates/OrgTournamentUpdatesEdit'
-import OrgTournamentResultsEdit from './components/organisers/tournaments/results/OrgTournamentResultsEdit'
-import OrgTournamentScheduleEdit from './components/organisers/tournaments/schedule/OrgTournamentScheduleEdit'
-import OrgTournamentParticipantsEdit from './components/organisers/tournaments/participants/OrgTournamentParticipantsEdit'
-import OrgAnnouncementsAdd from './components/organisers/announcements/OrgAnnouncementsAdd'
-import OrgAnnouncementsEdit from './components/organisers/announcements/OrgAnnouncementsEdit'
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import * as ROUTES from './constants/routes';
+import Landing from './components/Landing';
+import Terms from './components/Terms';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import Register from './components/Register';
+import TournamentDetails from './components/tournaments/TournamentDetails';
+import TournamentUpdatesAdd from './components/tournaments/updates/TournamentUpdatesAdd';
+import TournamentResultsAdd from './components/tournaments/results/TournamentResultsAdd';
+import Announcements from './components/Announcements';
+import Profile from './components/Profile';
+import LuckyDraw from './components/LuckyDraw';
+import OrgHome from './components/organisers/OrgHome';
+import OrgProfile from './components/organisers/OrgProfile';
+import OrgTournamentAdd from './components/organisers/tournaments/OrgTournamentAdd';
+import OrgTournamentDetails from './components/organisers/tournaments/OrgTournamentDetails';
+import OrgTournamentEdit from './components/organisers/tournaments/OrgTournamentEdit';
+import OrgTournamentUpdatesEdit from './components/organisers/tournaments/updates/OrgTournamentUpdatesEdit';
+import OrgTournamentResultsEdit from './components/organisers/tournaments/results/OrgTournamentResultsEdit';
+import OrgTournamentScheduleEdit from './components/organisers/tournaments/schedule/OrgTournamentScheduleEdit';
+import OrgTournamentParticipantsEdit from './components/organisers/tournaments/participants/OrgTournamentParticipantsEdit';
+import OrgAnnouncementsAdd from './components/organisers/announcements/OrgAnnouncementsAdd';
+import OrgAnnouncementsEdit from './components/organisers/announcements/OrgAnnouncementsEdit';
 
 class App extends Component {
   render() {
@@ -57,8 +57,8 @@ class App extends Component {
           <Footer/>
         </div>
       </BrowserRouter>
-    )
+    );
   }
 }
 
-export default App
+export default App;

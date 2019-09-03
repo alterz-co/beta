@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class TournamentUpdatesFooter extends Component {
 
@@ -15,9 +15,9 @@ class TournamentUpdatesFooter extends Component {
           </a>
         </div>
       </div>
-    )
+    );
 
   }
 }
 
-export default TournamentUpdatesFooter
+export default TournamentUpdatesFooter;

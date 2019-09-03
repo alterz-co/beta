@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Container, Header, Form, Button } from 'semantic-ui-react'
-import { API, graphqlOperation } from 'aws-amplify'
-import { updateParticipant } from '../../../../graphql/mutations'
-import OrgNav from '../../OrgNav'
+import React, { Component } from 'react';
+import { Container, Header, Form, Button } from 'semantic-ui-react';
+import { API, graphqlOperation } from 'aws-amplify';
+import { updateParticipant } from '../../../../graphql/mutations';
+import OrgNav from '../../OrgNav';
 
 class OrgTournamentParticipantsEditForm extends Component {
 
@@ -14,28 +14,28 @@ class OrgTournamentParticipantsEditForm extends Component {
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
   }
 
   onSubmit = async (event, participantId, participant) => {
-    event.preventDefault()
+    event.preventDefault();
     const input = {
       id: participantId,
       name: this.state.name || participant.name,
       gender: this.state.gender || participant.gender,
       participantUserId: '867b64d9-5d4a-421e-8af7-9720bd7b20bd',
       participantTournamentId: this.props.tournamentId
-    }
-    const res = await API.graphql(graphqlOperation(updateParticipant, { input }))
-    console.log('participant', res.data.updateParticipant)
+    };
+    const res = await API.graphql(graphqlOperation(updateParticipant, { input }));
+    console.log('participant', res.data.updateParticipant);
     this.setState({
       name: '',
       gender: ''
-    })
+    });
   }
 
   render(){
-    const { participantId, participant } = this.props
+    const { participantId, participant } = this.props;
 
     return(
       <div>
@@ -67,8 +67,8 @@ class OrgTournamentParticipantsEditForm extends Component {
           </Form>
         </Container>
       </div>
-    )
+    );
   }
 }
 
-export default OrgTournamentParticipantsEditForm
+export default OrgTournamentParticipantsEditForm;

@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import Nav from './Nav'
-import TournamentList from './tournaments/TournamentList'
+import React, { Component } from 'react';
+import Nav from './Nav';
+import TournamentList from './tournaments/TournamentList';
 
 class Home extends Component {
 
@@ -20,8 +20,8 @@ class Home extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Home
+export default Home;

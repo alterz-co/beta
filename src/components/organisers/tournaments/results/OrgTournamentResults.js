@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { Container, Divider, Header } from 'semantic-ui-react'
-import OrgTournamentHeader from '../OrgTournamentHeader'
-import OrgTournamentResultsAdd from './OrgTournamentResultsAdd'
-import OrgTournamentResultsList from './OrgTournamentResultsList'
+import React, { Component } from 'react';
+import { Container, Divider, Header } from 'semantic-ui-react';
+import OrgTournamentHeader from '../OrgTournamentHeader';
+import OrgTournamentResultsAdd from './OrgTournamentResultsAdd';
+import OrgTournamentResultsList from './OrgTournamentResultsList';
 
 class OrgTournamentResults extends Component {
   render(){
-    const { tournamentId, tournament } = this.props
+    const { tournamentId, tournament } = this.props;
 
     return(
       <Container>
@@ -16,8 +16,8 @@ class OrgTournamentResults extends Component {
         <OrgTournamentResultsAdd tournamentId={tournamentId}/>
         <OrgTournamentResultsList tournamentId={tournamentId}/>
       </Container>
-    )
+    );
   }
 }
 
-export default OrgTournamentResults
+export default OrgTournamentResults;

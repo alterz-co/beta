@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Grid, Header, Form, Button } from 'semantic-ui-react'
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
-import { format } from 'date-fns'
-import { API, graphqlOperation } from 'aws-amplify'
-import { createAnnouncement } from '../../../graphql/mutations'
-import OrgNav from '../OrgNav'
+import React, { Component } from 'react';
+import { Grid, Header, Form, Button } from 'semantic-ui-react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { format } from 'date-fns';
+import { API, graphqlOperation } from 'aws-amplify';
+import { createAnnouncement } from '../../../graphql/mutations';
+import OrgNav from '../OrgNav';
 
 class OrgAnnouncementsAdd extends Component {
 
@@ -17,30 +17,30 @@ class OrgAnnouncementsAdd extends Component {
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
   }
 
   handleBodyChange = value => {
     this.setState({
       description: value
-    })
+    });
   }
 
   onSubmit = async event => {
-    event.preventDefault()
-    const createdAt = format(Date.now(), 'D MMM YYYY, h:mma')
+    event.preventDefault();
+    const createdAt = format(Date.now(), 'D MMM YYYY, h:mma');
     const newAnnouncement = {
       title: this.state.title,
       description: this.state.description,
       createdAt,
       announcementUserId: ''
-    }
-    const result = await API.graphql(graphqlOperation(createAnnouncement, { input: newAnnouncement }))
-    console.log('result', result.data.createAnnouncement)
+    };
+    const result = await API.graphql(graphqlOperation(createAnnouncement, { input: newAnnouncement }));
+    console.log('result', result.data.createAnnouncement);
     this.setState({
       title: '',
       description: ''
-    })
+    });
   }
 
   render(){
@@ -71,9 +71,9 @@ class OrgAnnouncementsAdd extends Component {
           </Grid.Column>
         </Grid>
       </div>
-    )
+    );
   }
 
 }
 
-export default OrgAnnouncementsAdd
+export default OrgAnnouncementsAdd;

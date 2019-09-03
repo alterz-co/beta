@@ -1,23 +1,23 @@
-import React, { Component } from 'react'
-import { Icon } from 'semantic-ui-react'
-import { graphqlOperation } from 'aws-amplify'
-import { Connect } from 'aws-amplify-react'
-import { listParticipants } from '../../../../graphql/queries'
-import { onCreateParticipant } from '../../../../graphql/subscriptions'
+import React, { Component } from 'react';
+import { Icon } from 'semantic-ui-react';
+import { graphqlOperation } from 'aws-amplify';
+import { Connect } from 'aws-amplify-react';
+import { listParticipants } from '../../../../graphql/queries';
+import { onCreateParticipant } from '../../../../graphql/subscriptions';
 
 class OrgTournamentParticipantsList extends Component {
   render() {
-    const { tournamentId } = this.props
+    const { tournamentId } = this.props;
 
     const onNewParticipant = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery }
+      let updatedQuery = { ...prevQuery };
       const updatedParticipantList = [
         newData.onCreateParticipant,
         ...prevQuery.listParticipants.items
-      ]
-      updatedQuery.listParticipants.items = updatedParticipantList
-      return updatedQuery
-    }
+      ];
+      updatedQuery.listParticipants.items = updatedParticipantList;
+      return updatedQuery;
+    };
 
     return (
       <Connect
@@ -26,8 +26,8 @@ class OrgTournamentParticipantsList extends Component {
         onSubscriptionMsg={onNewParticipant}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listParticipants) return <p>Loading..</p>
+        if(errors.length > 0) return <p>Error</p>;
+        if(loading || !data.listParticipants) return <p>Loading..</p>;
 
         return(
           <div>
@@ -39,15 +39,15 @@ class OrgTournamentParticipantsList extends Component {
                   <Icon name='pencil' />
                 </a>
               </p>
-            )
+            );
           })}
           </div>
-        )
+        );
 
       }}
       </Connect>
-    )
+    );
   }
 }
 
-export default OrgTournamentParticipantsList
+export default OrgTournamentParticipantsList;

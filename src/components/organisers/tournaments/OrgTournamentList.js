@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { Table, Button } from 'semantic-ui-react'
-import { graphqlOperation } from 'aws-amplify'
-import { Connect } from 'aws-amplify-react'
-import { listTournaments } from '../../../graphql/queries'
-import { onCreateTournament } from '../../../graphql/subscriptions'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Table, Button } from 'semantic-ui-react';
+import { graphqlOperation } from 'aws-amplify';
+import { Connect } from 'aws-amplify-react';
+import { listTournaments } from '../../../graphql/queries';
+import { onCreateTournament } from '../../../graphql/subscriptions';
 
 class OrgTournamentList extends Component {
   render() {
     const onNewTournament = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery }
+      let updatedQuery = { ...prevQuery };
       const updatedTournamentList = [
         newData.onCreateTournament,
         ...prevQuery.listTournaments.items
-      ]
-      updatedQuery.listTournaments.items = updatedTournamentList
-      return updatedQuery
-    }
+      ];
+      updatedQuery.listTournaments.items = updatedTournamentList;
+      return updatedQuery;
+    };
 
     return (
       <Connect
@@ -25,8 +25,8 @@ class OrgTournamentList extends Component {
           onSubscriptionMsg={onNewTournament}
         >
         {({ data, loading, errors}) => {
-          if(errors.length > 0) return <p>Error</p>
-          if(loading || !data.listTournaments) return <p>Loading..</p>
+          if(errors.length > 0) return <p>Error</p>;
+          if(loading || !data.listTournaments) return <p>Loading..</p>;
 
           // console.log('listTournaments ', data.listTournaments.items)
           return(
@@ -52,15 +52,15 @@ class OrgTournamentList extends Component {
                        </Button>
                      </Table.Cell>
                    </Table.Row>
-                 )
+                 );
               })}
               </Table.Body>
             </Table>
-          )
+          );
         }}
       </Connect>
-    )
+    );
   }
 }
 
-export default OrgTournamentList
+export default OrgTournamentList;

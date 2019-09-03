@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import { Container } from 'semantic-ui-react'
-import LoaderComponent from '../LoaderComponent'
+import React, { Component } from 'react';
+import { Container } from 'semantic-ui-react';
+import LoaderComponent from '../LoaderComponent';
 
 class TournamentAbout extends Component {
   render(){
-    const { tournament } = this.props
+    const { tournament } = this.props;
     // console.log('tournament ', tournament)
 
     if(!tournament){
-      return <LoaderComponent/>
+      return <LoaderComponent/>;
     }
 
     return(
@@ -20,8 +20,8 @@ class TournamentAbout extends Component {
         >
         </div>
       </Container>
-    )
+    );
   }
 }
 
-export default TournamentAbout
+export default TournamentAbout;

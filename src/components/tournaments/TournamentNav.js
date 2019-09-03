@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class TournamentNav extends Component {
   render(){
-    const { tournamentId } = this.props
+    const { tournamentId } = this.props;
 
     return(
       <div className="row center-align" style={{ borderBottom: '1px solid black' }}>
@@ -24,8 +24,8 @@ class TournamentNav extends Component {
           </a>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default TournamentNav
+export default TournamentNav;

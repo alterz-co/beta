@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
-import { API, graphqlOperation } from 'aws-amplify'
-import { getTournament } from '../../graphql/queries'
-import Nav from '../Nav'
-import TournamentHeader from './TournamentHeader'
-import TournamentUpdates from './updates/TournamentUpdates'
-import TournamentResults from './results/TournamentResults'
-import TournamentSchedule from './schedule/TournamentSchedule'
-import TournamentParticipants from './participants/TournamentParticipants'
-import TournamentAbout from './TournamentAbout'
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import { API, graphqlOperation } from 'aws-amplify';
+import { getTournament } from '../../graphql/queries';
+import Nav from '../Nav';
+import TournamentHeader from './TournamentHeader';
+import TournamentUpdates from './updates/TournamentUpdates';
+import TournamentResults from './results/TournamentResults';
+import TournamentSchedule from './schedule/TournamentSchedule';
+import TournamentParticipants from './participants/TournamentParticipants';
+import TournamentAbout from './TournamentAbout';
 
 class TournamentDetails extends Component {
   state = {
@@ -16,21 +16,21 @@ class TournamentDetails extends Component {
   }
 
   componentDidMount() {
-    this.handleGetTournament()
+    this.handleGetTournament();
   }
 
   handleGetTournament = async () => {
     const input = {
       id: this.props.match.params.id
-    }
-    const result = await API.graphql(graphqlOperation(getTournament, input))
-    console.log({ result })
-    this.setState({ tournament: result.data.getTournament })
+    };
+    const result = await API.graphql(graphqlOperation(getTournament, input));
+    console.log({ result });
+    this.setState({ tournament: result.data.getTournament });
   }
 
   render() {
-    const tournamentId = this.props.match.params.id
-    const { tournament } = this.state
+    const tournamentId = this.props.match.params.id;
+    const { tournament } = this.state;
 
     return (
       <div>
@@ -68,8 +68,8 @@ class TournamentDetails extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default TournamentDetails
+export default TournamentDetails;

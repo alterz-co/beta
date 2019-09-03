@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { API, graphqlOperation } from 'aws-amplify'
-import { getUser } from '../graphql/queries'
-import Nav from './Nav'
+import React, { Component } from 'react';
+import { API, graphqlOperation } from 'aws-amplify';
+import { getUser } from '../graphql/queries';
+import Nav from './Nav';
 
 class Profile extends Component {
 
@@ -10,12 +10,12 @@ class Profile extends Component {
   }
 
   async componentDidMount() {
-    const user = await API.graphql(graphqlOperation(getUser, { id: '867b64d9-5d4a-421e-8af7-9720bd7b20bd' }))
-    this.setState({ user: user.data.getUser })
+    const user = await API.graphql(graphqlOperation(getUser, { id: '867b64d9-5d4a-421e-8af7-9720bd7b20bd' }));
+    this.setState({ user: user.data.getUser });
   }
 
   render() {
-    const { user } = this.state
+    const { user } = this.state;
 
     return (
       <div>
@@ -34,8 +34,8 @@ class Profile extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Profile
+export default Profile;

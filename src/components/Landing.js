@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import * as ROUTES from '../constants/routes'
-import logo from '../logos/landing.svg'
+import React, { Component } from 'react';
+import * as ROUTES from '../constants/routes';
+import logo from '../logos/landing.svg';
 
 class Landing extends Component {
   render() {
@@ -44,8 +44,8 @@ class Landing extends Component {
           </div>
         </div>
       </section>
-    )
+    );
   }
 }
 
-export default Landing
+export default Landing;

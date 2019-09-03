@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Grid, Menu, Header } from 'semantic-ui-react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Grid, Menu, Header } from 'semantic-ui-react';
 
 const OrgTournamentNav = ({ tournamentId }) => {
   return(
@@ -14,7 +14,7 @@ const OrgTournamentNav = ({ tournamentId }) => {
         <Menu.Item as={Link} to={`/organisers/tournament/${tournamentId}/about`}>About</Menu.Item>
       </Menu>
     </Grid.Column>
-  )
-}
+  );
+};
 
-export default OrgTournamentNav
+export default OrgTournamentNav;

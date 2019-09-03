@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import * as ROUTES from '../constants/routes'
+import * as ROUTES from '../constants/routes';
 
 class Nav extends Component {
 
@@ -52,8 +52,8 @@ class Nav extends Component {
           </li>
         </ul>
       </div>
-    )
+    );
   }
 }
 
-export default Nav
+export default Nav;

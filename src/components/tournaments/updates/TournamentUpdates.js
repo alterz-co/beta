@@ -1,24 +1,24 @@
-import React, { Component } from 'react'
-import { graphqlOperation } from 'aws-amplify'
-import { Connect } from 'aws-amplify-react'
-import { listUpdates } from '../../../graphql/queries'
-import { onCreateUpdate } from '../../../graphql/subscriptions'
-import TournamentUpdatesFooter from './TournamentUpdatesFooter'
+import React, { Component } from 'react';
+import { graphqlOperation } from 'aws-amplify';
+import { Connect } from 'aws-amplify-react';
+import { listUpdates } from '../../../graphql/queries';
+import { onCreateUpdate } from '../../../graphql/subscriptions';
+import TournamentUpdatesFooter from './TournamentUpdatesFooter';
 
 class TournamentUpdates extends Component {
 
   render(){
-    const { tournamentId } = this.props
+    const { tournamentId } = this.props;
 
     const onNewUpdate = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery }
+      let updatedQuery = { ...prevQuery };
       const updatedUpdateList = [
         newData.onCreateUpdate,
         ...prevQuery.listUpdates.items
-      ]
-      updatedQuery.listUpdates.items = updatedUpdateList
-      return updatedQuery
-    }
+      ];
+      updatedQuery.listUpdates.items = updatedUpdateList;
+      return updatedQuery;
+    };
 
     return(
       <Connect
@@ -27,8 +27,8 @@ class TournamentUpdates extends Component {
         onSubscriptionMsg={onNewUpdate}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listUpdates) return <p>Loading..</p>
+        if(errors.length > 0) return <p>Error</p>;
+        if(loading || !data.listUpdates) return <p>Loading..</p>;
 
         return(
           <div style={{ marginTop: 10 }}>
@@ -48,18 +48,18 @@ class TournamentUpdates extends Component {
                     </div>
                   </div>
                 </div>
-              )
+              );
             })}
             </div>
             <TournamentUpdatesFooter tournamentId={tournamentId}/>
           </div>
-        )
+        );
 
       }}
       </Connect>
-    )
+    );
 
   }
 }
 
-export default TournamentUpdates
+export default TournamentUpdates;

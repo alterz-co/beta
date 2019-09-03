@@ -1,24 +1,24 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { Icon, Button, Feed } from 'semantic-ui-react'
-import { graphqlOperation } from 'aws-amplify'
-import { Connect } from 'aws-amplify-react'
-import { listUpdates } from '../../../../graphql/queries'
-import { onCreateUpdate } from '../../../../graphql/subscriptions'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Icon, Button, Feed } from 'semantic-ui-react';
+import { graphqlOperation } from 'aws-amplify';
+import { Connect } from 'aws-amplify-react';
+import { listUpdates } from '../../../../graphql/queries';
+import { onCreateUpdate } from '../../../../graphql/subscriptions';
 
 class OrgTournamentUpdatesList extends Component {
   render() {
-    const { tournamentId } = this.props
+    const { tournamentId } = this.props;
 
     const onNewUpdate = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery }
+      let updatedQuery = { ...prevQuery };
       const updatedUpdateList = [
         newData.onCreateUpdate,
         ...prevQuery.listUpdates.items
-      ]
-      updatedQuery.listUpdates.items = updatedUpdateList
-      return updatedQuery
-    }
+      ];
+      updatedQuery.listUpdates.items = updatedUpdateList;
+      return updatedQuery;
+    };
 
     return (
       <Connect
@@ -27,8 +27,8 @@ class OrgTournamentUpdatesList extends Component {
         onSubscriptionMsg={onNewUpdate}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listUpdates) return <p>Loading..</p>
+        if(errors.length > 0) return <p>Error</p>;
+        if(loading || !data.listUpdates) return <p>Loading..</p>;
 
         return(
           <Feed>
@@ -54,15 +54,15 @@ class OrgTournamentUpdatesList extends Component {
                   </Feed.Extra>
                 </Feed.Content>
               </Feed.Event>
-            )
+            );
           })}
           </Feed>
-        )
+        );
 
       }}
       </Connect>
-    )
+    );
   }
 }
 
-export default OrgTournamentUpdatesList
+export default OrgTournamentUpdatesList;

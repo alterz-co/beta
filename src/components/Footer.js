@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import * as ROUTES from '../constants/routes'
+import * as ROUTES from '../constants/routes';
 
 class Footer extends Component {
   render(){
@@ -24,8 +24,8 @@ class Footer extends Component {
           </p>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Footer
+export default Footer;

@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { Container, Header, Form, Button } from 'semantic-ui-react'
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
-import { API, graphqlOperation } from 'aws-amplify'
-import { updateSchedule } from '../../../../graphql/mutations'
-import OrgNav from '../../OrgNav'
+import React, { Component } from 'react';
+import { Container, Header, Form, Button } from 'semantic-ui-react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { API, graphqlOperation } from 'aws-amplify';
+import { updateSchedule } from '../../../../graphql/mutations';
+import OrgNav from '../../OrgNav';
 
 class OrgTournamentScheduleEditForm extends Component {
 
@@ -15,31 +15,31 @@ class OrgTournamentScheduleEditForm extends Component {
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
   }
 
   handleDescriptionChange = value => {
     this.setState({
       description: value
-    })
+    });
   }
 
   onSubmit = async (event, scheduleId, schedule) => {
-    event.preventDefault()
+    event.preventDefault();
     const input = {
       id: scheduleId,
       description: this.state.description || schedule.description,
       scheduleTournamentId: schedule.tournament.id
-    }
-    const result = await API.graphql(graphqlOperation(updateSchedule, { input }))
-    console.log('result', result.data.updateSchedule)
+    };
+    const result = await API.graphql(graphqlOperation(updateSchedule, { input }));
+    console.log('result', result.data.updateSchedule);
     this.setState({
       description: ''
-    })
+    });
   }
 
   render(){
-    const { scheduleId, schedule } = this.props
+    const { scheduleId, schedule } = this.props;
 
     return(
       <div>
@@ -56,8 +56,8 @@ class OrgTournamentScheduleEditForm extends Component {
           </Form>
         </Container>
       </div>
-    )
+    );
   }
 }
 
-export default OrgTournamentScheduleEditForm
+export default OrgTournamentScheduleEditForm;

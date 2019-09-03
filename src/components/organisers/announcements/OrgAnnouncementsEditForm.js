@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { Grid, Header, Form, Button } from 'semantic-ui-react'
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
-import { API, graphqlOperation } from 'aws-amplify'
-import { updateAnnouncement } from '../../../graphql/mutations'
-import OrgNav from '../OrgNav'
+import React, { Component } from 'react';
+import { Grid, Header, Form, Button } from 'semantic-ui-react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { API, graphqlOperation } from 'aws-amplify';
+import { updateAnnouncement } from '../../../graphql/mutations';
+import OrgNav from '../OrgNav';
 
 class OrgAnnouncementsEditForm extends Component {
 
@@ -16,34 +16,34 @@ class OrgAnnouncementsEditForm extends Component {
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
   }
 
   handleBodyChange = value => {
     this.setState({
       description: value
-    })
+    });
   }
 
   onSubmit = async (event, announcementId, announcement) => {
-    event.preventDefault()
+    event.preventDefault();
     // console.log('user ', user)
     const input = {
       id: announcementId,
       title: this.state.title || announcement.title,
       description: this.state.description || announcement.description,
       announcementUserId: ''
-    }
-    const result = await API.graphql(graphqlOperation(updateAnnouncement, { input }))
-    console.log('result', result)
+    };
+    const result = await API.graphql(graphqlOperation(updateAnnouncement, { input }));
+    console.log('result', result);
     this.setState({
       title: '',
       description: ''
-    })
+    });
   }
 
   render(){
-    const { announcementId, announcement } = this.props
+    const { announcementId, announcement } = this.props;
 
     return(
       <div>
@@ -72,9 +72,9 @@ class OrgAnnouncementsEditForm extends Component {
           </Grid.Column>
         </Grid>
       </div>
-    )
+    );
   }
 
 }
 
-export default OrgAnnouncementsEditForm
+export default OrgAnnouncementsEditForm;

@@ -1,23 +1,23 @@
-import React, { Component } from 'react'
-import { Icon } from 'semantic-ui-react'
-import { graphqlOperation } from 'aws-amplify'
-import { Connect } from 'aws-amplify-react'
-import { listResults } from '../../../../graphql/queries'
-import { onCreateResult } from '../../../../graphql/subscriptions'
+import React, { Component } from 'react';
+import { Icon } from 'semantic-ui-react';
+import { graphqlOperation } from 'aws-amplify';
+import { Connect } from 'aws-amplify-react';
+import { listResults } from '../../../../graphql/queries';
+import { onCreateResult } from '../../../../graphql/subscriptions';
 
 class OrgTournamentResultsList extends Component {
   render() {
-    const { tournamentId } = this.props
+    const { tournamentId } = this.props;
 
     const onNewResult = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery }
+      let updatedQuery = { ...prevQuery };
       const updatedResultList = [
         newData.onCreateResult,
         ...prevQuery.listResults.items
-      ]
-      updatedQuery.listResults.items = updatedResultList
-      return updatedQuery
-    }
+      ];
+      updatedQuery.listResults.items = updatedResultList;
+      return updatedQuery;
+    };
 
     return (
       <Connect
@@ -26,8 +26,8 @@ class OrgTournamentResultsList extends Component {
         onSubscriptionMsg={onNewResult}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listResults) return <p>Loading..</p>
+        if(errors.length > 0) return <p>Error</p>;
+        if(loading || !data.listResults) return <p>Loading..</p>;
 
         return(
           <div>
@@ -39,15 +39,15 @@ class OrgTournamentResultsList extends Component {
                   <Icon name='pencil' />
                 </a>
               </p>
-            )
+            );
           })}
           </div>
-        )
+        );
 
       }}
       </Connect>
-    )
+    );
   }
 }
 
-export default OrgTournamentResultsList
+export default OrgTournamentResultsList;

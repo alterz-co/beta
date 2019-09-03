@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import * as ROUTES from '../constants/routes'
+import * as ROUTES from '../constants/routes';
 
 class HomeNav extends Component {
   render(){
@@ -12,8 +12,8 @@ class HomeNav extends Component {
           </a>
         </p>
       </div>
-    )
+    );
   }
 }
 
-export default HomeNav
+export default HomeNav;

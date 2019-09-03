@@ -1,23 +1,23 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { Container, Grid, Header, Icon, Button, Modal } from 'semantic-ui-react'
-import { API, graphqlOperation } from 'aws-amplify'
-import { deleteTournament } from '../../../graphql/mutations'
-import LoaderComponent from '../../LoaderComponent'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Container, Grid, Header, Icon, Button, Modal } from 'semantic-ui-react';
+import { API, graphqlOperation } from 'aws-amplify';
+import { deleteTournament } from '../../../graphql/mutations';
+import LoaderComponent from '../../LoaderComponent';
 
 class OrgTournamentHeader extends Component {
 
   handleDeleteTournament = async (tournamentId) => {
     const input = {
       id: tournamentId
-    }
+    };
     // console.log('Delete Tournament', deleteTournament)
-    const result = await API.graphql(graphqlOperation(deleteTournament, { input }))
-    console.log({result})
+    const result = await API.graphql(graphqlOperation(deleteTournament, { input }));
+    console.log({result});
   }
 
   render(){
-    const { tournamentId, tournament } = this.props
+    const { tournamentId, tournament } = this.props;
 
     if(tournament){
       return(
@@ -60,12 +60,12 @@ class OrgTournamentHeader extends Component {
             </Grid.Column>
           </Grid>
         </Container>
-      )
+      );
     } else {
-      return <LoaderComponent/>
+      return <LoaderComponent/>;
     }
 
   }
 }
 
-export default OrgTournamentHeader
+export default OrgTournamentHeader;

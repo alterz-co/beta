@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { API, graphqlOperation } from 'aws-amplify'
-import { getParticipant } from '../../../../graphql/queries'
-import OrgTournamentParticipantsEditForm from './OrgTournamentParticipantsEditForm'
+import React, { Component } from 'react';
+import { API, graphqlOperation } from 'aws-amplify';
+import { getParticipant } from '../../../../graphql/queries';
+import OrgTournamentParticipantsEditForm from './OrgTournamentParticipantsEditForm';
 
 class OrgTournamentParticipantsEdit extends Component {
   state = {
@@ -9,26 +9,26 @@ class OrgTournamentParticipantsEdit extends Component {
   }
 
   componentDidMount() {
-    this.handleGetParticipant()
+    this.handleGetParticipant();
   }
 
   handleGetParticipant = async () => {
     const input = {
       id: this.props.match.params.id
-    }
-    const participant = await API.graphql(graphqlOperation(getParticipant, input))
-    console.log({ participant })
-    this.setState({ result: participant.data.getParticipant })
+    };
+    const participant = await API.graphql(graphqlOperation(getParticipant, input));
+    console.log({ participant });
+    this.setState({ result: participant.data.getParticipant });
   }
 
   render(){
-    const participantId = this.props.match.params.id
-    const { participant } = this.state
+    const participantId = this.props.match.params.id;
+    const { participant } = this.state;
 
     return(
       <OrgTournamentParticipantsEditForm participantId={participantId} participant={participant} />
-    )
+    );
   }
 }
 
-export default OrgTournamentParticipantsEdit
+export default OrgTournamentParticipantsEdit;

@@ -1,24 +1,24 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { Icon, Segment, Button } from 'semantic-ui-react'
-import { graphqlOperation } from 'aws-amplify'
-import { Connect } from 'aws-amplify-react'
-import { listSchedules } from '../../../../graphql/queries'
-import { onCreateSchedule } from '../../../../graphql/subscriptions'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Icon, Segment, Button } from 'semantic-ui-react';
+import { graphqlOperation } from 'aws-amplify';
+import { Connect } from 'aws-amplify-react';
+import { listSchedules } from '../../../../graphql/queries';
+import { onCreateSchedule } from '../../../../graphql/subscriptions';
 
 class OrgTournamentScheduleList extends Component {
   render() {
-    const { tournamentId } = this.props
+    const { tournamentId } = this.props;
 
     const onNewSchedule = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery }
+      let updatedQuery = { ...prevQuery };
       const updatedScheduleList = [
         newData.onCreateSchedule,
         ...prevQuery.listSchedules.items
-      ]
-      updatedQuery.listSchedules.items = updatedScheduleList
-      return updatedQuery
-    }
+      ];
+      updatedQuery.listSchedules.items = updatedScheduleList;
+      return updatedQuery;
+    };
 
     return (
       <Connect
@@ -27,8 +27,8 @@ class OrgTournamentScheduleList extends Component {
         onSubscriptionMsg={onNewSchedule}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listSchedules) return <p>Loading..</p>
+        if(errors.length > 0) return <p>Error</p>;
+        if(loading || !data.listSchedules) return <p>Loading..</p>;
 
         return(
           <div>
@@ -46,15 +46,15 @@ class OrgTournamentScheduleList extends Component {
                   </div>
                 </Segment>
               </div>
-            )
+            );
           })}
           </div>
-        )
+        );
 
       }}
       </Connect>
-    )
+    );
   }
 }
 
-export default OrgTournamentScheduleList
+export default OrgTournamentScheduleList;

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Dimmer, Loader, Image } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Dimmer, Loader, Image } from 'semantic-ui-react';
 
 class LoaderComponent extends Component {
   render(){
@@ -10,8 +10,8 @@ class LoaderComponent extends Component {
         </Dimmer>
         <Image src='/images/wireframe/short-paragraph.png' />
       </div>
-    )
+    );
   }
 }
 
-export default LoaderComponent
+export default LoaderComponent;

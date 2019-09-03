@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { Container, Form, Button } from 'semantic-ui-react'
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
-import { API, graphqlOperation } from 'aws-amplify'
-import { createSchedule } from '../../../../graphql/mutations'
+import React, { Component } from 'react';
+import { Container, Form, Button } from 'semantic-ui-react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { API, graphqlOperation } from 'aws-amplify';
+import { createSchedule } from '../../../../graphql/mutations';
 
 class OrgTournamentScheduleAdd extends Component {
 
@@ -14,26 +14,26 @@ class OrgTournamentScheduleAdd extends Component {
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
   }
 
   handleDescriptionChange = value => {
     this.setState({
       description: value
-    })
+    });
   }
 
   onSubmit = async event => {
-    event.preventDefault()
+    event.preventDefault();
     const newSchedule = {
       description: this.state.description,
       scheduleTournamentId: this.props.tournamentId
-    }
-    const result = await API.graphql(graphqlOperation(createSchedule, { input: newSchedule }))
-    console.log('result', result.data.createSchedule)
+    };
+    const result = await API.graphql(graphqlOperation(createSchedule, { input: newSchedule }));
+    console.log('result', result.data.createSchedule);
     this.setState({
       description: ''
-    })
+    });
   }
 
   render(){
@@ -48,8 +48,8 @@ class OrgTournamentScheduleAdd extends Component {
           <Button color='black' fluid size='large' style={{ marginTop: '30px' }}>Add Schedule</Button>
         </Form>
       </Container>
-    )
+    );
   }
 }
 
-export default OrgTournamentScheduleAdd
+export default OrgTournamentScheduleAdd;

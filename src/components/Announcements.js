@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import { graphqlOperation } from 'aws-amplify'
-import { Connect } from 'aws-amplify-react'
-import { listAnnouncements } from '../graphql/queries'
-import { onCreateAnnouncement } from '../graphql/subscriptions'
-import Nav from './Nav'
+import React, { Component } from 'react';
+import { graphqlOperation } from 'aws-amplify';
+import { Connect } from 'aws-amplify-react';
+import { listAnnouncements } from '../graphql/queries';
+import { onCreateAnnouncement } from '../graphql/subscriptions';
+import Nav from './Nav';
 
 class Announcements extends Component {
   render() {
 
     const onNewAnnouncement = (prevQuery, newData) => {
-      let updatedQuery = { ...prevQuery }
+      let updatedQuery = { ...prevQuery };
       const updatedAnnouncementList = [
         newData.onCreateAnnouncement,
         ...prevQuery.listAnnouncements.items
-      ]
-      updatedQuery.listAnnouncements.items = updatedAnnouncementList
-      return updatedQuery
-    }
+      ];
+      updatedQuery.listAnnouncements.items = updatedAnnouncementList;
+      return updatedQuery;
+    };
 
     return (
       <Connect
@@ -25,8 +25,8 @@ class Announcements extends Component {
         onSubscriptionMsg={onNewAnnouncement}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listAnnouncements) return <p>Loading..</p>
+        if(errors.length > 0) return <p>Error</p>;
+        if(loading || !data.listAnnouncements) return <p>Loading..</p>;
 
         return(
           <div>
@@ -48,17 +48,17 @@ class Announcements extends Component {
                     >
                     </div>
                   </li>
-                )
+                );
               })}
               </ul>
             </div>
           </div>
-        )
+        );
 
       }}
       </Connect>
-    )
+    );
   }
 }
 
-export default Announcements
+export default Announcements;
