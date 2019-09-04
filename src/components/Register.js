@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as ROUTES from '../constants/routes';
 import logo from '../logos/landing.svg';
-import { API, graphqlOperation } from 'aws-amplify';
+// import { API, graphqlOperation } from 'aws-amplify';
 // import { registerUser } from '../graphql/mutations';
 import { registerUser } from '../redux/actions/userActions';
 import { checkValidity } from '../utils/validators';
@@ -76,9 +76,8 @@ class Register extends Component {
         phone: phone.value,
         password: password.value
       };
-      console.log('newUser', newUser);
       this.props.onRegisterUser(newUser, this.props.history);
-      console.log(newUser)
+      // console.log(newUser);
       // const result = await API.graphql(
       //   graphqlOperation(registerUser, { input: newUser })
       // );

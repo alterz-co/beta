@@ -19,6 +19,7 @@ const AWS = require("aws-sdk");
 var awsServerlessExpressMiddleware = require("aws-serverless-express/middleware");
 var bodyParser = require("body-parser");
 var express = require("express");
+const bcrypt = require('bcryptjs');
 
 AWS.config.update({ region: process.env.TABLE_REGION });
 
@@ -65,11 +66,53 @@ const convertUrlType = (param, type) => {
 };
 
 /********************************
- * Find method to verify if user exists. Just returns a salted password.
+ * Login Method
  ********************************/
-app.get(path + `/find/:email`, function(req, res) {
-  const email = req.params.email;
+app.post(path + `/login`, function(req, res) {
+  const { email, password } = req.body;
   let queryParams = {
+    TableName: tableName,
+    FilterExpression: "#email = :emailval",
+    ExpressionAttributeNames: {
+      "#email": "email"
+    },
+    ExpressionAttributeValues: {
+      ":emailval": email
+    }
+  };
+
+  dynamodb.scan(queryParams, async (err, data) => {
+    if (err) {
+      res.statusCode = 500;
+      res.json({ error: "Could not load items: " + err });
+    } else {
+      if (data.Items.length === 0) {
+        res.json({ error: "User does not exist" });
+        return;
+      }
+      const userData = data.Items[0];
+      const compare = await bcrypt.compare(password, userData.password);
+      if (!compare) {
+        res.json({ error: "Invalid password" });
+        return;
+      }
+      return res.json({ success: true, user: userData });
+    }
+  });
+});
+
+// /************************************
+//  * HTTP post method for insert object *
+//  *************************************/
+//
+app.post(path, function(req, res) {
+  if (userIdPresent) {
+    req.body["userId"] =
+      req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
+  }
+
+  const { email } = req.body;
+  const queryParams = {
     TableName: tableName,
     FilterExpression: "#email = :emailval",
     ExpressionAttributeNames: {
@@ -85,35 +128,24 @@ app.get(path + `/find/:email`, function(req, res) {
       res.statusCode = 500;
       res.json({ error: "Could not load items: " + err });
     } else {
-      const items = data.Items.map(dataField => {
-        return { password: dataField.password }; // return just the hash password for further verification
+      if (data.Items.length !== 0) {
+        res.json({ error: "Email already exists" });
+        return;
+      }
+
+      let putItemParams = {
+        TableName: tableName,
+        Item: req.body
+      };
+
+      dynamodb.put(putItemParams, (err, data) => {
+        if (err) {
+          res.statusCode = 500;
+          res.json({ error: err, url: req.url, body: req.body });
+        } else {
+          res.json({ success: true, url: req.url, data: data });
+        }
       });
-      res.json(items);
-    }
-  });
-});
-
-// /************************************
-//  * HTTP post method for insert object *
-//  *************************************/
-//
-app.post(path, function(req, res) {
-  if (userIdPresent) {
-    req.body["userId"] =
-      req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
-  }
-
-  let putItemParams = {
-    TableName: tableName,
-    Item: req.body
-  };
-
-  dynamodb.put(putItemParams, (err, data) => {
-    if (err) {
-      res.statusCode = 500;
-      res.json({ error: err, url: req.url, body: req.body });
-    } else {
-      res.json({ success: true, url: req.url, data: data });
     }
   });
 });
