@@ -1,0 +1,5 @@
+{
+    "tableName": "betausers",
+    "partitionKeyName": "id",
+    "partitionKeyType": "S"
+}

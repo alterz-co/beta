@@ -1,6 +1,12 @@
 const express = require('express');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
+const aws_exports = require('./config/aws-exports');
+const Amplify = require('aws-amplify').default;
+Amplify.configure(aws_exports);
+
+const { API } = Amplify;
+
 const keys = require('./config/keys');
 
 require('./services/passport');
@@ -20,7 +26,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./routes/authRoutes')(app);
+require('./routes/authRoutes')(app, API);
 
 const PORT = process.env.PORT || 5000;
 console.log(`Listening on PORT ${PORT}`);

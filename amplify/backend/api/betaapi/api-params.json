@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/users",
+            "lambdaFunction": "usersfunction",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "betaapi",
+    "apiName": "betaapi",
+    "functionArns": [
+        {
+            "lambdaFunction": "usersfunction"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "beta-ziyidev-20190903224658-authRole",
+        "unAuthRoleName": "beta-ziyidev-20190903224658-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "usersfunction",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "736aeb8a"
+}
