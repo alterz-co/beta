@@ -7,7 +7,6 @@ class LuckyDraw extends Component {
   render() {
     return (
       <div>
-        <Nav/>
         <div className="container">
           <div className="row" style={{ marginTop: 20 }}>
             <div className="col s12 l12">

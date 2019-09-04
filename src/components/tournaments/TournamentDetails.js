@@ -34,7 +34,6 @@ class TournamentDetails extends Component {
 
     return (
       <div>
-        <Nav/>
         <div className="container" style={{ marginTop: 40 }}>
           <TournamentHeader tournament={tournament} tournamentId={tournamentId}/>
           <div className="row">

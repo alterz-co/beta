@@ -9,7 +9,7 @@ const { API } = Amplify;
 
 const keys = require('./config/keys');
 
-require('./services/passport');
+require('./services/passport')(API);
 
 const bodyParser = require('body-parser');
 

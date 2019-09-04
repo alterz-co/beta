@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import * as ROUTES from '../constants/routes';
 import logo from '../logos/landing.svg';
 // import { API, graphqlOperation } from 'aws-amplify';
@@ -108,8 +109,11 @@ class Register extends Component {
   };
 
   render() {
+    const { user } = this.props;
     const { name, gender, email, phone, password } = this.state;
-    return (
+    return user ? (
+      <Redirect to="/home" />
+    ) : (
       <section className="section container">
         <div className="row">
           <img

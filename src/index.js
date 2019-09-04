@@ -13,7 +13,6 @@ import aws_exports from './aws-exports';
 
 Amplify.configure(aws_exports);
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
-
 ReactDOM.render(
   <Provider store={store}>
     <App />

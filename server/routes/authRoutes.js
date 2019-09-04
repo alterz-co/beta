@@ -1,23 +1,10 @@
+const passport = require('passport');
 const uuid = require('uuidv4').default;
 const apiName = 'betaapi';
-const path = '/users';
 
 module.exports = (app, amplifyApi) => {
-  app.post('/api/user/login', async (req, res) => {
-    try {
-      const postData = {
-        body: req.body,
-        headers: {}
-      };
-      const results = await amplifyApi.post(apiName, `${path}/login`, postData);
-      if (results.error) {
-        res.status(200).json({ error: results.error });
-        return;
-      }
-      res.status(200).json(results);
-    } catch (err) {
-      res.status(200).send({ error: { err } });
-    }
+  app.post('/api/user/login', passport.authenticate('local'), (req, res) => {
+    res.status(200).json(req.user);
   });
 
   app.post('/api/user/register', async (req, res) => {
@@ -36,4 +23,15 @@ module.exports = (app, amplifyApi) => {
       res.status(200).send({ error: { err } });
     }
   });
+
+  app.get('/api/user/current_user', (req, res) => {
+    console.log('req user', req.user);
+    res.send(req.user);
+  });
+
+  app.get('/api/user/logout', (req, res) => {
+    req.logout();
+    res.status(200).json({ success: true });
+  });
+
 };

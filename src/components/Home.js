@@ -7,7 +7,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Nav/>
         <div className="container" style={{ marginTop: 20 }}>
           <div className="row">
             <div className="col s12 l12">

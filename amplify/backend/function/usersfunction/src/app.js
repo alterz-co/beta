@@ -19,7 +19,7 @@ const AWS = require("aws-sdk");
 var awsServerlessExpressMiddleware = require("aws-serverless-express/middleware");
 var bodyParser = require("body-parser");
 var express = require("express");
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 
 AWS.config.update({ region: process.env.TABLE_REGION });
 
@@ -65,9 +65,6 @@ const convertUrlType = (param, type) => {
   }
 };
 
-/********************************
- * Login Method
- ********************************/
 app.post(path + `/login`, function(req, res) {
   const { email, password } = req.body;
   let queryParams = {
@@ -96,21 +93,13 @@ app.post(path + `/login`, function(req, res) {
         res.json({ error: "Invalid password" });
         return;
       }
+      delete userData.password;
       return res.json({ success: true, user: userData });
     }
   });
 });
 
-// /************************************
-//  * HTTP post method for insert object *
-//  *************************************/
-//
 app.post(path, function(req, res) {
-  if (userIdPresent) {
-    req.body["userId"] =
-      req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
-  }
-
   const { email } = req.body;
   const queryParams = {
     TableName: tableName,
@@ -141,141 +130,47 @@ app.post(path, function(req, res) {
       dynamodb.put(putItemParams, (err, data) => {
         if (err) {
           res.statusCode = 500;
-          res.json({ error: err, url: req.url, body: req.body });
+          res.json({ error: err });
         } else {
-          res.json({ success: true, url: req.url, data: data });
+          res.json({ success: true });
         }
       });
     }
   });
 });
 
-// app.get(path + hashKeyPath, function(req, res) {
-//   var condition = {};
-//   condition[partitionKeyName] = {
-//     ComparisonOperator: "EQ"
-//   };
-//
-//   if (userIdPresent && req.apiGateway) {
-//     condition[partitionKeyName]["AttributeValueList"] = [
-//       req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH
-//     ];
-//   } else {
-//     try {
-//       condition[partitionKeyName]["AttributeValueList"] = [
-//         convertUrlType(req.params[partitionKeyName], partitionKeyType)
-//       ];
-//     } catch (err) {
-//       res.statusCode = 500;
-//       res.json({ error: "Wrong column type " + err });
-//     }
-//   }
-//
-//   let queryParams = {
-//     TableName: tableName,
-//     KeyConditions: condition
-//   };
-//
-//   dynamodb.query(queryParams, (err, data) => {
-//     if (err) {
-//       res.statusCode = 500;
-//       res.json({ error: "Could not load items: " + err });
-//     } else {
-//       res.json(data.Items);
-//     }
-//   });
-// });
-//
-// app.get(path + hashKeyPath, function(req, res) {
-//   var condition = {};
-//   condition[partitionKeyName] = {
-//     ComparisonOperator: "EQ"
-//   };
-//
-//   if (userIdPresent && req.apiGateway) {
-//     condition[partitionKeyName]["AttributeValueList"] = [
-//       req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH
-//     ];
-//   } else {
-//     try {
-//       condition[partitionKeyName]["AttributeValueList"] = [
-//         convertUrlType(req.params[partitionKeyName], partitionKeyType)
-//       ];
-//     } catch (err) {
-//       res.statusCode = 500;
-//       res.json({ error: "Wrong column type " + err });
-//     }
-//   }
-//
-//   let queryParams = {
-//     TableName: tableName,
-//     KeyConditions: condition
-//   };
-//
-//   dynamodb.query(queryParams, (err, data) => {
-//     if (err) {
-//       res.statusCode = 500;
-//       res.json({ error: "Could not load items: " + err });
-//     } else {
-//       res.json(data.Items);
-//     }
-//   });
-// });
-//
-// /*****************************************
-//  * HTTP Get method for get single object *
-//  *****************************************/
-//
-// app.get(path + "/object" + hashKeyPath + sortKeyPath, function(req, res) {
-//   var params = {};
-//   if (userIdPresent && req.apiGateway) {
-//     params[partitionKeyName] =
-//       req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
-//   } else {
-//     params[partitionKeyName] = req.params[partitionKeyName];
-//     try {
-//       params[partitionKeyName] = convertUrlType(
-//         req.params[partitionKeyName],
-//         partitionKeyType
-//       );
-//     } catch (err) {
-//       res.statusCode = 500;
-//       res.json({ error: "Wrong column type " + err });
-//     }
-//   }
-//   if (hasSortKey) {
-//     try {
-//       params[sortKeyName] = convertUrlType(
-//         req.params[sortKeyName],
-//         sortKeyType
-//       );
-//     } catch (err) {
-//       res.statusCode = 500;
-//       res.json({ error: "Wrong column type " + err });
-//     }
-//   }
-//
-//   let getItemParams = {
-//     TableName: tableName,
-//     Key: params
-//   };
-//
-//   dynamodb.get(getItemParams, (err, data) => {
-//     if (err) {
-//       res.statusCode = 500;
-//       res.json({ error: "Could not load items: " + err.message });
-//     } else {
-//       if (data.Item) {
-//         res.json(data.Item);
-//       } else {
-//         res.json(data);
-//       }
-//     }
-//   });
-// });
-//
+app.get(path + hashKeyPath, function(req, res) {
+  const id = req.params.id;
+
+  let queryParams = {
+    TableName: tableName,
+    KeyConditionExpression: "#id = :idval",
+    ExpressionAttributeNames: {
+      "#id": "id"
+    },
+    ExpressionAttributeValues: {
+      ":idval": id
+    }
+  };
+
+  dynamodb.query(queryParams, (err, data) => {
+    if (err) {
+      res.statusCode = 500;
+      res.json({ error: "Could not load items: " + err });
+    } else {
+      if (data.Items.length === 0) {
+        res.json({ error: "User not found" });
+        return;
+      }
+      const userData = data.Items[0];
+      delete userData.password;
+      res.json(userData);
+    }
+  });
+});
+
 // /************************************
-//  * HTTP put method for insert object *
+//  * HTTP put method for update object *
 //  *************************************/
 //
 // app.put(path, function(req, res) {

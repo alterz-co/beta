@@ -23,8 +23,8 @@ class TournamentList extends Component {
         onSubscriptionMsg={onNewTournament}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>;
-        if(loading || !data.listTournaments) return <p>Loading..</p>;
+        if(errors && errors.length > 0) return <p>Error</p>;
+        if(loading || !data || !data.listTournaments) return <p>Loading..</p>;
 
         // console.log('listTournaments ', data.listTournaments.items)
         return(

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import * as ROUTES from '../constants/routes';
 import { loginUser } from '../redux/actions/userActions';
 import { checkValidity } from '../utils/validators';
@@ -51,8 +52,11 @@ class Landing extends Component {
   };
 
   render() {
+    const { user } = this.props;
     const { email, password } = this.state;
-    return (
+    return user ? (
+      <Redirect to="/home" />
+    ) : (
       <section className="section container">
         <div className="row">
           <img
@@ -114,11 +118,9 @@ class Landing extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.user.user
-  };
-};
+const mapStateToProps = state => ({
+  user: state.user.user
+});
 
 const mapDispatchToProps = dispatch => {
   return {
