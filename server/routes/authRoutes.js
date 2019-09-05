@@ -20,12 +20,11 @@ module.exports = (app, amplifyApi) => {
       }
       res.status(200).json({ success: true });
     } catch (err) {
-      res.status(200).send({ error: { err } });
+      res.status(500).send({ error: { err } });
     }
   });
 
   app.get('/api/user/current_user', (req, res) => {
-    console.log('req user', req.user);
     res.send(req.user);
   });
 

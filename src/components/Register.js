@@ -109,7 +109,7 @@ class Register extends Component {
   };
 
   render() {
-    const { user } = this.props;
+    const { user, isLoading, error } = this.props;
     const { name, gender, email, phone, password } = this.state;
     return user ? (
       <Redirect to="/home" />
@@ -123,8 +123,8 @@ class Register extends Component {
             style={{ height: 200 }}
           />
           <div className="col s12 l12">
-            {this.state.error && (
-              <p className="red-text center-align">{this.state.error}</p>
+            {error && (
+              <p className="red-text center-align">{error}</p>
             )}
             <form
               style={{ paddingLeft: 50, paddingRight: 50 }}
@@ -215,9 +215,9 @@ class Register extends Component {
                 <label>Password *</label>
               </div>
               <input
-                disabled={!this.isFormValid()}
+                disabled={isLoading || !this.isFormValid()}
                 type="submit"
-                value="Create Account"
+                value={ isLoading ? 'Registering...' : 'Create Account' }
                 className="btn-large col s12 m12 l12 black white-text"
                 style={{ marginTop: 20, marginBottom: 20 }}
               />
@@ -237,7 +237,9 @@ class Register extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user.user
+    user: state.user.user,
+    isLoading: state.ui.uiIsLoading,
+    error: state.ui.error
   };
 };
 

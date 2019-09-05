@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { API, graphqlOperation } from 'aws-amplify';
-import { getTournament } from '../../graphql/queries';
-import Nav from '../Nav';
+import { getTournament } from '../../graphql/queries'
 import TournamentHeader from './TournamentHeader';
 import TournamentUpdates from './updates/TournamentUpdates';
 import TournamentResults from './results/TournamentResults';

@@ -37,7 +37,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          {this.props.user ? <Nav /> : null}
+          { this.props.user ? <Nav /> : null }
           <div style={{ marginBottom: 40 }}>
             <Switch>
               <Route exact path={ROUTES.LANDING} component={Landing} />

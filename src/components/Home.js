@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
 import TournamentList from './tournaments/TournamentList';
 
 class Home extends Component {

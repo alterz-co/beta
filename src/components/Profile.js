@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import { getUser } from '../graphql/queries';
-import Nav from './Nav';
 import { logoutUser } from '../redux/actions/userActions';
 import { connect } from 'react-redux';
 

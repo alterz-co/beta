@@ -52,7 +52,8 @@ class Landing extends Component {
   };
 
   render() {
-    const { user } = this.props;
+    const { user, isLoading, error } = this.props;
+    console.log('isLoading', isLoading);
     const { email, password } = this.state;
     return user ? (
       <Redirect to="/home" />
@@ -66,6 +67,9 @@ class Landing extends Component {
             style={{ height: 200 }}
           />
           <div className="col s12 l12">
+            {error && (
+                <p className="red-text center-align">{error}</p>
+            )}
             <form style={{ padding: 50 }} onSubmit={this.handleSubmit}>
               <div className="input-field">
                 <input
@@ -99,9 +103,9 @@ class Landing extends Component {
               </p>
               <input
                 type="submit"
-                value="Sign In"
+                value={isLoading ? 'Signing In...' : 'Sign In'}
                 className="btn-large col s12 m12 l12 black white-text"
-                disabled={!this.isFormValid()}
+                disabled={isLoading || !this.isFormValid()}
                 style={{ marginTop: 20, marginBottom: 20 }}
               />
               <p className="center-align">
@@ -119,7 +123,9 @@ class Landing extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user.user
+  user: state.user.user,
+  isLoading: state.ui.uiIsLoading,
+  error: state.ui.error
 });
 
 const mapDispatchToProps = dispatch => {
