@@ -6,7 +6,7 @@ SG Tennis Beta v1
 - [Dev Setup](#dev-setup) – Getting the project running on your local machine
 - [Miscellaneous](#miscellaneous) – Other important notes
 
-SG Tennis Beta v1 and developed and tested on macOS.<br>
+SG Tennis Beta v1 is developed and tested on macOS.<br>
 If something doesn’t work, please [file an issue](https://github.com/alterz-co/beta/issues).<br>
 
 ### Get Started Immediately
@@ -39,7 +39,7 @@ amplify push
 ```
 `amplify status` displays the amplify updates to deploy to your AWS backend. `amplify push` updates the backend
 with the lambda, apis, storage and other aws meta information in this repository. 
-Ensure your have run npm install in each of the lambda function express directories prior to push. See Step 3.
+Ensure your have run npm install in each of the lambda function express directories prior to push. See [Dev Setup](#dev-setup).
 
 ## Dev Setup
 
