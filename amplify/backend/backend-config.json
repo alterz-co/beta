@@ -38,11 +38,5 @@
 				}
 			]
 		}
-	},
-	"storage": {
-		"betaStorage": {
-			"service": "DynamoDB",
-			"providerPlugin": "awscloudformation"
-		}
 	}
 }

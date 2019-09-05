@@ -77,7 +77,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "beta-ziyidev-20190903224658-deployment",
-					"S3Key": "amplify-builds/usersfunction-4d6d79564d434a526437-build.zip"
+					"S3Key": "amplify-builds/usersfunction-4e797850396558565975-build.zip"
 				}
 			}
 		},
