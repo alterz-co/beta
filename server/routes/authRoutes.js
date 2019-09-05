@@ -1,5 +1,6 @@
 const passport = require('passport');
 const uuid = require('uuidv4').default;
+const requireLogin = require('../middlewares/requireLogin');
 const apiName = 'betaapi';
 
 module.exports = (app, amplifyApi) => {
