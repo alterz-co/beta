@@ -20,6 +20,32 @@ var awsServerlessExpressMiddleware = require("aws-serverless-express/middleware"
 var bodyParser = require("body-parser");
 var express = require("express");
 const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken');
+
+// var kms = new sdk.KMS({region:process.env.TABLE_REGION});
+// var fs = require('fs');
+
+// step 1: Upload the secret key using
+// `aws kms encrypt --key-id some_key_id --plaintext "secretkey" --query CiphertextBlob --output text | base64 -D > ./encrypted-secret`
+
+// step 2: retrieve encrypted key that was uploaded using step 1
+// var secretPath = './encrypted-secret';
+// var encryptedSecret = fs.readFileSync(secretPath);
+
+// step 3: decrypt encrypted key
+// kms.decrypt(params, function(err, data) {
+//   if (err) console.log(err, err.stack);
+//   else {
+//     var private key = data['Plaintext'].toString();
+//     console.log(decryptedSecret);
+//   }
+// });
+
+// IMPT: this is a dummy encrypted secret to implement the
+// jsonwebtoken flow. See Step 1 to 3 to upload this secret key
+
+// Other useful resources: https://medium.com/@agungsantoso/how-to-store-secret-key-in-aws-lambda-6446847dceb9
+const dangerousDummySecretKey = "dangerousDummySecretKey";
 
 AWS.config.update({ region: process.env.TABLE_REGION });
 
@@ -94,7 +120,10 @@ app.post(path + `/login`, function(req, res) {
         return;
       }
       delete userData.password;
-      return res.json({ success: true, user: userData });
+      // Replace dangerousDummySecretKey with your actual secret key
+      // see above for how to store this secret key in aws lambda functions
+      const token = jwt.sign({ _id: userData._id }, dangerousDummySecretKey);
+      return res.json({ success: true, user: userData, token });
     }
   });
 });
@@ -141,6 +170,13 @@ app.post(path, function(req, res) {
 
 app.get(path + hashKeyPath, function(req, res) {
   const id = req.params.id;
+  const token = req.apiGateway.event.queryStringParameters.token;
+  if (!token) return res.status(401).json({ error: "Unauthorized access" });
+  try {
+    jwt.verify(token, dangerousDummySecretKey);
+  } catch(err) {
+    return res.status(401).json({ error: "Unauthorized access" });
+  }
 
   let queryParams = {
     TableName: tableName,
