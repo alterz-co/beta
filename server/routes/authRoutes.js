@@ -13,9 +13,7 @@ module.exports = (app, amplifyApi) => {
         body: { id: `user_${uuid()}`, ...req.body },
         headers: {}
       };
-      console.log('registration', postData);
       const results = await amplifyApi.post(apiName, '/users', postData);
-      console.log('registration results', results);
       if (results.error) {
         res.status(200).json({ error: results.error });
         return;
