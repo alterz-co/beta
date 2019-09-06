@@ -24,10 +24,11 @@ In your project root, run these commands.
 ```sh
 npm install -g @aws-amplify/cli
 amplify configure
+amplify init
 ```
 
 Follow the instructions, enter your AWS console credentials and select an existing environment or configure a new environment.
-Contact the administrators of this project to obtain the AWS credentials. 
+If you wish to use an existing environment, contact the administrators of this project to obtain the AWS credentials. 
 
 Step 2:
 
@@ -40,6 +41,11 @@ amplify push
 `amplify status` displays the amplify updates to deploy to your AWS backend. `amplify push` updates the backend
 with the lambda, apis, storage and other aws meta information in this repository. 
 Ensure your have run npm install in each of the lambda function express directories prior to push. See [Dev Setup](#dev-setup).
+After you have run `amplify push`,copy the just the json contents of `src\aws-exports.js` and paste it into `server\config\aws-exports.js`.
+Just the json contents, do not modify the `module.exports{}` declaration. 
+
+If you wish to use an existing an existing table in your `dynamodb`, ensure that the `tableName` in your 
+lambda function matches your existing tables. 
 
 ## Dev Setup
 
