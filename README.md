@@ -40,7 +40,6 @@ amplify push
 ```
 `amplify status` displays the amplify updates to deploy to your AWS backend. `amplify push` updates the backend
 with the lambda, apis, storage and other aws meta information in this repository. 
-Ensure your have run npm install in each of the lambda function express directories prior to push. See [Dev Setup](#dev-setup).
 After you have run `amplify push`,copy the just the json contents of `src\aws-exports.js` and paste it into `server\config\aws-exports.js`.
 Just the json contents, do not modify the `module.exports{}` declaration. 
 
