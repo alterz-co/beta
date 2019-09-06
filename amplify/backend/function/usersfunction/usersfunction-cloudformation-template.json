@@ -76,7 +76,7 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "beta-ziyidev-20190903224658-deployment",
+					"S3Bucket": "beta-dev-20190823204559-deployment",
 					"S3Key": "amplify-builds/usersfunction-5862562b34385630634e-build.zip"
 				}
 			}
