@@ -30,7 +30,6 @@ class Announcements extends Component {
 
         return(
           <div>
-            <Nav/>
             <div className="container">
               <p style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 20, marginTop: 40 }}>
                 <span role="img" aria-label="loud-hailer" style={{ paddingLeft: 10, paddingRight: 20 }}>📢</span>

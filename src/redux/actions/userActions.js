@@ -47,6 +47,9 @@ export const registerUser = (userData, history) => {
       const { email, password } = userData;
       const hash = await bcrypt.hash(password, 10);
       userData.password = hash;
+      userData.__typename = 'User';
+      userData.createdAt = new Date().toISOString();
+      userData.updatedAt = new Date().toISOString();
       const res = await axios.post(`${urlPrefix}/register`, userData);
       dispatch(uiStopLoading());
       if (res.data.error) {

@@ -34,7 +34,7 @@ class Nav extends Component {
               Alterz
             </a>
             {/*<a href="" className="sidenav-trigger" data-target="mobile-links"/>*/}
-            <a href="#" onClick={this.toggleSideBar}>
+            <a href="#" className="sidenav-trigger" onClick={this.toggleSideBar}>
               <i className="material-icons black-text">menu</i>
             </a>
             <ul className="right hide-on-med-and-down">
