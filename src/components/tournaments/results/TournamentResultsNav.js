@@ -21,7 +21,7 @@ class TournamentResultsNav extends Component {
           <p style={{ marginTop: -10, marginBottom: 10 }}>06</p>
         </div>
       </div>
-    )
+    );
   }
 }
 

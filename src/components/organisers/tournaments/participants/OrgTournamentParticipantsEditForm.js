@@ -25,9 +25,9 @@ class OrgTournamentParticipantsEditForm extends Component {
       gender: this.state.gender || participant.gender,
       participantUserId: '867b64d9-5d4a-421e-8af7-9720bd7b20bd',
       participantTournamentId: this.props.tournamentId
-    }
-    const res = await API.graphql(graphqlOperation(updateParticipant, { input }))
-    console.log('participant', res.data.updateParticipant)
+    };
+    const res = await API.graphql(graphqlOperation(updateParticipant, { input }));
+    console.log('participant', res.data.updateParticipant);
     this.setState({
       name: '',
       gender: ''
@@ -67,7 +67,7 @@ class OrgTournamentParticipantsEditForm extends Component {
           </Form>
         </Container>
       </div>
-    )
+    );
   }
 }
 

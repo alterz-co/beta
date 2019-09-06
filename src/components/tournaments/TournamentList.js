@@ -11,10 +11,10 @@ class TournamentList extends Component {
       const updatedTournamentList = [
         newData.onCreateTournament,
         ...prevQuery.listTournaments.items
-      ]
+      ];
       updatedQuery.listTournaments.items = updatedTournamentList;
       return updatedQuery;
-    }
+    };
 
     return (
       <Connect
@@ -23,8 +23,8 @@ class TournamentList extends Component {
         onSubscriptionMsg={onNewTournament}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listTournaments) return <p>Loading..</p>
+        if(errors && errors.length > 0) return <p>Error</p>;
+        if(loading || !data || !data.listTournaments) return <p>Loading..</p>;
 
         // console.log('listTournaments ', data.listTournaments.items)
         return(
@@ -45,7 +45,7 @@ class TournamentList extends Component {
             </div>
           ))}
           </div>
-        )
+        );
       }}
       </Connect>
     );

@@ -15,10 +15,10 @@ class TournamentUpdates extends Component {
       const updatedUpdateList = [
         newData.onCreateUpdate,
         ...prevQuery.listUpdates.items
-      ]
+      ];
       updatedQuery.listUpdates.items = updatedUpdateList;
       return updatedQuery;
-    }
+    };
 
     return(
       <Connect
@@ -27,8 +27,8 @@ class TournamentUpdates extends Component {
         onSubscriptionMsg={onNewUpdate}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listUpdates) return <p>Loading..</p>
+        if(errors.length > 0) return <p>Error</p>;
+        if(loading || !data.listUpdates) return <p>Loading..</p>;
 
         return(
           <div style={{ marginTop: 10 }}>
@@ -48,16 +48,16 @@ class TournamentUpdates extends Component {
                     </div>
                   </div>
                 </div>
-              )
+              );
             })}
             </div>
             <TournamentUpdatesFooter tournamentId={tournamentId}/>
           </div>
-        )
+        );
 
       }}
       </Connect>
-    )
+    );
 
   }
 }

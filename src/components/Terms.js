@@ -89,7 +89,7 @@ class Terms extends Component {
           <HomeNav/>
         </div>
       </div>
-    )
+    );
   }
 }
 

@@ -14,7 +14,7 @@ const OrgTournamentNav = ({ tournamentId }) => {
         <Menu.Item as={Link} to={`/organisers/tournament/${tournamentId}/about`}>About</Menu.Item>
       </Menu>
     </Grid.Column>
-  )
-}
+  );
+};
 
 export default OrgTournamentNav;

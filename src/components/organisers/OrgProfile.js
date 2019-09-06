@@ -6,12 +6,12 @@ import OrgNav from './OrgNav';
 class Profile extends Component {
 
   state = {
-    user: ""
+    user: ''
   }
 
   async componentDidMount() {
-    const user = await API.graphql(graphqlOperation(getUser, { id: '08baa991-ee93-4563-9ac1-b6eb657f9527' }))
-    this.setState({ user: user.data.getUser })
+    const user = await API.graphql(graphqlOperation(getUser, { id: '08baa991-ee93-4563-9ac1-b6eb657f9527' }));
+    this.setState({ user: user.data.getUser });
   }
 
   render() {

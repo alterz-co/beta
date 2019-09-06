@@ -14,10 +14,10 @@ class OrgAnnouncements extends Component {
       const updatedAnnouncementList = [
         newData.onCreateAnnouncement,
         ...prevQuery.listAnnouncements.items
-      ]
+      ];
       updatedQuery.listAnnouncements.items = updatedAnnouncementList;
       return updatedQuery;
-    }
+    };
 
     return (
       <Container>
@@ -30,8 +30,8 @@ class OrgAnnouncements extends Component {
           onSubscriptionMsg={onNewAnnouncement}
         >
         {({ data, loading, errors}) => {
-          if(errors.length > 0) return <p>Error</p>
-          if(loading || !data.listAnnouncements) return <p>Loading..</p>
+          if(errors.length > 0) return <p>Error</p>;
+          if(loading || !data.listAnnouncements) return <p>Loading..</p>;
 
           return(
             <Feed>
@@ -55,10 +55,10 @@ class OrgAnnouncements extends Component {
                     </Feed.Extra>
                   </Feed.Content>
                 </Feed.Event>
-              )
+              );
             })}
             </Feed>
-          )
+          );
 
         }}
         </Connect>

@@ -24,7 +24,7 @@ class TournamentNav extends Component {
           </a>
         </div>
       </div>
-    )
+    );
   }
 }
 

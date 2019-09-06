@@ -33,9 +33,9 @@ class OrgAnnouncementsEditForm extends Component {
       title: this.state.title || announcement.title,
       description: this.state.description || announcement.description,
       announcementUserId: ''
-    }
-    const result = await API.graphql(graphqlOperation(updateAnnouncement, { input }))
-    console.log('result', result)
+    };
+    const result = await API.graphql(graphqlOperation(updateAnnouncement, { input }));
+    console.log('result', result);
     this.setState({
       title: '',
       description: ''
@@ -72,7 +72,7 @@ class OrgAnnouncementsEditForm extends Component {
           </Grid.Column>
         </Grid>
       </div>
-    )
+    );
   }
 
 }

@@ -14,10 +14,10 @@ class OrgTournamentParticipantsList extends Component {
       const updatedParticipantList = [
         newData.onCreateParticipant,
         ...prevQuery.listParticipants.items
-      ]
+      ];
       updatedQuery.listParticipants.items = updatedParticipantList;
       return updatedQuery;
-    }
+    };
 
     return (
       <Connect
@@ -26,8 +26,8 @@ class OrgTournamentParticipantsList extends Component {
         onSubscriptionMsg={onNewParticipant}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listParticipants) return <p>Loading..</p>
+        if(errors.length > 0) return <p>Error</p>;
+        if(loading || !data.listParticipants) return <p>Loading..</p>;
 
         return(
           <div>
@@ -39,10 +39,10 @@ class OrgTournamentParticipantsList extends Component {
                   <Icon name='pencil' />
                 </a>
               </p>
-            )
+            );
           })}
           </div>
-        )
+        );
 
       }}
       </Connect>

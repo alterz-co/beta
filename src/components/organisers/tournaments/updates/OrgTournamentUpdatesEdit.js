@@ -16,10 +16,10 @@ class OrgTournamentUpdatesEdit extends Component {
   handleGetUpdate = async () => {
     const input = {
       id: this.props.match.params.id
-    }
-    const result = await API.graphql(graphqlOperation(getUpdate, input))
-    console.log({ result })
-    this.setState({ update: result.data.getUpdate })
+    };
+    const result = await API.graphql(graphqlOperation(getUpdate, input));
+    console.log({ result });
+    this.setState({ update: result.data.getUpdate });
   }
 
   render(){
@@ -27,12 +27,12 @@ class OrgTournamentUpdatesEdit extends Component {
     const { update } = this.state;
 
     if(!update){
-      return <LoaderComponent/>
+      return <LoaderComponent/>;
     }
 
     return(
       <OrgTournamentUpdatesEditForm updateId={updateId} update={update} />
-    )
+    );
   }
 }
 

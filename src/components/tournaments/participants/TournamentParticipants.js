@@ -13,10 +13,10 @@ class TournamentParticipants extends Component {
       const updatedParticipantList = [
         newData.onCreateParticipant,
         ...prevQuery.listParticipants.items
-      ]
+      ];
       updatedQuery.listParticipants.items = updatedParticipantList;
       return updatedQuery;
-    }
+    };
 
     return (
       <Connect
@@ -25,8 +25,8 @@ class TournamentParticipants extends Component {
         onSubscriptionMsg={onNewParticipant}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listParticipants) return <p>Loading..</p>
+        if(errors.length > 0) return <p>Error</p>;
+        if(loading || !data.listParticipants) return <p>Loading..</p>;
 
         return(
           <div>
@@ -35,10 +35,10 @@ class TournamentParticipants extends Component {
               <p key={participant.id} className="center-align" style={{ marginTop: 50 }}>
                 {participant.name}, {participant.gender}
               </p>
-            )
+            );
           })}
           </div>
-        )
+        );
 
       }}
       </Connect>

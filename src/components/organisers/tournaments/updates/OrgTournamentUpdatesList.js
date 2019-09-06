@@ -15,10 +15,10 @@ class OrgTournamentUpdatesList extends Component {
       const updatedUpdateList = [
         newData.onCreateUpdate,
         ...prevQuery.listUpdates.items
-      ]
+      ];
       updatedQuery.listUpdates.items = updatedUpdateList;
       return updatedQuery;
-    }
+    };
 
     return (
       <Connect
@@ -27,8 +27,8 @@ class OrgTournamentUpdatesList extends Component {
         onSubscriptionMsg={onNewUpdate}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listUpdates) return <p>Loading..</p>
+        if(errors.length > 0) return <p>Error</p>;
+        if(loading || !data.listUpdates) return <p>Loading..</p>;
 
         return(
           <Feed>
@@ -54,10 +54,10 @@ class OrgTournamentUpdatesList extends Component {
                   </Feed.Extra>
                 </Feed.Content>
               </Feed.Event>
-            )
+            );
           })}
           </Feed>
-        )
+        );
 
       }}
       </Connect>

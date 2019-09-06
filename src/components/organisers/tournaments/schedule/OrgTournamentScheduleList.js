@@ -15,10 +15,10 @@ class OrgTournamentScheduleList extends Component {
       const updatedScheduleList = [
         newData.onCreateSchedule,
         ...prevQuery.listSchedules.items
-      ]
+      ];
       updatedQuery.listSchedules.items = updatedScheduleList;
       return updatedQuery;
-    }
+    };
 
     return (
       <Connect
@@ -27,8 +27,8 @@ class OrgTournamentScheduleList extends Component {
         onSubscriptionMsg={onNewSchedule}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listSchedules) return <p>Loading..</p>
+        if(errors.length > 0) return <p>Error</p>;
+        if(loading || !data.listSchedules) return <p>Loading..</p>;
 
         return(
           <div>
@@ -46,10 +46,10 @@ class OrgTournamentScheduleList extends Component {
                   </div>
                 </Segment>
               </div>
-            )
+            );
           })}
           </div>
-        )
+        );
 
       }}
       </Connect>

@@ -29,9 +29,9 @@ class OrgTournamentResultsAdd extends Component {
       score: this.state.score,
       resultUserId: '',
       resultTournamentId: this.props.tournamentId
-    }
-    const result = await API.graphql(graphqlOperation(createResult, { input: newResult }))
-    console.log('result', result.data.createResult)
+    };
+    const result = await API.graphql(graphqlOperation(createResult, { input: newResult }));
+    console.log('result', result.data.createResult);
     this.setState({
       date: '',
       matchNo: '',
@@ -87,7 +87,7 @@ class OrgTournamentResultsAdd extends Component {
           <Button color='black' fluid size='large' style={{ marginTop: '30px' }}>Add Result</Button>
         </Form>
       </Container>
-    )
+    );
   }
 }
 

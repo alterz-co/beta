@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
 import logo from '../logos/sponsor.png';
 
 class LuckyDraw extends Component {
@@ -7,7 +6,6 @@ class LuckyDraw extends Component {
   render() {
     return (
       <div>
-        <Nav/>
         <div className="container">
           <div className="row" style={{ marginTop: 20 }}>
             <div className="col s12 l12">

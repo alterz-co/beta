@@ -15,7 +15,7 @@ class TournamentUpdatesFooter extends Component {
           </a>
         </div>
       </div>
-    )
+    );
 
   }
 }

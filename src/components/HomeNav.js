@@ -12,7 +12,7 @@ class HomeNav extends Component {
           </a>
         </p>
       </div>
-    )
+    );
   }
 }
 

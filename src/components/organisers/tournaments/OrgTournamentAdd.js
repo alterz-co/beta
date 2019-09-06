@@ -55,17 +55,17 @@ class OrgTournamentAdd extends Component {
 
   isDateValid = ({ startDate, endDate, deadline }) => {
     if(!/^[0-9]{2}[-][0-9]{2}[-][0-9]{4}$/i.test(startDate) || !/^[0-9]{2}[-][0-9]{2}[-][0-9]{4}$/i.test(endDate) || !/^[0-9]{2}[-][0-9]{2}[-][0-9]{4}$/i.test(deadline)) {
-      return false
+      return false;
     } else {
-      return true
+      return true;
     }
   }
 
   isTimeValid = ({ startTime, endTime }) => {
     if(!/^((1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))$/i.test(startTime) || !/^((1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))$/i.test(endTime)) {
-      return false
+      return false;
     } else {
-      return true
+      return true;
     }
   }
 
@@ -77,7 +77,7 @@ class OrgTournamentAdd extends Component {
       const startDate = format(this.state.startDate, 'D MMM, YYYY');
       const endDate = format(this.state.endDate, 'D MMM, YYYY');
       const deadline = format(this.state.deadline, 'D MMM, YYYY');
-      const createdAt = format(Date.now(), 'D MMM, YYYY')
+      const createdAt = format(Date.now(), 'D MMM, YYYY');
       const newTournament = {
         title: this.state.title,
         startDate,
@@ -90,10 +90,10 @@ class OrgTournamentAdd extends Component {
         url: this.state.url,
         createdAt,
         tournamentUserId: '08baa991-ee93-4563-9ac1-b6eb657f9527'
-      }
+      };
       // console.log('new Tournament', newTournament)
-      const result = await API.graphql(graphqlOperation(createTournament, { input: newTournament }))
-      console.log('TournamentAdd', result.data.createTournament)
+      const result = await API.graphql(graphqlOperation(createTournament, { input: newTournament }));
+      console.log('TournamentAdd', result.data.createTournament);
       this.setState({
         title: '',
         startDate: '',
@@ -220,7 +220,7 @@ class OrgTournamentAdd extends Component {
           </Grid.Column>
         </Grid>
       </div>
-    )
+    );
   }
 }
 

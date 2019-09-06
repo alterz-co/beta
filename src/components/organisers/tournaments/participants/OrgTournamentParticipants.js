@@ -16,7 +16,7 @@ class OrgTournamentParticipants extends Component {
         <OrgTournamentParticipantsAdd tournamentId={tournamentId}/>
         <OrgTournamentParticipantsList tournamentId={tournamentId}/>
       </Container>
-    )
+    );
   }
 }
 

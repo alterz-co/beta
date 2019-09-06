@@ -27,7 +27,7 @@ class OrgNav extends Component {
           </Menu.Item>
         </Menu.Menu>
       </Menu>
-    )
+    );
   }
 }
 

@@ -10,10 +10,10 @@ class OrgTournamentHeader extends Component {
   handleDeleteTournament = async (tournamentId) => {
     const input = {
       id: tournamentId
-    }
+    };
     // console.log('Delete Tournament', deleteTournament)
-    const result = await API.graphql(graphqlOperation(deleteTournament, { input }))
-    console.log({result})
+    const result = await API.graphql(graphqlOperation(deleteTournament, { input }));
+    console.log({result});
   }
 
   render(){
@@ -60,9 +60,9 @@ class OrgTournamentHeader extends Component {
             </Grid.Column>
           </Grid>
         </Container>
-      )
+      );
     } else {
-      return <LoaderComponent/>
+      return <LoaderComponent/>;
     }
 
   }
