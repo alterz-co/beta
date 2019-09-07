@@ -27,9 +27,9 @@ class OrgTournamentUpdatesEditForm extends Component {
       createdAt: update.createdAt,
       updateUserId: '',
       updateTournamentId: update.tournament.id
-    }
-    const result = await API.graphql(graphqlOperation(updateUpdate, { input }))
-    console.log('result', result.data.updateUpdate)
+    };
+    const result = await API.graphql(graphqlOperation(updateUpdate, { input }));
+    console.log('result', result.data.updateUpdate);
     this.setState({
       description: ''
     });
@@ -53,7 +53,7 @@ class OrgTournamentUpdatesEditForm extends Component {
           </Form>
         </Container>
       </div>
-    )
+    );
   }
 }
 

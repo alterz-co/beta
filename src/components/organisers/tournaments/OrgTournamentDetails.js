@@ -23,10 +23,10 @@ class OrgTournamentDetails extends Component {
   handleGetTournament = async () => {
     const input = {
       id: this.props.match.params.id
-    }
-    const result = await API.graphql(graphqlOperation(getTournament, input))
-    console.log({ result })
-    this.setState({ tournament: result.data.getTournament })
+    };
+    const result = await API.graphql(graphqlOperation(getTournament, input));
+    console.log({ result });
+    this.setState({ tournament: result.data.getTournament });
   }
 
   render(){
@@ -71,7 +71,7 @@ class OrgTournamentDetails extends Component {
           <Grid.Column width={1}></Grid.Column>
         </Grid>
       </div>
-    )
+    );
   }
 }
 

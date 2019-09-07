@@ -8,7 +8,7 @@ class TournamentHeader extends Component {
     const { tournament, tournamentId } = this.props;
 
     if(!tournament){
-      return <LoaderComponent/>
+      return <LoaderComponent/>;
     }
 
     return(
@@ -20,7 +20,7 @@ class TournamentHeader extends Component {
         <p style={{ paddingBottom: 20 }}><a href={tournament.url} className="black-text">Link</a></p>
         <TournamentNav tournamentId={tournamentId}/>
       </div>
-    )
+    );
   }
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import * as ROUTES from './constants/routes';
 import Landing from './components/Landing';
 import Terms from './components/Terms';
@@ -23,42 +24,108 @@ import OrgTournamentScheduleEdit from './components/organisers/tournaments/sched
 import OrgTournamentParticipantsEdit from './components/organisers/tournaments/participants/OrgTournamentParticipantsEdit';
 import OrgAnnouncementsAdd from './components/organisers/announcements/OrgAnnouncementsAdd';
 import OrgAnnouncementsEdit from './components/organisers/announcements/OrgAnnouncementsEdit';
+import { fetchUser } from './redux/actions/userActions';
+import AuthRoute from './components/AuthRoute';
+import Nav from './components/Nav';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.onFetchUser();
+  }
+
   render() {
     return (
       <BrowserRouter>
         <div>
+          { this.props.user ? <Nav /> : null }
           <div style={{ marginBottom: 40 }}>
             <Switch>
               <Route exact path={ROUTES.LANDING} component={Landing} />
+              <Route exact path={ROUTES.REGISTER} component={Register} />
               <Route exact path={ROUTES.TERMS} component={Terms} />
-              <Route exact path={ROUTES.HOME} component={Home}/>
-              <Route exact path={ROUTES.REGISTER} component={Register}/>
-              <Route path={ROUTES.TOURNAMENT_UPDATES_ADD} component={TournamentUpdatesAdd}/>
-              <Route path={ROUTES.TOURNAMENT_RESULTS_ADD} component={TournamentResultsAdd}/>
-              <Route path={ROUTES.TOURNAMENT_DETAILS} component={TournamentDetails}/>
-              <Route path={ROUTES.ANNOUNCEMENTS} component={Announcements}/>
-              <Route exact path={ROUTES.PROFILE} component={Profile}/>
-              <Route exact path={ROUTES.LUCKY_DRAW} component={LuckyDraw}/>
-              <Route exact path={ROUTES.ORGANISERS} component={OrgHome}/>
-              <Route exact path={ROUTES.ORGANISERS_PROFILE} component={OrgProfile}/>
-              <Route exact path={ROUTES.ORGANISERS_TOURNAMENT_ADD} component={OrgTournamentAdd}/>
-              <Route path={ROUTES.ORGANISERS_TOURNAMENT_EDIT} component={OrgTournamentEdit}/>
-              <Route path={ROUTES.ORGANISERS_TOURNAMENT_DETAILS} component={OrgTournamentDetails}/>
-              <Route path={ROUTES.ORGANISERS_UPDATES_EDIT} component={OrgTournamentUpdatesEdit}/>
-              <Route path={ROUTES.ORGANISERS_RESULTS_EDIT} component={OrgTournamentResultsEdit}/>
-              <Route path={ROUTES.ORGANISERS_SCHEDULE_EDIT} component={OrgTournamentScheduleEdit}/>
-              <Route path={ROUTES.ORGANISERS_PARTICIPANTS_EDIT} component={OrgTournamentParticipantsEdit}/>
-              <Route exact path={ROUTES.ORGANISERS_ANNOUNCEMENT_ADD} component={OrgAnnouncementsAdd}/>
-              <Route path={ROUTES.ORGANISERS_ANNOUNCEMENT_EDIT} component={OrgAnnouncementsEdit}/>
+              <AuthRoute exact path={ROUTES.HOME} component={Home} />
+              <AuthRoute
+                path={ROUTES.TOURNAMENT_UPDATES_ADD}
+                component={TournamentUpdatesAdd}
+              />
+              <AuthRoute
+                path={ROUTES.TOURNAMENT_RESULTS_ADD}
+                component={TournamentResultsAdd}
+              />
+              <AuthRoute
+                path={ROUTES.TOURNAMENT_DETAILS}
+                component={TournamentDetails}
+              />
+              <AuthRoute
+                path={ROUTES.ANNOUNCEMENTS}
+                component={Announcements}
+              />
+              <AuthRoute exact path={ROUTES.PROFILE} component={Profile} />
+              <AuthRoute exact path={ROUTES.LUCKY_DRAW} component={LuckyDraw} />
+              <AuthRoute exact path={ROUTES.ORGANISERS} component={OrgHome} />
+              <AuthRoute
+                exact
+                path={ROUTES.ORGANISERS_PROFILE}
+                component={OrgProfile}
+              />
+              <AuthRoute
+                exact
+                path={ROUTES.ORGANISERS_TOURNAMENT_ADD}
+                component={OrgTournamentAdd}
+              />
+              <AuthRoute
+                path={ROUTES.ORGANISERS_TOURNAMENT_EDIT}
+                component={OrgTournamentEdit}
+              />
+              <AuthRoute
+                path={ROUTES.ORGANISERS_TOURNAMENT_DETAILS}
+                component={OrgTournamentDetails}
+              />
+              <AuthRoute
+                path={ROUTES.ORGANISERS_UPDATES_EDIT}
+                component={OrgTournamentUpdatesEdit}
+              />
+              <AuthRoute
+                path={ROUTES.ORGANISERS_RESULTS_EDIT}
+                component={OrgTournamentResultsEdit}
+              />
+              <AuthRoute
+                path={ROUTES.ORGANISERS_SCHEDULE_EDIT}
+                component={OrgTournamentScheduleEdit}
+              />
+              <AuthRoute
+                path={ROUTES.ORGANISERS_PARTICIPANTS_EDIT}
+                component={OrgTournamentParticipantsEdit}
+              />
+              <AuthRoute
+                exact
+                path={ROUTES.ORGANISERS_ANNOUNCEMENT_ADD}
+                component={OrgAnnouncementsAdd}
+              />
+              <AuthRoute
+                path={ROUTES.ORGANISERS_ANNOUNCEMENT_EDIT}
+                component={OrgAnnouncementsEdit}
+              />
             </Switch>
           </div>
-          <Footer/>
+          <Footer />
         </div>
       </BrowserRouter>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  user: state.user.user
+});
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onFetchUser: () => dispatch(fetchUser())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

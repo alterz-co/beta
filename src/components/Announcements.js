@@ -13,10 +13,10 @@ class Announcements extends Component {
       const updatedAnnouncementList = [
         newData.onCreateAnnouncement,
         ...prevQuery.listAnnouncements.items
-      ]
+      ];
       updatedQuery.listAnnouncements.items = updatedAnnouncementList;
       return updatedQuery;
-    }
+    };
 
     return (
       <Connect
@@ -25,12 +25,11 @@ class Announcements extends Component {
         onSubscriptionMsg={onNewAnnouncement}
       >
       {({ data, loading, errors}) => {
-        if(errors.length > 0) return <p>Error</p>
-        if(loading || !data.listAnnouncements) return <p>Loading..</p>
+        if(errors && errors.length > 0) return <p>Error</p>;
+        if(loading || !data || !data.listAnnouncements) return <p>Loading..</p>;
 
         return(
           <div>
-            <Nav/>
             <div className="container">
               <p style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 20, marginTop: 40 }}>
                 <span role="img" aria-label="loud-hailer" style={{ paddingLeft: 10, paddingRight: 20 }}>📢</span>
@@ -48,12 +47,12 @@ class Announcements extends Component {
                     >
                     </div>
                   </li>
-                )
+                );
               })}
               </ul>
             </div>
           </div>
-        )
+        );
 
       }}
       </Connect>

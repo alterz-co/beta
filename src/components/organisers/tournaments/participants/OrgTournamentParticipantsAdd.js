@@ -23,9 +23,9 @@ class OrgTournamentParticipantsAdd extends Component {
       gender: this.state.gender,
       participantUserId: '867b64d9-5d4a-421e-8af7-9720bd7b20bd',
       participantTournamentId: this.props.tournamentId
-    }
-    const participant = await API.graphql(graphqlOperation(createParticipant, { input: newParticipant }))
-    console.log('participant', participant.data.createParticipant)
+    };
+    const participant = await API.graphql(graphqlOperation(createParticipant, { input: newParticipant }));
+    console.log('participant', participant.data.createParticipant);
     this.setState({
       name: '',
       gender: ''
@@ -57,7 +57,7 @@ class OrgTournamentParticipantsAdd extends Component {
           <Button color='black' fluid size='large' style={{ marginTop: '30px' }}>Add Participant</Button>
         </Form>
       </Container>
-    )
+    );
   }
 }
 

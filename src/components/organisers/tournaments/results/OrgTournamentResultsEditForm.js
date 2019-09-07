@@ -38,9 +38,9 @@ class OrgTournamentResultsEditForm extends Component {
       score: this.state.score || result.score,
       resultUserId: '',
       resultTournamentId: result.tournament.id
-    }
-    const res = await API.graphql(graphqlOperation(updateResult, { input }))
-    console.log('result', res.data.updateResult)
+    };
+    const res = await API.graphql(graphqlOperation(updateResult, { input }));
+    console.log('result', res.data.updateResult);
     this.setState({
       date: '',
       matchNo: '',
@@ -102,7 +102,7 @@ class OrgTournamentResultsEditForm extends Component {
           </Form>
         </Container>
       </div>
-    )
+    );
   }
 }
 

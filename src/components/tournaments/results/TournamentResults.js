@@ -15,10 +15,10 @@ class TournamentResults extends Component {
       const updatedResultList = [
         newData.onCreateResult,
         ...prevQuery.listResults.items
-      ]
+      ];
       updatedQuery.listResults.items = updatedResultList;
       return updatedQuery;
-    }
+    };
 
     return (
       <div>
@@ -29,8 +29,8 @@ class TournamentResults extends Component {
           onSubscriptionMsg={onNewResult}
         >
         {({ data, loading, errors}) => {
-          if(errors.length > 0) return <p>Error</p>
-          if(loading || !data.listResults) return <p>Loading..</p>
+          if(errors.length > 0) return <p>Error</p>;
+          if(loading || !data.listResults) return <p>Loading..</p>;
 
           return(
             <div>
@@ -39,10 +39,10 @@ class TournamentResults extends Component {
                 <p key={result.id} className="center-align" style={{ marginTop: 50 }}>
                   {result.matchNo} <span className="grey-text">({result.user.name}):</span> {result.winner}, {result.score}
                 </p>
-              )
+              );
             })}
             </div>
-          )
+          );
 
         }}
         </Connect>

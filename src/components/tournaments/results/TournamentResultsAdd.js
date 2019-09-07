@@ -48,7 +48,7 @@ class TournamentResultsAdd extends Component {
           </div>
         </form>
       </div>
-    )
+    );
   }
 }
 

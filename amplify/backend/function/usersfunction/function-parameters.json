@@ -1,0 +1,12 @@
+{
+    "permissions": {
+        "api": {
+            "beta": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ]
+        }
+    }
+}

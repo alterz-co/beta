@@ -8,7 +8,7 @@ class TournamentAbout extends Component {
     // console.log('tournament ', tournament)
 
     if(!tournament){
-      return <LoaderComponent/>
+      return <LoaderComponent/>;
     }
 
     return(
@@ -20,7 +20,7 @@ class TournamentAbout extends Component {
         >
         </div>
       </Container>
-    )
+    );
   }
 }
 

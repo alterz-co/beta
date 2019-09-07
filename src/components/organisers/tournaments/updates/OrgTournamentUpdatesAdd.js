@@ -21,16 +21,16 @@ class OrgTournamentUpdatesAdd extends Component {
   onSubmit = async (event, user) => {
     event.preventDefault();
     // console.log('onSubmit ', user.id)
-    const createdAt = format(Date.now(), 'D MMM YYYY, h:mma')
+    const createdAt = format(Date.now(), 'D MMM YYYY, h:mma');
     // console.log('createdAt', createdAt)
     const newUpdate = {
       description: this.state.description,
       createdAt,
       updateUserId: '',
       updateTournamentId: this.props.tournamentId
-    }
-    const result = await API.graphql(graphqlOperation(createUpdate, { input: newUpdate }))
-    console.log('result', result.data.createUpdate)
+    };
+    const result = await API.graphql(graphqlOperation(createUpdate, { input: newUpdate }));
+    console.log('result', result.data.createUpdate);
     this.setState({
       description: ''
     });
@@ -48,7 +48,7 @@ class OrgTournamentUpdatesAdd extends Component {
           <Button color='black' fluid size='large' style={{ marginTop: '30px' }}>Post</Button>
         </Form>
       </Container>
-    )
+    );
   }
 }
 

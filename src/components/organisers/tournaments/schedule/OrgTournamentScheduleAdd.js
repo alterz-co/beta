@@ -28,9 +28,9 @@ class OrgTournamentScheduleAdd extends Component {
     const newSchedule = {
       description: this.state.description,
       scheduleTournamentId: this.props.tournamentId
-    }
-    const result = await API.graphql(graphqlOperation(createSchedule, { input: newSchedule }))
-    console.log('result', result.data.createSchedule)
+    };
+    const result = await API.graphql(graphqlOperation(createSchedule, { input: newSchedule }));
+    console.log('result', result.data.createSchedule);
     this.setState({
       description: ''
     });
@@ -48,7 +48,7 @@ class OrgTournamentScheduleAdd extends Component {
           <Button color='black' fluid size='large' style={{ marginTop: '30px' }}>Add Schedule</Button>
         </Form>
       </Container>
-    )
+    );
   }
 }
 

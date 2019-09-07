@@ -30,9 +30,9 @@ class OrgTournamentScheduleEditForm extends Component {
       id: scheduleId,
       description: this.state.description || schedule.description,
       scheduleTournamentId: schedule.tournament.id
-    }
-    const result = await API.graphql(graphqlOperation(updateSchedule, { input }))
-    console.log('result', result.data.updateSchedule)
+    };
+    const result = await API.graphql(graphqlOperation(updateSchedule, { input }));
+    console.log('result', result.data.updateSchedule);
     this.setState({
       description: ''
     });
@@ -56,7 +56,7 @@ class OrgTournamentScheduleEditForm extends Component {
           </Form>
         </Container>
       </div>
-    )
+    );
   }
 }
 

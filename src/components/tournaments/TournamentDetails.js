@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { API, graphqlOperation } from 'aws-amplify';
 import { getTournament } from '../../graphql/queries';
-import Nav from '../Nav';
 import TournamentHeader from './TournamentHeader';
 import TournamentUpdates from './updates/TournamentUpdates';
 import TournamentResults from './results/TournamentResults';
@@ -22,10 +21,10 @@ class TournamentDetails extends Component {
   handleGetTournament = async () => {
     const input = {
       id: this.props.match.params.id
-    }
-    const result = await API.graphql(graphqlOperation(getTournament, input))
-    console.log({ result })
-    this.setState({ tournament: result.data.getTournament })
+    };
+    const result = await API.graphql(graphqlOperation(getTournament, input));
+    console.log({ result });
+    this.setState({ tournament: result.data.getTournament });
   }
 
   render() {
@@ -34,7 +33,6 @@ class TournamentDetails extends Component {
 
     return (
       <div>
-        <Nav/>
         <div className="container" style={{ marginTop: 40 }}>
           <TournamentHeader tournament={tournament} tournamentId={tournamentId}/>
           <div className="row">

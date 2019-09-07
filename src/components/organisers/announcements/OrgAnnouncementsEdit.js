@@ -16,10 +16,10 @@ class OrgAnnouncementsEdit extends Component {
   handleGetAnnouncement = async () => {
     const input = {
       id: this.props.match.params.id
-    }
-    const result = await API.graphql(graphqlOperation(getAnnouncement, input))
-    console.log({ result })
-    this.setState({ announcement: result.data.getAnnouncement })
+    };
+    const result = await API.graphql(graphqlOperation(getAnnouncement, input));
+    console.log({ result });
+    this.setState({ announcement: result.data.getAnnouncement });
   }
 
   render(){
@@ -27,12 +27,12 @@ class OrgAnnouncementsEdit extends Component {
     const { announcement } = this.state;
 
     if(!announcement){
-      return <LoaderComponent/>
+      return <LoaderComponent/>;
     }
 
     return(
       <OrgAnnouncementsEditForm announcementId={announcementId} announcement={announcement} />
-    )
+    );
   }
 }
 

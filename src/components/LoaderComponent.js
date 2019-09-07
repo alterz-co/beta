@@ -10,7 +10,7 @@ class LoaderComponent extends Component {
         </Dimmer>
         <Image src='/images/wireframe/short-paragraph.png' />
       </div>
-    )
+    );
   }
 }
 

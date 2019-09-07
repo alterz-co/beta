@@ -28,15 +28,15 @@ class OrgAnnouncementsAdd extends Component {
 
   onSubmit = async event => {
     event.preventDefault();
-    const createdAt = format(Date.now(), 'D MMM YYYY, h:mma')
+    const createdAt = format(Date.now(), 'D MMM YYYY, h:mma');
     const newAnnouncement = {
       title: this.state.title,
       description: this.state.description,
       createdAt,
       announcementUserId: ''
-    }
-    const result = await API.graphql(graphqlOperation(createAnnouncement, { input: newAnnouncement }))
-    console.log('result', result.data.createAnnouncement)
+    };
+    const result = await API.graphql(graphqlOperation(createAnnouncement, { input: newAnnouncement }));
+    console.log('result', result.data.createAnnouncement);
     this.setState({
       title: '',
       description: ''
@@ -71,7 +71,7 @@ class OrgAnnouncementsAdd extends Component {
           </Grid.Column>
         </Grid>
       </div>
-    )
+    );
   }
 
 }

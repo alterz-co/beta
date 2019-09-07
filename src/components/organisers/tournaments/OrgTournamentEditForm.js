@@ -74,10 +74,10 @@ class OrgTournamentEditForm extends Component {
       url: this.state.url || tournament.url,
       createdAt: tournament.createdAt,
       tournamentUserId: ''
-    }
+    };
     // console.log('Update Tournament', updateTournament)
-    const result = await API.graphql(graphqlOperation(updateTournament, { input }))
-    console.log({result})
+    const result = await API.graphql(graphqlOperation(updateTournament, { input }));
+    console.log({result});
     this.setState({
       title: '',
       startDate: '',
@@ -217,9 +217,9 @@ class OrgTournamentEditForm extends Component {
             </Grid.Column>
           </Grid>
         </div>
-      )
+      );
     } else {
-      return <LoaderComponent/>
+      return <LoaderComponent/>;
     }
 
   }

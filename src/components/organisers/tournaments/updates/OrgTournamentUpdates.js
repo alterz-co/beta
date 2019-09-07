@@ -16,7 +16,7 @@ class OrgTournamentUpdates extends Component {
         <OrgTournamentUpdatesAdd tournamentId={tournamentId}/>
         <OrgTournamentUpdatesList tournamentId={tournamentId}/>
       </Container>
-    )
+    );
   }
 }
 

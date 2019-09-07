@@ -15,10 +15,10 @@ class OrgTournamentParticipantsEdit extends Component {
   handleGetParticipant = async () => {
     const input = {
       id: this.props.match.params.id
-    }
-    const participant = await API.graphql(graphqlOperation(getParticipant, input))
-    console.log({ participant })
-    this.setState({ result: participant.data.getParticipant })
+    };
+    const participant = await API.graphql(graphqlOperation(getParticipant, input));
+    console.log({ participant });
+    this.setState({ result: participant.data.getParticipant });
   }
 
   render(){
@@ -27,7 +27,7 @@ class OrgTournamentParticipantsEdit extends Component {
 
     return(
       <OrgTournamentParticipantsEditForm participantId={participantId} participant={participant} />
-    )
+    );
   }
 }
 

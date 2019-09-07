@@ -1,0 +1,4 @@
+node_modules/
+amplify/
+public/
+src/graphql/

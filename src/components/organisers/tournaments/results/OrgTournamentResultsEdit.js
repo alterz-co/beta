@@ -16,10 +16,10 @@ class OrgTournamentResultsEdit extends Component {
   handleGetResult = async () => {
     const input = {
       id: this.props.match.params.id
-    }
-    const result = await API.graphql(graphqlOperation(getResult, input))
-    console.log({ result })
-    this.setState({ result: result.data.getResult })
+    };
+    const result = await API.graphql(graphqlOperation(getResult, input));
+    console.log({ result });
+    this.setState({ result: result.data.getResult });
   }
 
   render(){
@@ -27,12 +27,12 @@ class OrgTournamentResultsEdit extends Component {
     const { result } = this.state;
 
     if(!result){
-      return <LoaderComponent/>
+      return <LoaderComponent/>;
     }
 
     return(
       <OrgTournamentResultsEditForm resultId={resultId} result={result} />
-    )
+    );
   }
 }
 

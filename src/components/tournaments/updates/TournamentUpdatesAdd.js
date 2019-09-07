@@ -19,7 +19,7 @@ class TournamentUpdatesAdd extends Component {
           </div>
         </form>
       </div>
-    )
+    );
   }
 }
 
