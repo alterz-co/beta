@@ -19,7 +19,6 @@ class Profile extends Component {
 
     return (
       <div>
-        <OrgNav/>
         <div className="container" style={{ marginTop: 100 }}>
           <div className="row">
             <div className="col s12 l12">

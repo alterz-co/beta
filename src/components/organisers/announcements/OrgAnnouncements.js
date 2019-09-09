@@ -30,8 +30,8 @@ class OrgAnnouncements extends Component {
           onSubscriptionMsg={onNewAnnouncement}
         >
         {({ data, loading, errors}) => {
-          if(errors.length > 0) return <p>Error</p>;
-          if(loading || !data.listAnnouncements) return <p>Loading..</p>;
+          if(errors && errors.length > 0) return <p>Error</p>;
+          if(loading || !data || !data.listAnnouncements) return <p>Loading..</p>;
 
           return(
             <Feed>

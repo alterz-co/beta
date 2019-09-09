@@ -111,7 +111,6 @@ class OrgTournamentAdd extends Component {
   render(){
     return(
       <div>
-        <OrgNav/>
         <Grid centered>
           <Grid.Column style={{ maxWidth: 1000 }}>
             <Header as='h2' textAlign='center'>Add New Tournament</Header>

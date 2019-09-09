@@ -46,7 +46,6 @@ class OrgAnnouncementsAdd extends Component {
   render(){
     return(
       <div>
-        <OrgNav/>
         <Grid centered>
           <Grid.Column style={{ maxWidth: 800 }}>
             <Header as='h2' textAlign='center'>Add New Announcement</Header>

@@ -35,7 +35,6 @@ class OrgTournamentDetails extends Component {
 
     return(
       <div>
-        <OrgNav/>
         <Grid>
           <Grid.Column width={1}></Grid.Column>
           <Grid.Column width={3}>

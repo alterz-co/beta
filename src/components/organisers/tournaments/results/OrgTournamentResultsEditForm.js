@@ -54,7 +54,6 @@ class OrgTournamentResultsEditForm extends Component {
 
     return(
       <div>
-        <OrgNav/>
         <Container>
           <Header as='h2' textAlign='center'>Edit Result</Header>
           <Form size='large' onSubmit={(event) => this.onSubmit(event, resultId, result)}>

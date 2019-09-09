@@ -40,7 +40,6 @@ class OrgTournamentUpdatesEditForm extends Component {
 
     return(
       <div>
-        <OrgNav/>
         <Container stackable>
           <Header as='h2' textAlign='center'>Edit Update</Header>
           <Form size='large' onSubmit={(event) => this.onSubmit(event, updateId, update)}>
