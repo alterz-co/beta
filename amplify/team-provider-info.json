@@ -9,6 +9,11 @@
             "UnauthRoleName": "beta-dev-20190823204559-unauthRole",
             "StackName": "beta-dev-20190823204559",
             "StackId": "arn:aws:cloudformation:ap-southeast-1:911935223184:stack/beta-dev-20190823204559/f568d4a0-c5a3-11e9-afa8-06e9ec8dfb16"
+        },
+        "categories": {
+            "function": {
+                "usersfunction": {}
+            }
         }
     },
     "ziyidev": {

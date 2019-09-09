@@ -1,4 +1,4 @@
-// eslint-disable
+/* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
 export const onCreateParticipant = `subscription OnCreateParticipant {
@@ -14,12 +14,36 @@ export const onCreateParticipant = `subscription OnCreateParticipant {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -42,18 +66,58 @@ export const onCreateParticipant = `subscription OnCreateParticipant {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -73,12 +137,36 @@ export const onUpdateParticipant = `subscription OnUpdateParticipant {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -101,18 +189,58 @@ export const onUpdateParticipant = `subscription OnUpdateParticipant {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -132,12 +260,36 @@ export const onDeleteParticipant = `subscription OnDeleteParticipant {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -160,18 +312,58 @@ export const onDeleteParticipant = `subscription OnDeleteParticipant {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -199,12 +391,36 @@ export const onCreateTournament = `subscription OnCreateTournament {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -213,6 +429,27 @@ export const onCreateTournament = `subscription OnCreateTournament {
         id
         name
         gender
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -231,6 +468,27 @@ export const onCreateTournament = `subscription OnCreateTournament {
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
     }
     updates {
@@ -238,6 +496,27 @@ export const onCreateTournament = `subscription OnCreateTournament {
         id
         description
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -249,6 +528,27 @@ export const onCreateTournament = `subscription OnCreateTournament {
         winner
         score
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -276,12 +576,36 @@ export const onUpdateTournament = `subscription OnUpdateTournament {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -290,6 +614,27 @@ export const onUpdateTournament = `subscription OnUpdateTournament {
         id
         name
         gender
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -308,6 +653,27 @@ export const onUpdateTournament = `subscription OnUpdateTournament {
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
     }
     updates {
@@ -315,6 +681,27 @@ export const onUpdateTournament = `subscription OnUpdateTournament {
         id
         description
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -326,6 +713,27 @@ export const onUpdateTournament = `subscription OnUpdateTournament {
         winner
         score
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -353,12 +761,36 @@ export const onDeleteTournament = `subscription OnDeleteTournament {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -367,6 +799,27 @@ export const onDeleteTournament = `subscription OnDeleteTournament {
         id
         name
         gender
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -385,6 +838,27 @@ export const onDeleteTournament = `subscription OnDeleteTournament {
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
     }
     updates {
@@ -392,6 +866,27 @@ export const onDeleteTournament = `subscription OnDeleteTournament {
         id
         description
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -403,6 +898,27 @@ export const onDeleteTournament = `subscription OnDeleteTournament {
         winner
         score
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -432,18 +948,58 @@ export const onCreateSchedule = `subscription OnCreateSchedule {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -473,18 +1029,58 @@ export const onUpdateSchedule = `subscription OnUpdateSchedule {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -514,18 +1110,58 @@ export const onDeleteSchedule = `subscription OnDeleteSchedule {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -545,12 +1181,36 @@ export const onCreateUpdate = `subscription OnCreateUpdate {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -573,18 +1233,58 @@ export const onCreateUpdate = `subscription OnCreateUpdate {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -604,12 +1304,36 @@ export const onUpdateUpdate = `subscription OnUpdateUpdate {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -632,18 +1356,58 @@ export const onUpdateUpdate = `subscription OnUpdateUpdate {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -663,12 +1427,36 @@ export const onDeleteUpdate = `subscription OnDeleteUpdate {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -691,18 +1479,58 @@ export const onDeleteUpdate = `subscription OnDeleteUpdate {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -725,12 +1553,36 @@ export const onCreateResult = `subscription OnCreateResult {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -753,18 +1605,58 @@ export const onCreateResult = `subscription OnCreateResult {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -787,12 +1679,36 @@ export const onUpdateResult = `subscription OnUpdateResult {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -815,18 +1731,58 @@ export const onUpdateResult = `subscription OnUpdateResult {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -849,12 +1805,36 @@ export const onDeleteResult = `subscription OnDeleteResult {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -877,18 +1857,58 @@ export const onDeleteResult = `subscription OnDeleteResult {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -909,12 +1929,36 @@ export const onCreateAnnouncement = `subscription OnCreateAnnouncement {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -935,12 +1979,36 @@ export const onUpdateAnnouncement = `subscription OnUpdateAnnouncement {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -961,12 +2029,36 @@ export const onDeleteAnnouncement = `subscription OnDeleteAnnouncement {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }

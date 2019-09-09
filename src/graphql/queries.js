@@ -1,4 +1,4 @@
-// eslint-disable
+/* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
 export const getUser = `query GetUser($id: ID!) {
@@ -22,6 +22,27 @@ export const getUser = `query GetUser($id: ID!) {
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
       nextToken
     }
@@ -30,6 +51,27 @@ export const getUser = `query GetUser($id: ID!) {
         id
         name
         gender
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -39,6 +81,14 @@ export const getUser = `query GetUser($id: ID!) {
         title
         description
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
       }
       nextToken
     }
@@ -58,12 +108,36 @@ export const getParticipant = `query GetParticipant($id: ID!) {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -86,18 +160,58 @@ export const getParticipant = `query GetParticipant($id: ID!) {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -121,6 +235,15 @@ export const listParticipants = `query ListParticipants(
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       tournament {
         id
@@ -134,6 +257,27 @@ export const listParticipants = `query ListParticipants(
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
     }
     nextToken
@@ -161,12 +305,36 @@ export const getTournament = `query GetTournament($id: ID!) {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -175,6 +343,27 @@ export const getTournament = `query GetTournament($id: ID!) {
         id
         name
         gender
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -193,6 +382,27 @@ export const getTournament = `query GetTournament($id: ID!) {
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
     }
     updates {
@@ -200,6 +410,27 @@ export const getTournament = `query GetTournament($id: ID!) {
         id
         description
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -211,6 +442,27 @@ export const getTournament = `query GetTournament($id: ID!) {
         winner
         score
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -242,18 +494,58 @@ export const listTournaments = `query ListTournaments(
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -284,18 +576,58 @@ export const getSchedule = `query GetSchedule($id: ID!) {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -323,6 +655,27 @@ export const listSchedules = `query ListSchedules(
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
     }
     nextToken
@@ -342,12 +695,36 @@ export const getUpdate = `query GetUpdate($id: ID!) {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -370,18 +747,58 @@ export const getUpdate = `query GetUpdate($id: ID!) {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -405,6 +822,15 @@ export const listUpdates = `query ListUpdates(
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       tournament {
         id
@@ -418,6 +844,27 @@ export const listUpdates = `query ListUpdates(
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
     }
     nextToken
@@ -440,12 +887,36 @@ export const getResult = `query GetResult($id: ID!) {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -468,18 +939,58 @@ export const getResult = `query GetResult($id: ID!) {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -506,6 +1017,15 @@ export const listResults = `query ListResults(
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       tournament {
         id
@@ -519,6 +1039,27 @@ export const listResults = `query ListResults(
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
     }
     nextToken
@@ -539,12 +1080,36 @@ export const getAnnouncement = `query GetAnnouncement($id: ID!) {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -569,6 +1134,15 @@ export const listAnnouncements = `query ListAnnouncements(
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
     }
     nextToken

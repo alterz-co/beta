@@ -1,33 +1,15 @@
 import React, { Component } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
-import { getUser } from '../graphql/queries';
 import { logoutUser } from '../redux/actions/userActions';
 import { connect } from 'react-redux';
 
 class Profile extends Component {
-  state = {
-    user: ''
-  };
-
-  async componentDidMount() {
-    try {
-      const user = await API.graphql(
-        graphqlOperation(getUser, {
-          id: '867b64d9-5d4a-421e-8af7-9720bd7b20bd'
-        })
-      );
-      this.setState({ user: user.data.getUser });
-    } catch (err) {
-      console.log(err);
-    }
-  }
 
   handleSignout = () => {
     this.props.onLogoutUser(this.props.history);
   };
 
   render() {
-    const { user } = this.state;
+    const { user } = this.props;
 
     return (
       <div>
@@ -52,6 +34,10 @@ class Profile extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  user: state.user.user
+});
+
 const mapDispatchToProps = dispatch => {
   return {
     onLogoutUser: history => dispatch(logoutUser(history))
@@ -59,6 +45,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Profile);

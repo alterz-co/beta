@@ -1,4 +1,4 @@
-// eslint-disable
+/* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
 export const registerUser = `mutation RegisterUser($input: CreateUserInput!) {
@@ -22,6 +22,27 @@ export const registerUser = `mutation RegisterUser($input: CreateUserInput!) {
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
       nextToken
     }
@@ -30,6 +51,27 @@ export const registerUser = `mutation RegisterUser($input: CreateUserInput!) {
         id
         name
         gender
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -39,6 +81,14 @@ export const registerUser = `mutation RegisterUser($input: CreateUserInput!) {
         title
         description
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
       }
       nextToken
     }
@@ -66,6 +116,27 @@ export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
       nextToken
     }
@@ -74,6 +145,27 @@ export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
         id
         name
         gender
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -83,6 +175,14 @@ export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
         title
         description
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
       }
       nextToken
     }
@@ -102,12 +202,36 @@ export const createParticipant = `mutation CreateParticipant($input: CreateParti
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -130,18 +254,58 @@ export const createParticipant = `mutation CreateParticipant($input: CreateParti
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -161,12 +325,36 @@ export const updateParticipant = `mutation UpdateParticipant($input: UpdateParti
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -189,18 +377,58 @@ export const updateParticipant = `mutation UpdateParticipant($input: UpdateParti
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -220,12 +448,36 @@ export const deleteParticipant = `mutation DeleteParticipant($input: DeleteParti
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -248,18 +500,58 @@ export const deleteParticipant = `mutation DeleteParticipant($input: DeleteParti
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -287,12 +579,36 @@ export const createTournament = `mutation CreateTournament($input: CreateTournam
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -301,6 +617,27 @@ export const createTournament = `mutation CreateTournament($input: CreateTournam
         id
         name
         gender
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -319,6 +656,27 @@ export const createTournament = `mutation CreateTournament($input: CreateTournam
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
     }
     updates {
@@ -326,6 +684,27 @@ export const createTournament = `mutation CreateTournament($input: CreateTournam
         id
         description
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -337,6 +716,27 @@ export const createTournament = `mutation CreateTournament($input: CreateTournam
         winner
         score
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -364,12 +764,36 @@ export const updateTournament = `mutation UpdateTournament($input: UpdateTournam
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -378,6 +802,27 @@ export const updateTournament = `mutation UpdateTournament($input: UpdateTournam
         id
         name
         gender
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -396,6 +841,27 @@ export const updateTournament = `mutation UpdateTournament($input: UpdateTournam
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
     }
     updates {
@@ -403,6 +869,27 @@ export const updateTournament = `mutation UpdateTournament($input: UpdateTournam
         id
         description
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -414,6 +901,27 @@ export const updateTournament = `mutation UpdateTournament($input: UpdateTournam
         winner
         score
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -441,12 +949,36 @@ export const deleteTournament = `mutation DeleteTournament($input: DeleteTournam
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -455,6 +987,27 @@ export const deleteTournament = `mutation DeleteTournament($input: DeleteTournam
         id
         name
         gender
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -473,6 +1026,27 @@ export const deleteTournament = `mutation DeleteTournament($input: DeleteTournam
         description
         url
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        participants {
+          nextToken
+        }
+        schedule {
+          id
+          description
+        }
+        updates {
+          nextToken
+        }
+        results {
+          nextToken
+        }
       }
     }
     updates {
@@ -480,6 +1054,27 @@ export const deleteTournament = `mutation DeleteTournament($input: DeleteTournam
         id
         description
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -491,6 +1086,27 @@ export const deleteTournament = `mutation DeleteTournament($input: DeleteTournam
         winner
         score
         createdAt
+        user {
+          id
+          name
+          gender
+          email
+          phone
+          password
+        }
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       nextToken
     }
@@ -520,18 +1136,58 @@ export const createSchedule = `mutation CreateSchedule($input: CreateScheduleInp
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -561,18 +1217,58 @@ export const updateSchedule = `mutation UpdateSchedule($input: UpdateScheduleInp
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -602,18 +1298,58 @@ export const deleteSchedule = `mutation DeleteSchedule($input: DeleteScheduleInp
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -633,12 +1369,36 @@ export const createUpdate = `mutation CreateUpdate($input: CreateUpdateInput!) {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -661,18 +1421,58 @@ export const createUpdate = `mutation CreateUpdate($input: CreateUpdateInput!) {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -692,12 +1492,36 @@ export const updateUpdate = `mutation UpdateUpdate($input: UpdateUpdateInput!) {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -720,18 +1544,58 @@ export const updateUpdate = `mutation UpdateUpdate($input: UpdateUpdateInput!) {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -751,12 +1615,36 @@ export const deleteUpdate = `mutation DeleteUpdate($input: DeleteUpdateInput!) {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -779,18 +1667,58 @@ export const deleteUpdate = `mutation DeleteUpdate($input: DeleteUpdateInput!) {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -813,12 +1741,36 @@ export const createResult = `mutation CreateResult($input: CreateResultInput!) {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -841,18 +1793,58 @@ export const createResult = `mutation CreateResult($input: CreateResultInput!) {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -875,12 +1867,36 @@ export const updateResult = `mutation UpdateResult($input: UpdateResultInput!) {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -903,18 +1919,58 @@ export const updateResult = `mutation UpdateResult($input: UpdateResultInput!) {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -937,12 +1993,36 @@ export const deleteResult = `mutation DeleteResult($input: DeleteResultInput!) {
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -965,18 +2045,58 @@ export const deleteResult = `mutation DeleteResult($input: DeleteResultInput!) {
         email
         phone
         password
+        tournaments {
+          nextToken
+        }
+        participants {
+          nextToken
+        }
+        announcements {
+          nextToken
+        }
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       schedule {
         id
         description
+        tournament {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
       }
       updates {
+        items {
+          id
+          description
+          createdAt
+        }
         nextToken
       }
       results {
+        items {
+          id
+          date
+          matchNo
+          winner
+          score
+          createdAt
+        }
         nextToken
       }
     }
@@ -997,12 +2117,36 @@ export const createAnnouncement = `mutation CreateAnnouncement($input: CreateAnn
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -1023,12 +2167,36 @@ export const updateAnnouncement = `mutation UpdateAnnouncement($input: UpdateAnn
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
@@ -1049,12 +2217,36 @@ export const deleteAnnouncement = `mutation DeleteAnnouncement($input: DeleteAnn
       phone
       password
       tournaments {
+        items {
+          id
+          title
+          startDate
+          endDate
+          startTime
+          endTime
+          deadline
+          venue
+          description
+          url
+          createdAt
+        }
         nextToken
       }
       participants {
+        items {
+          id
+          name
+          gender
+        }
         nextToken
       }
       announcements {
+        items {
+          id
+          title
+          description
+          createdAt
+        }
         nextToken
       }
     }
