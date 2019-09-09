@@ -9,6 +9,9 @@ export const fetchUser = () => {
   return async dispatch => {
     try {
       const res = await axios.get(`${urlPrefix}/current_user`);
+      if (res.data.id) {
+        localStorage.setItem('userSession', res.data.id);
+      }
       dispatch({
         type: FETCH_USER,
         user: res.data
@@ -25,6 +28,9 @@ export const loginUser = (userData, history) => {
       dispatch(uiStartLoading());
       dispatch(uiError(null));
       const res = await axios.post(`${urlPrefix}/login`, userData);
+      if (res.data.id) {
+        localStorage.setItem('userSession', res.data.id);
+      }
       dispatch(uiStopLoading());
       dispatch({
         type: SIGN_IN,
@@ -69,11 +75,12 @@ export const logoutUser = history => {
   return async dispatch => {
     try {
       await axios.get(`${urlPrefix}/logout`);
+      history.push('/');
+      localStorage.removeItem('userSession');
       dispatch({
         type: SIGN_OUT,
         user: null
       });
-      history.push('/');
     } catch (err) {
       console.error('login error', err);
     }

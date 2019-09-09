@@ -9,7 +9,6 @@ class OrgHome extends Component {
   render() {
     return (
       <div>
-        <OrgNav/>
         <Grid stackable>
           <Grid.Column width={1}></Grid.Column>
           <Grid.Column width={10}>

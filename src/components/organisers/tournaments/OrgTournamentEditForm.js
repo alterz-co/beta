@@ -97,7 +97,6 @@ class OrgTournamentEditForm extends Component {
     if(tournament){
       return(
         <div>
-          <OrgNav/>
           <Grid centered>
             <Grid.Column style={{ maxWidth: 1000 }}>
               <Grid stackable>

@@ -27,6 +27,7 @@ import OrgAnnouncementsEdit from './components/organisers/announcements/OrgAnnou
 import { fetchUser } from './redux/actions/userActions';
 import AuthRoute from './components/AuthRoute';
 import Nav from './components/Nav';
+import OrgNav from './components/organisers/OrgNav';
 
 class App extends Component {
   componentDidMount() {
@@ -34,10 +35,14 @@ class App extends Component {
   }
 
   render() {
+    let navBar = null;
+    if (this.props.user) {
+      navBar = (window.location.pathname.includes('/organisers')) ? <OrgNav/> : <Nav />;
+    }
     return (
       <BrowserRouter>
         <div>
-          { this.props.user ? <Nav /> : null }
+          {navBar}
           <div style={{ marginBottom: 40 }}>
             <Switch>
               <Route exact path={ROUTES.LANDING} component={Landing} />

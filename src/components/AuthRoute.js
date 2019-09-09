@@ -7,7 +7,8 @@ const AuthRoute = ({ component: Component, user, ...rest }) => {
     <Route
       {...rest}
       render={props => {
-        return user ? (
+        const userSession = localStorage.getItem('userSession');
+        return (userSession) ? (
           <Component {...props} />
         ) : (
           <Redirect to="/" />

@@ -10,16 +10,15 @@ class Profile extends Component {
 
   render() {
     const { user } = this.props;
-
     return (
       <div>
         <div className="container" style={{ marginTop: 100 }}>
           <div className="row">
             <div className="col s12 l12">
-              <h2 className="center-align">{user.name}</h2>
-              <p>Gender: {user.gender}</p>
-              <p>Email: {user.email}</p>
-              <p>Phone: {user.phone}</p>
+              <h2 className="center-align">{user ? user.name : ''}</h2>
+              <p>Gender: {user ? user.gender : ''}</p>
+              <p>Email: {user ? user.email : ''}</p>
+              <p>Phone: {user ? user.phone : ''}</p>
               <a
                 onClick={this.handleSignout}
                 className="btn-small col s12 m12 l12 black white-text"

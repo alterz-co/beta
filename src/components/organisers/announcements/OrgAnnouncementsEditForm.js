@@ -47,7 +47,6 @@ class OrgAnnouncementsEditForm extends Component {
 
     return(
       <div>
-        <OrgNav/>
         <Grid centered>
           <Grid.Column style={{ maxWidth: 800 }}>
             <Header as='h2' textAlign='center'>Edit Announcement</Header>
