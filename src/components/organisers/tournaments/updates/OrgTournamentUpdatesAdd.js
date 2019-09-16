@@ -5,6 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import { API, graphqlOperation } from 'aws-amplify';
 import { createUpdate } from '../../../../graphql/mutations';
 import { format } from 'date-fns';
+import { connect } from 'react-redux';
 
 class OrgTournamentUpdatesAdd extends Component {
 
@@ -26,7 +27,7 @@ class OrgTournamentUpdatesAdd extends Component {
     const newUpdate = {
       description: this.state.description,
       createdAt,
-      updateUserId: '',
+      updateUserId: this.props.user.id,
       updateTournamentId: this.props.tournamentId
     };
     const result = await API.graphql(graphqlOperation(createUpdate, { input: newUpdate }));
@@ -52,4 +53,10 @@ class OrgTournamentUpdatesAdd extends Component {
   }
 }
 
-export default OrgTournamentUpdatesAdd;
+const mapStateToProps = state => ({
+  user: state.user.user
+});
+
+export default connect(
+  mapStateToProps
+)(OrgTournamentUpdatesAdd);

@@ -23,7 +23,7 @@ class OrgTournamentParticipantsEditForm extends Component {
       id: participantId,
       name: this.state.name || participant.name,
       gender: this.state.gender || participant.gender,
-      participantUserId: '867b64d9-5d4a-421e-8af7-9720bd7b20bd',
+      participantUserId: '',
       participantTournamentId: this.props.tournamentId
     };
     const res = await API.graphql(graphqlOperation(updateParticipant, { input }));

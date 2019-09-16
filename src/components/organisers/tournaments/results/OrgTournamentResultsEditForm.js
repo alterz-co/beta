@@ -3,6 +3,7 @@ import { Container, Header, Form, Button } from 'semantic-ui-react';
 import { API, graphqlOperation } from 'aws-amplify';
 import { updateResult } from '../../../../graphql/mutations';
 import { format } from 'date-fns';
+import { connect } from 'react-redux';
 import OrgNav from '../../OrgNav';
 
 class OrgTournamentResultsEditForm extends Component {
@@ -36,7 +37,7 @@ class OrgTournamentResultsEditForm extends Component {
       matchNo: this.state.matchNo || result.matchNo,
       winner: this.state.winner || result.winner,
       score: this.state.score || result.score,
-      resultUserId: '',
+      resultUserId: this.props.user.id,
       resultTournamentId: result.tournament.id
     };
     const res = await API.graphql(graphqlOperation(updateResult, { input }));
@@ -105,4 +106,10 @@ class OrgTournamentResultsEditForm extends Component {
   }
 }
 
-export default OrgTournamentResultsEditForm;
+const mapStateToProps = state => ({
+  user: state.user.user
+});
+
+export default connect(
+  mapStateToProps
+)(OrgTournamentResultsEditForm);

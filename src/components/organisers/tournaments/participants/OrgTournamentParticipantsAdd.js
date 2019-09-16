@@ -21,7 +21,7 @@ class OrgTournamentParticipantsAdd extends Component {
     const newParticipant = {
       name: this.state.name,
       gender: this.state.gender,
-      participantUserId: '867b64d9-5d4a-421e-8af7-9720bd7b20bd',
+      participantUserId: '',
       participantTournamentId: this.props.tournamentId
     };
     const participant = await API.graphql(graphqlOperation(createParticipant, { input: newParticipant }));

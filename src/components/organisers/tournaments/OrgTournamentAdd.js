@@ -5,6 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import { API, graphqlOperation } from 'aws-amplify';
 import { createTournament } from '../../../graphql/mutations';
 import { format } from 'date-fns';
+import { connect } from 'react-redux';
 import OrgNav from '../OrgNav';
 
 class OrgTournamentAdd extends Component {
@@ -70,7 +71,7 @@ class OrgTournamentAdd extends Component {
   }
 
   onSubmit = async event => {
-    // console.log('add ', this.props.user.id)
+    // console.log('user ', this.props.user.id)
     event.preventDefault();
     if(this.isFormValid()){
       this.setState({ error: '' });
@@ -89,11 +90,11 @@ class OrgTournamentAdd extends Component {
         description: this.state.description,
         url: this.state.url,
         createdAt,
-        tournamentUserId: '08baa991-ee93-4563-9ac1-b6eb657f9527'
+        tournamentUserId: this.props.user.id
       };
       // console.log('new Tournament', newTournament)
-      const result = await API.graphql(graphqlOperation(createTournament, { input: newTournament }));
-      console.log('TournamentAdd', result.data.createTournament);
+      // const result = await API.graphql(graphqlOperation(createTournament, { input: newTournament }));
+      // console.log('TournamentAdd', result.data.createTournament);
       this.setState({
         title: '',
         startDate: '',
@@ -223,4 +224,10 @@ class OrgTournamentAdd extends Component {
   }
 }
 
-export default OrgTournamentAdd;
+const mapStateToProps = state => ({
+  user: state.user.user
+});
+
+export default connect(
+  mapStateToProps
+)(OrgTournamentAdd);

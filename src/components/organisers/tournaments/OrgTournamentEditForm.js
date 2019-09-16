@@ -5,6 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import { API, graphqlOperation } from 'aws-amplify';
 import { updateTournament } from '../../../graphql/mutations';
 import { format } from 'date-fns';
+import { connect } from 'react-redux';
 import LoaderComponent from '../../LoaderComponent';
 import OrgNav from '../OrgNav';
 
@@ -73,7 +74,7 @@ class OrgTournamentEditForm extends Component {
       description: this.state.description || tournament.description,
       url: this.state.url || tournament.url,
       createdAt: tournament.createdAt,
-      tournamentUserId: ''
+      tournamentUserId: this.props.user.id
     };
     // console.log('Update Tournament', updateTournament)
     const result = await API.graphql(graphqlOperation(updateTournament, { input }));
@@ -224,4 +225,10 @@ class OrgTournamentEditForm extends Component {
   }
 }
 
-export default OrgTournamentEditForm;
+const mapStateToProps = state => ({
+  user: state.user.user
+});
+
+export default connect(
+  mapStateToProps
+)(OrgTournamentEditForm);

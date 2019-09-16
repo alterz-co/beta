@@ -5,6 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import { format } from 'date-fns';
 import { API, graphqlOperation } from 'aws-amplify';
 import { createAnnouncement } from '../../../graphql/mutations';
+import { connect } from 'react-redux';
 import OrgNav from '../OrgNav';
 
 class OrgAnnouncementsAdd extends Component {
@@ -33,7 +34,7 @@ class OrgAnnouncementsAdd extends Component {
       title: this.state.title,
       description: this.state.description,
       createdAt,
-      announcementUserId: ''
+      announcementUserId: this.props.user.id
     };
     const result = await API.graphql(graphqlOperation(createAnnouncement, { input: newAnnouncement }));
     console.log('result', result.data.createAnnouncement);
@@ -75,4 +76,10 @@ class OrgAnnouncementsAdd extends Component {
 
 }
 
-export default OrgAnnouncementsAdd;
+const mapStateToProps = state => ({
+  user: state.user.user
+});
+
+export default connect(
+  mapStateToProps
+)(OrgAnnouncementsAdd);
