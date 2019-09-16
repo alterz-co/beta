@@ -18,10 +18,6 @@ class Footer extends Component {
           <p className="center-align">
             Copyright 2019 Alterz. All rights reserved.
           </p>
-          <p className="center-align">
-            Made with <i className="material-icons" style={{ fontSize: 12 }}>favorite</i> and{' '}
-            <i className="material-icons" style={{ fontSize: 12 }}>free_breakfast</i> by Ziyi
-          </p>
         </div>
       </div>
     );
